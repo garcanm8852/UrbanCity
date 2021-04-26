@@ -1,0 +1,25 @@
+Manuel Jesús García de Quirós Cánovas
+Dentro de los siguientes directorios se encuentran organizados los productos entregables y la planificación. Dejo un arbol de rutas para encontrar cada entregable:
+
+Análisis
+--Diagramas
+----Diagrama_Despliegue : Diagramas de despliegue.
+----Diagrama_Navegacion : Diagrama de navegación.
+----Diagrama_Clase : Diagramas de clases.
+----Diagrama_EntidadRelacional : Diagrama de Entidad-Relacional y Modelo-Relacional.
+----Diagrama_Estado : Diagrama de estados del cliente y del producto.
+----Diagrama_Secuencia : Diagrama de secuencias de la aplicación.
+--Diseños
+----Typographies: Conjunto de las diversas propuestas de tipografías dispuestas a utilizarse en la aplicación.
+----Pantallas: Dentro de ella se almacena cada archivo .png refleja como se verá cada pantalla de la aplicación.
+----UrbanCity.xd: Prototipado del sitio web con wireframe incluido.
+----UrbanCity-Guia_De_Estilo.odt|pdf: Guía de estilo que se utilizará para el desarrollo y diseño de la aplicación.
+--Documentacion:
+----UrbanCity_Documentacion.odt|pdf: Documento con todo lo solicitado en cuanto a desarrollo por escrito. Dentro del archivo encontramos los siguientes datos:
+------Planificación del Proyecto.
+------Funcionalidades del cliente.
+------Descripción del posicionamiento web o SEO.
+------Descripción de las medidas de Accesibilidad.
+------Descripción de las medidad de Usabilidad.
+------Descripción del plan de pruebas.
+----UrbanCity-Guia_De_Estilo.odt|pdf: Guía de estilo que se utilizará para el desarrollo y diseño de la aplicación.
