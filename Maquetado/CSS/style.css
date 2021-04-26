@@ -1,6 +1,10 @@
 /* Color Theme Swatches in Hex */
 /* Color Theme Swatches in RGBA */
 /* Color Theme Swatches in HSLA */
+body {
+  color: #111111;
+}
+
 .text-white {
   color: #FFFFFF;
 }
@@ -13,8 +17,12 @@
   min-height: 400px;
 }
 
+.header-banner {
+  min-height: 500px;
+}
+
 .Index {
-  background-image: url("../MEDIA/IMG/maksim-istomin-wKpQtdo2dwg-unsplash.jpg");
+  background-image: url("../MEDIA/IMG/maksim-istomin-_s2Rd-2K-9c-unsplash.jpg");
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -23,6 +31,18 @@
 
 .center {
   margin-top: 10%;
+}
+
+.center-header-banner {
+  line-height: 500px;
+}
+
+.none {
+  display: none;
+}
+
+.none-slider {
+  display: none;
 }
 
 .bg-Urban-1 {
@@ -45,6 +65,34 @@
   background-color: #FFFFFF !important;
 }
 
+a.page-link {
+  background-color: #111111 !important;
+  color: white;
+  border: #111111 solid 5px;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.page-item.active .page-link {
+  border: #111111 solid 5px !important;
+  background-color: #FFFFFF !important;
+  color: #111111 !important;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+a.page-link:hover {
+  color: #FFFFFF !important;
+  border: #111111 solid 5px;
+  background-color: #303030 !important;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.form-control {
+  border: solid 1px #111111 !important;
+}
+
 @media (max-width: 700px) {
   .product {
     margin-top: 3rem !important;
@@ -64,6 +112,12 @@
   }
   .center {
     margin-top: 40%;
+  }
+  .not-responsive {
+    display: none;
+  }
+  .none-slider {
+    display: block;
   }
 }
 /*# sourceMappingURL=style.css.map */

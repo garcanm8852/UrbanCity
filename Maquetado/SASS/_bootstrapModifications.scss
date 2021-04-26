@@ -1,0 +1,24 @@
+a.page-link {
+    background-color: $Color-Theme-1-hex!important;
+    color: white;
+    border: $Color-Theme-1-hex solid 5px;
+    transition: all 1s;
+}
+
+.page-item.active .page-link {
+    border: $Color-Theme-1-hex solid 5px!important;
+    background-color: $Color-Theme-5-hex!important;
+    color: $Color-Theme-1-hex!important;
+    transition: all 1s;
+}
+
+a.page-link:hover {
+    color: $Color-Theme-5-hex!important;
+    border: $Color-Theme-1-hex solid 5px;
+    background-color: $Color-Theme-2-hex!important;
+    transition: all 1s;
+}
+
+.form-control {
+    border: solid 1px $Color-Theme-1-hex!important;
+}
