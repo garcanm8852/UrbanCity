@@ -1,0 +1,21 @@
+@media(max-width: 700px) {
+    .product {
+        margin-top: 3rem!important
+    }
+    .responsive-mt-5 {
+        margin-top: 3rem!important
+    }
+    .navbar-collapse {
+        text-align: center;
+    }
+    .dropdown-menu {
+        background-color: $Color-Theme-1-hex!important;
+    }
+    a.dropdown-item {
+        text-align: center;
+        color: white!important;
+    }
+    .center {
+        margin-top: 40%;
+    }
+}

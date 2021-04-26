@@ -1,0 +1,25 @@
+// TODO pasar a fuentes Font Styles
+.text-white {
+    color: $Color-Theme-5-hex;
+}
+
+.img-center {
+    margin: auto auto;
+}
+
+.banner {
+    min-height: 400px;
+}
+
+.Index {
+    background-image: url('../MEDIA/IMG/maksim-istomin-wKpQtdo2dwg-unsplash.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    // filter: blur(2px);
+}
+
+.center {
+    margin-top: 10%;
+}
