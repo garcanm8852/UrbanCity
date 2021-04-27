@@ -22,3 +22,37 @@ a.page-link:hover {
 .form-control {
     border: solid 1px $Color-Theme-1-hex!important;
 }
+
+.breadcrumb {
+    background-color: $Color-Theme-5-hex!important;
+}
+
+li.breadcrumb-item {
+    color: $Color-Theme-1-hex!important;
+}
+
+li.breadcrumb-item.active {
+    text-decoration: underline;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    background-color: $Color-Theme-5-hex!important;
+    color: $Color-Theme-1-hex!important;
+    border: solid 5px $Color-Theme-1-hex!important;
+}
+
+.nav-pills .nav-link,
+.nav-pills .show>.nav-link {
+    background-color: $Color-Theme-1-hex!important;
+    color: $Color-Theme-5-hex!important;
+    border: solid 5px $Color-Theme-1-hex!important;
+}
+
+.nav-pills .nav-link {
+    border-radius: 0px!important;
+}
+
+.nav-pills .nav-link.active {
+    border-radius: 0px!important;
+}

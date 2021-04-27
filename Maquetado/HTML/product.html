@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <title>Catálogo</title>
+    <title>Inicio</title>
 </head>
 
 <body>
@@ -48,207 +48,137 @@
 
         </div>
     </nav>
-    <!-- Header - Banner -->
-    <div class="container-fluid  animate__animated animate__fadeIn">
-        <div class="row header-banner Index">
-            <div class="col-md-12">
-                <h3 class="text-center text-white center-header-banner">CONJUNTOS
-            </div>
-        </div>
-    </div>
     <!-- Breadcrumbs -->
-    <section class="container mt-5">
+    <section class="container mt-5 animate__animated animate__fadeIn">
         <section class="row">
             <div class="col-md-12">
                 <nav aria-label="Page breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item" aria-current="page">Catalogo</li>
-                        <li class="breadcrumb-item active">Conjuntos</li>
+                        <li class="breadcrumb-item" aria-current="page">Conjuntos</li>
+                        <li class="breadcrumb-item active">Conjunto Dark Way</li>
                     </ol>
                 </nav>
             </div>
         </section>
     </section>
-    <!-- Sección Productos -->
+
+    <!-- Product -->
     <section class="container mt-5 animate__animated animate__fadeIn animate__slower">
-        <!-- Fila Productos -->
-        <section class="row mt-5 animate__animated animate__fadeInUp animate__slower">
-            <!-- Producto -->
-            <div class="col-md-3 product">
-                <!-- Producto - Imagen -->
-                <div class="product-card">
-                    <img src="../MEDIA/IMG/alexey-turenkov-nxTGK83K_0g-unsplash.jpg" alt="" class="w-100 d-block">
-                    <!-- Producto - Footer -->
-                    <div class="bg-Urban-1 p-3">
-                        <!-- Producto - Footer - Nombre -->
-                        <h6 class="text-center text-white p-3">NOMBRE PRODUCTO</h6>
-                        <div class="row p-2">
-                            <!-- Producto - Footer - Precio -->
-                            <div class="col-6 text-white text-center fw-b btn">49,99€</div>
-                            <!-- Producto - Footer - Botón -->
-                            <div class="col-6">
-                                <div class="w-100">
-                                    <a href="" class="btn bg-Urban-2 text-center text-white w-100">Añadir al carrito</a>
-                                </div>
+        <div class="row justify-content-center">
+            <!-- TODO Tratar Overflow -->
+            <div class="col-md-2 not-responsive" style="max-height: 230px; overflow: hidden;">
+                <img src="../MEDIA/IMG/maksim-istomin-RPqh-FS1WAk-unsplash.jpg" alt="" class="block img-center w-50">
+                <img src="../MEDIA/IMG/maksim-istomin-wKpQtdo2dwg-unsplash.jpg" alt="" class="block img-center w-50 mt-3">
+                <img src="../MEDIA/IMG/maksim-istomin-IUOxWCqpfGo-unsplash.jpg" alt="" class="block img-center w-50 mt-3">
+                <img src="../MEDIA/IMG/maksim-istomin-U98PQpggZOU-unsplash.jpg" alt="" class="block img-center w-50 mt-3">
+                <img src="../MEDIA/IMG/maksim-istomin-U98PQpggZOU-unsplash.jpg" alt="" class="block img-center w-50 mt-3">
+            </div>
+            <div class="col-md-5 responsive-mt-5">
+                <img src="../MEDIA/IMG/maksim-istomin-RPqh-FS1WAk-unsplash.jpg" alt="" class="w-100">
+            </div>
+            <div class="col-md-5 responsive-mt-5">
+                <!-- Sección Info Producto -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <h4 class="text-center">CONJUNTO DARK WAY</h4>
+
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col text-center">
+                            <h5>PRECIO:</h5>
+                        </div>
+                        <div class="col text-center">49,99€</div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col text-center">
+                            <h5>REFERENCIA:</h5>
+                        </div>
+                        <div class="col text-center">C-12-M</div>
+                    </div>
+                    <div class="row mt-4 text-center">
+                        <div class="col">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus, obcaecati quibusdam quaerat, dicta quis quae vel, rerum error reiciendis consectetur maxime itaque nostrum ab at!</div>
+                    </div>
+
+                    <div class="row mt-4 text-center justify-content-center">
+                        <div class="col no-padding">
+                            <div class="page-item no-border-radius">
+                                <a href="" class="page-link">XS</a>
                             </div>
+                        </div>
+                        <div class="col no-padding">
+                            <div class="page-item no-border-radius">
+                                <a href="" class="page-link">S</a>
+                            </div>
+                        </div>
+                        <div class="col no-padding">
+                            <div class="page-item active no-border-radius">
+                                <a href="" class="page-link active">M</a>
+                            </div>
+                        </div>
+                        <div class="col no-padding ">
+                            <div class="page-item no-border-radius">
+                                <a href="" class="page-link">L</a>
+                            </div>
+                        </div>
+                        <div class="col no-padding">
+                            <div class="page-item no-border-radius">
+                                <a href="" class="page-link">XL</a>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="row mt-4 ">
+                        <div class="col-12 no-padding">
+                            <a href="" class="btn bg-Urban-1 text-white text-center w-100">Añadir al carrito</a>
                         </div>
                     </div>
                 </div>
+
+
             </div>
-            <div class="col-md-3 product">
-                <!-- Producto - Imagen -->
-                <div class="product-card">
-                    <img src="../MEDIA/IMG/alexey-turenkov-nxTGK83K_0g-unsplash.jpg" alt="" class="w-100 d-block">
-                    <!-- Producto - Footer -->
-                    <div class="bg-Urban-1 p-3">
-                        <!-- Producto - Footer - Nombre -->
-                        <h6 class="text-center text-white p-3">NOMBRE PRODUCTO</h6>
-                        <div class="row p-2">
-                            <!-- Producto - Footer - Precio -->
-                            <div class="col-6 text-white text-center fw-b btn">49,99€</div>
-                            <!-- Producto - Footer - Botón -->
-                            <div class="col-6">
-                                <div class="w-100">
-                                    <a href="" class="btn bg-Urban-2 text-center text-white w-100">Añadir al carrito</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 product">
-                <!-- Producto - Imagen -->
-                <div class="product-card">
-                    <img src="../MEDIA/IMG/alexey-turenkov-nxTGK83K_0g-unsplash.jpg" alt="" class="w-100 d-block">
-                    <!-- Producto - Footer -->
-                    <div class="bg-Urban-1 p-3">
-                        <!-- Producto - Footer - Nombre -->
-                        <h6 class="text-center text-white p-3">NOMBRE PRODUCTO</h6>
-                        <div class="row p-2">
-                            <!-- Producto - Footer - Precio -->
-                            <div class="col-6 text-white text-center fw-b btn">49,99€</div>
-                            <!-- Producto - Footer - Botón -->
-                            <div class="col-6">
-                                <div class="w-100">
-                                    <a href="" class="btn bg-Urban-2 text-center text-white w-100">Añadir al carrito</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 product">
-                <!-- Producto - Imagen -->
-                <div class="product-card">
-                    <img src="../MEDIA/IMG/alexey-turenkov-nxTGK83K_0g-unsplash.jpg" alt="" class="w-100 d-block">
-                    <!-- Producto - Footer -->
-                    <div class="bg-Urban-1 p-3">
-                        <!-- Producto - Footer - Nombre -->
-                        <h6 class="text-center text-white p-3">NOMBRE PRODUCTO</h6>
-                        <div class="row p-2">
-                            <!-- Producto - Footer - Precio -->
-                            <div class="col-6 text-white text-center fw-b btn">49,99€</div>
-                            <!-- Producto - Footer - Botón -->
-                            <div class="col-6">
-                                <div class="w-100">
-                                    <a href="" class="btn bg-Urban-2 text-center text-white w-100">Añadir al carrito</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Fila Productos -->
-        <section class="row mt-5 animate__animated animate__fadeInUp animate__slower">
-            <!-- Producto -->
-            <div class="col-md-3 product">
-                <!-- Producto - Imagen -->
-                <div class="product-card">
-                    <img src="../MEDIA/IMG/alexey-turenkov-nxTGK83K_0g-unsplash.jpg" alt="" class="w-100 d-block">
-                    <!-- Producto - Footer -->
-                    <div class="bg-Urban-1 p-3">
-                        <!-- Producto - Footer - Nombre -->
-                        <h6 class="text-center text-white p-3">NOMBRE PRODUCTO</h6>
-                        <div class="row p-2">
-                            <!-- Producto - Footer - Precio -->
-                            <div class="col-6 text-white text-center fw-b btn">49,99€</div>
-                            <!-- Producto - Footer - Botón -->
-                            <div class="col-6">
-                                <div class="w-100">
-                                    <a href="" class="btn bg-Urban-2 text-center text-white w-100">Añadir al carrito</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 product">
-                <!-- Producto - Imagen -->
-                <div class="product-card">
-                    <img src="../MEDIA/IMG/alexey-turenkov-nxTGK83K_0g-unsplash.jpg" alt="" class="w-100 d-block">
-                    <!-- Producto - Footer -->
-                    <div class="bg-Urban-1 p-3">
-                        <!-- Producto - Footer - Nombre -->
-                        <h6 class="text-center text-white p-3">NOMBRE PRODUCTO</h6>
-                        <div class="row p-2">
-                            <!-- Producto - Footer - Precio -->
-                            <div class="col-6 text-white text-center fw-b btn">49,99€</div>
-                            <!-- Producto - Footer - Botón -->
-                            <div class="col-6">
-                                <div class="w-100">
-                                    <a href="" class="btn bg-Urban-2 text-center text-white w-100">Añadir al carrito</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 product">
-                <!-- Producto - Imagen -->
-                <div class="product-card">
-                    <img src="../MEDIA/IMG/alexey-turenkov-nxTGK83K_0g-unsplash.jpg" alt="" class="w-100 d-block">
-                    <!-- Producto - Footer -->
-                    <div class="bg-Urban-1 p-3">
-                        <!-- Producto - Footer - Nombre -->
-                        <h6 class="text-center text-white p-3">NOMBRE PRODUCTO</h6>
-                        <div class="row p-2">
-                            <!-- Producto - Footer - Precio -->
-                            <div class="col-6 text-white text-center fw-b btn">49,99€</div>
-                            <!-- Producto - Footer - Botón -->
-                            <div class="col-6">
-                                <div class="w-100">
-                                    <a href="" class="btn bg-Urban-2 text-center text-white w-100">Añadir al carrito</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 product">
-                <!-- Producto - Imagen -->
-                <div class="product-card">
-                    <img src="../MEDIA/IMG/alexey-turenkov-nxTGK83K_0g-unsplash.jpg" alt="" class="w-100 d-block">
-                    <!-- Producto - Footer -->
-                    <div class="bg-Urban-1 p-3">
-                        <!-- Producto - Footer - Nombre -->
-                        <h6 class="text-center text-white p-3">NOMBRE PRODUCTO</h6>
-                        <div class="row p-2">
-                            <!-- Producto - Footer - Precio -->
-                            <div class="col-6 text-white text-center fw-b btn">49,99€</div>
-                            <!-- Producto - Footer - Botón -->
-                            <div class="col-6">
-                                <div class="w-100">
-                                    <a href="" class="btn bg-Urban-2 text-center text-white w-100">Añadir al carrito</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        </div>
+    </section>
+
+    <!-- Composición y cuidados | Guia de Tallas -->
+    <section class="container mt-5 responsive-mt-5 animate__animated animate__fadeIn animate__slower">
+        <section class="row">
+            <div class="col-12 no-padding">
+                <ul class="nav nav-pills w-100" id="pills-tab" role="tablist">
+                    <li class="nav-item w-50 text-center" role="presentation">
+                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">COMPOSICIÓN Y CUIDADOS</a>
+                    </li>
+                    <li class="nav-item w-50 text-center" role="presentation">
+                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">GUÍA DE TALLAS</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade p-5 show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus sed ex laboriosam vel tenetur. Ex nostrum optio commodi, odit quaerat temporibus labore. Expedita voluptatum quis tempore unde minus facere et aperiam in non animi.
+                        Fugiat eos praesentium nobis, error quos architecto aliquam odit recusandae unde. Quo vitae officiis labore tenetur?</div>
+                    <div class="tab-pane fade p-5" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae repudiandae alias, impedit, dolorum adipisci accusamus aliquam aspernatur sint consequuntur placeat expedita maiores. Odio est dolore quae ad modi quos doloremque molestiae
+                        esse illum nam! Quasi libero sequi deleniti error quam?</div>
                 </div>
             </div>
         </section>
+    </section>
+
+
+    <!-- Sección Podría Gustarte -->
+    <section class="container responsive-mt-5 mt-5 animate__animated animate__fadeIn animate__slower">
+        <!-- Título - Podría gustarte -->
+        <section class="row  animate__animated animate__fadeInUp animate__slower">
+            <div class="col-md-12">
+                <h3 class="text-center">
+                    TE PODRÍA GUSTAR
+                </h3>
+            </div>
+        </section>
         <!-- Fila Productos -->
-        <section class="row mt-5 animate__animated animate__fadeInUp animate__slower">
+        <section class="row mt-5  animate__animated animate__fadeInUp animate__slower">
             <!-- Producto -->
             <div class="col-md-3 product">
                 <!-- Producto - Imagen -->
@@ -336,17 +266,6 @@
             </div>
         </section>
     </section>
-
-    <nav aria-label="Page navigation example" class="mt-5">
-        <ul class="pagination   justify-content-center">
-
-            <li class="page-item active"><a class="page-link pr-5 pl-5 active" href="#">1</a></li>
-            <li class="page-item"><a class="page-link pr-5 pl-5" href="#">2</a></li>
-            <li class="page-item"><a class="page-link pr-5 pl-5" href="#">3</a></li>
-            <li class="page-item"><a class="page-link pr-5 pl-5" href="#">4</a></li>
-        </ul>
-    </nav>
-
 
     <!-- Footer -->
     <div class="container-fluid footer bg-Urban-1 mt-5 ">

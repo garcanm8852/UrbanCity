@@ -11,6 +11,10 @@ body {
     margin: auto auto;
 }
 
+.block {
+    display: block;
+}
+
 .banner {
     min-height: 400px;
 }
@@ -28,6 +32,33 @@ body {
     // filter: blur(2px);
 }
 
+.pucharse-made {
+    background-image: url('../MEDIA/IMG/maksim-istomin-IUOxWCqpfGo-unsplash.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    // filter: blur(2px);
+}
+
+.cart {
+    background-image: url('../MEDIA/IMG/peter-john-manlapig-YFsZMJs_46E-unsplash.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    // filter: blur(2px);
+}
+
+.process {
+    background-image: url('../MEDIA/IMG/traworld-official-o3LLzC-rJzo-unsplash.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    // filter: blur(2px);
+}
+
 .center {
     margin-top: 10%;
 }
@@ -42,4 +73,30 @@ body {
 
 .none-slider {
     display: none;
+}
+
+.no-padding {
+    padding: 0px 0px 0px 0px!important;
+}
+
+.no-border-radius {
+    border-radius: 0px 0px 0px 0px!important;
+}
+
+.page-item:first-child .page-link {
+    border-top-right-radius: 0px!important;
+    border-bottom-right-radius: 0px!important;
+}
+
+.page-item:last-child .page-link {
+    border-top-left-radius: 0px!important;
+    border-bottom-left-radius: 0px!important;
+}
+
+.border-top-separator {
+    border-top: $Color-Theme-1-hex solid 3px;
+}
+
+.border-bottom-separator {
+    border-bottom: $Color-Theme-1-hex solid 3px;
 }

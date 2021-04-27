@@ -13,6 +13,10 @@ body {
   margin: auto auto;
 }
 
+.block {
+  display: block;
+}
+
 .banner {
   min-height: 400px;
 }
@@ -29,6 +33,30 @@ body {
   background-position: center;
 }
 
+.pucharse-made {
+  background-image: url("../MEDIA/IMG/maksim-istomin-IUOxWCqpfGo-unsplash.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.cart {
+  background-image: url("../MEDIA/IMG/peter-john-manlapig-YFsZMJs_46E-unsplash.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.process {
+  background-image: url("../MEDIA/IMG/traworld-official-o3LLzC-rJzo-unsplash.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
 .center {
   margin-top: 10%;
 }
@@ -43,6 +71,32 @@ body {
 
 .none-slider {
   display: none;
+}
+
+.no-padding {
+  padding: 0px 0px 0px 0px !important;
+}
+
+.no-border-radius {
+  border-radius: 0px 0px 0px 0px !important;
+}
+
+.page-item:first-child .page-link {
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+.page-item:last-child .page-link {
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
+
+.border-top-separator {
+  border-top: #111111 solid 3px;
+}
+
+.border-bottom-separator {
+  border-bottom: #111111 solid 3px;
 }
 
 .bg-Urban-1 {
@@ -91,6 +145,40 @@ a.page-link:hover {
 
 .form-control {
   border: solid 1px #111111 !important;
+}
+
+.breadcrumb {
+  background-color: #FFFFFF !important;
+}
+
+li.breadcrumb-item {
+  color: #111111 !important;
+}
+
+li.breadcrumb-item.active {
+  text-decoration: underline;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  background-color: #FFFFFF !important;
+  color: #111111 !important;
+  border: solid 5px #111111 !important;
+}
+
+.nav-pills .nav-link,
+.nav-pills .show > .nav-link {
+  background-color: #111111 !important;
+  color: #FFFFFF !important;
+  border: solid 5px #111111 !important;
+}
+
+.nav-pills .nav-link {
+  border-radius: 0px !important;
+}
+
+.nav-pills .nav-link.active {
+  border-radius: 0px !important;
 }
 
 @media (max-width: 700px) {
