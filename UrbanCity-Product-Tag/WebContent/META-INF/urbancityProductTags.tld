@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, 
+ Inc.//DTD JSP Tag Library 1.1//EN" 
+ "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd"> 
+
+<taglib> 
+    <tlibversion>2.0</tlibversion> 
+    <jspversion>2.3</jspversion>
+    <shortname>ProductTag</shortname>
+
+    <tag> 
+        <name>Cabecera</name> 
+        <tagclass>Product.ProductoCabecera</tagclass>
+        <bodycontent>empty</bodycontent>
+    </tag>
+
+    <tag> 
+        <name>Imagen</name> 
+        <tagclass>Product.ProductoImagen</tagclass>
+        <bodycontent>empty</bodycontent>
+        <attribute> 
+            <name>idreferencia</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag> 
+        <name>CuerpoApertura</name> 
+        <tagclass>Product.ProductoCuerpoApertura</tagclass>
+        <bodycontent>empty</bodycontent>
+    </tag>
+
+    <tag> 
+        <name>Nombre</name> 
+        <tagclass>Product.ProductoNombre</tagclass>
+        <bodycontent>empty</bodycontent>
+        <attribute> 
+            <name>nombre</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag> 
+        <name>InfoApertura</name> 
+        <tagclass>Product.ProductoInfoApertura</tagclass>
+        <bodycontent>empty</bodycontent>
+    </tag>
+
+
+    <tag> 
+        <name>Precio</name> 
+        <tagclass>Product.ProductoPrecio</tagclass>
+        <bodycontent>empty</bodycontent>
+        <attribute> 
+            <name>precio</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+  <tag> 
+        <name>Boton</name> 
+        <tagclass>Product.ProductoBoton</tagclass>
+        <bodycontent>empty</bodycontent>
+        <attribute> 
+            <name>idreferencia</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag> 
+        <name>InfoCierre</name> 
+        <tagclass>Product.ProductoInfoCierre</tagclass>
+        <bodycontent>empty</bodycontent>
+    </tag>
+
+    <tag> 
+        <name>CuerpoCierre</name> 
+        <tagclass>Product.ProductoCuerpoCierre</tagclass>
+        <bodycontent>empty</bodycontent>
+    </tag>
+
+    <tag> 
+        <name>Footer</name> 
+        <tagclass>Product.ProductoFooter</tagclass>
+        <bodycontent>empty</bodycontent>
+    </tag>
+
+
+</taglib>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, 
+ Inc.//DTD JSP Tag Library 1.1//EN" 
+ "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd"> 
+
+<taglib> 
+    <tlibversion>2.0</tlibversion> 
+    <jspversion>2.3</jspversion>
+    <shortname>EtiquetaProducto</shortname>
+
+    <tag> 
+        <name>Comienzo</name> 
+        <tagclass>etiqueta.productoComienzo</tagclass>
+        <bodycontent>empty</bodycontent>
+	</tag>
+	
+	<tag>
+	     <name>Imagen</name> 
+        <tagclass>etiqueta.productoImagen</tagclass>
+        <bodycontent>empty</bodycontent>
+
+      <attribute> 
+            <name>idreferencia</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+	<tag>
+	     <name>Imagen</name> 
+        <tagclass>etiqueta.productoImagen</tagclass>
+        <bodycontent>empty</bodycontent>
+
+      <attribute> 
+            <name>idreferencia</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+	<tag>
+	     <name>Nombre</name> 
+        <tagclass>etiqueta.productoNombre</tagclass>
+        <bodycontent>empty</bodycontent>
+
+      <attribute> 
+            <name>nombre</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+	<tag>
+	     <name>Marca</name> 
+        <tagclass>etiqueta.productoMarca</tagclass>
+        <bodycontent>empty</bodycontent>
+
+      <attribute> 
+            <name>marca</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+	<tag>
+	     <name>Precio</name> 
+        <tagclass>etiqueta.productoPrecio</tagclass>
+        <bodycontent>empty</bodycontent>
+
+      <attribute> 
+            <name>precio</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+		<tag>
+	     <name>Enlace</name> 
+        <tagclass>etiqueta.productoEnlace</tagclass>
+        <bodycontent>empty</bodycontent>
+
+      <attribute> 
+            <name>idreferencia</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+	
+	<tag>
+	     <name>Final</name> 
+        <tagclass>etiqueta.productoFinal</tagclass>
+        <bodycontent>empty</bodycontent>
+    </tag>
+
+</taglib>

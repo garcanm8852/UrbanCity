@@ -1,0 +1,211 @@
+/* Color Theme Swatches in Hex */
+/* Color Theme Swatches in RGBA */
+/* Color Theme Swatches in HSLA */
+body {
+  color: #111111;
+}
+
+.text-white {
+  color: #FFFFFF;
+}
+
+.img-center {
+  margin: auto auto;
+}
+
+.block {
+  display: block;
+}
+
+.banner {
+  min-height: 400px;
+}
+
+.header-banner {
+  min-height: 500px;
+}
+
+.Index {
+  background-image: url("../MEDIA/IMG/maksim-istomin-_s2Rd-2K-9c-unsplash.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.pucharse-made {
+  background-image: url("../MEDIA/IMG/maksim-istomin-IUOxWCqpfGo-unsplash.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.cart {
+  background-image: url("../MEDIA/IMG/peter-john-manlapig-YFsZMJs_46E-unsplash.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.process {
+  background-image: url("../MEDIA/IMG/traworld-official-o3LLzC-rJzo-unsplash.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+.center {
+  margin-top: 10%;
+}
+
+.center-header-banner {
+  line-height: 500px;
+}
+
+.none {
+  display: none;
+}
+
+.none-slider {
+  display: none;
+}
+
+.no-padding {
+  padding: 0px 0px 0px 0px !important;
+}
+
+.no-border-radius {
+  border-radius: 0px 0px 0px 0px !important;
+}
+
+.page-item:first-child .page-link {
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+.page-item:last-child .page-link {
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
+
+.border-top-separator {
+  border-top: #111111 solid 3px;
+}
+
+.border-bottom-separator {
+  border-bottom: #111111 solid 3px;
+}
+
+.bg-Urban-1 {
+  background-color: #111111 !important;
+}
+
+.bg-Urban-2 {
+  background-color: #303030 !important;
+}
+
+.bg-Urban-3 {
+  background-color: #E0E0E0 !important;
+}
+
+.bg-Urban-4 {
+  background-color: #EDEDED !important;
+}
+
+.bg-Urban-5 {
+  background-color: #FFFFFF !important;
+}
+
+a.page-link {
+  background-color: #111111 !important;
+  color: white;
+  border: #111111 solid 5px;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.page-item.active .page-link {
+  border: #111111 solid 5px !important;
+  background-color: #FFFFFF !important;
+  color: #111111 !important;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+a.page-link:hover {
+  color: #FFFFFF !important;
+  border: #111111 solid 5px;
+  background-color: #303030 !important;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.form-control {
+  border: solid 1px #111111 !important;
+}
+
+.breadcrumb {
+  background-color: #FFFFFF !important;
+}
+
+li.breadcrumb-item {
+  color: #111111 !important;
+}
+
+li.breadcrumb-item.active {
+  text-decoration: underline;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  background-color: #FFFFFF !important;
+  color: #111111 !important;
+  border: solid 5px #111111 !important;
+}
+
+.nav-pills .nav-link,
+.nav-pills .show > .nav-link {
+  background-color: #111111 !important;
+  color: #FFFFFF !important;
+  border: solid 5px #111111 !important;
+}
+
+.nav-pills .nav-link {
+  border-radius: 0px !important;
+}
+
+.nav-pills .nav-link.active {
+  border-radius: 0px !important;
+}
+
+@media (max-width: 700px) {
+  .product {
+    margin-top: 3rem !important;
+  }
+  .responsive-mt-5 {
+    margin-top: 3rem !important;
+  }
+  .navbar-collapse {
+    text-align: center;
+  }
+  .dropdown-menu {
+    background-color: #111111 !important;
+  }
+  a.dropdown-item {
+    text-align: center;
+    color: white !important;
+  }
+  .center {
+    margin-top: 40%;
+  }
+  .not-responsive {
+    display: none;
+  }
+  .none-slider {
+    display: block;
+  }
+}
+/*# sourceMappingURL=style.css.map */
