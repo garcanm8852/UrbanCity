@@ -54,8 +54,9 @@
 				<%
 					CCategoria[] categorias = (CCategoria[]) session.getAttribute("Categorias");
 					for (int i = 0; i < categorias.length; i++) {
-						out.print("<li class='nav-item '><a class='nav-link ' href='Catalogo?idcategoria=" + categorias[i].getIdcategoria()
-								+ "' tabindex='-1 ' aria-disabled='true '>" + categorias[i].getNombre() + "</a></li>");
+						out.print("<li class='nav-item '><a class='nav-link ' href='Catalogo?idcategoria="
+								+ categorias[i].getIdcategoria() + "' tabindex='-1 ' aria-disabled='true '>"
+								+ categorias[i].getNombre() + "</a></li>");
 					}
 				%>
 				<%
@@ -79,6 +80,8 @@
 		<div class="row header-banner Catalogue">
 			<div class="col-md-12">
 				<h3 class="text-center text-white center-header-banner">Catálogo
+
+
 
 				
 			</div>
@@ -139,21 +142,33 @@
 		</section>
 	</section>
 
-
-	<div class="row mt-5 mb-5 justify-content-center">
-		<nav aria-label="Page navigation example">
-			<ul class="pagination">
-
-				<%
+	<nav aria-label="Page navigation example" class="mt-5">
+		<ul class="pagination   justify-content-center">
+			<%
+				if (request.getParameter("Pagina") != null) {
 					for (int k = 0; k < (int) session.getAttribute("NumeroPaginas"); k++) {
-						out.print("<li class='page-item'><a class='page-link' href='Catalogo?Pagina=" + k + "'>" + (k + 1)
-								+ "</a></li>");
-					}
-				%>
-			</ul>
-		</nav>
-	</div>
 
+						if (Integer.parseInt(request.getParameter("Pagina")) == k) {
+							out.print("<li class='page-item active'><a class='page-link page-link pr-5 pl-5' href='Catalogo?Pagina="
+									+ k + "'>" + (k + 1) + "</a></li>");
+						} else {
+							out.print("<li class='page-item'><a class='page-link page-link pr-5 pl-5' href='Catalogo?Pagina="
+									+ k + "'>" + (k + 1) + "</a></li>");
+						}
+
+					}
+				} else {
+					for (int k = 0; k < (int) session.getAttribute("NumeroPaginas"); k++) {
+
+						out.print("<li class='page-item'><a class='page-link page-link pr-5 pl-5' href='Catalogo?Pagina="
+								+ k + "'>" + (k + 1) + "</a></li>");
+					}
+				}
+			%>
+		</ul>
+	</nav>
+
+<!-- FOOTER -->
 
 	<div class="container-fluid footer bg-Urban-1 mt-5 ">
 		<div class="row p-5">

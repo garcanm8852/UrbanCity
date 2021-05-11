@@ -30,8 +30,8 @@ public class Producto extends HttpServlet {
 		String idreferencia;
 		Cproducto productoSolicitado;
 		int ContadorCategorias;
-		String[] categorias;
-		int numeroCategorias;
+		CCategoria[] categorias;
+		int numeroCategorias=1;
 		MCategoria mCategoria = new MCategoria();
 
 		response.setCharacterEncoding("UTF-8");
@@ -42,27 +42,24 @@ public class Producto extends HttpServlet {
 			sesion.setAttribute("Iniciado", false);
 		}
 
+		/* Obetención del número de categorias y Categorías */
 		try {
-			numeroCategorias = 1;
 			mCategoria.cargarCategorias();
 			while (mCategoria.consultarSiguiente()) {
 				numeroCategorias++;
 			}
 
-			try {
-				categorias = new String[numeroCategorias];
-				mCategoria.cargarCategorias();
-				ContadorCategorias = 0;
-				do {
-					categorias[ContadorCategorias] = mCategoria.getnombreCategoria();
-					ContadorCategorias++;
-				} while (mCategoria.consultarSiguiente());
-				sesion.setAttribute("Categorias", categorias);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			categorias = new CCategoria[numeroCategorias];
+			mCategoria.cargarCategorias();
+			ContadorCategorias = 0;
+			do {
+				categorias[ContadorCategorias] = new CCategoria(mCategoria.getId(), mCategoria.getnombreCategoria());
+				ContadorCategorias++;
+			} while (mCategoria.consultarSiguiente());
+			sesion.setAttribute("Categorias", categorias);
+
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 
 		try {

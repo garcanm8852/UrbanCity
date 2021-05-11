@@ -2,230 +2,249 @@
 /* Color Theme Swatches in RGBA */
 /* Color Theme Swatches in HSLA */
 body {
-  color: #111111;
+	color: #111111;
 }
 
 .text-white {
-  color: #FFFFFF;
+	color: #FFFFFF;
 }
 
 .img-center {
-  margin: auto auto;
+	margin: auto auto;
 }
 
 .block {
-  display: block;
+	display: block;
 }
 
 .banner {
-  min-height: 400px;
+	min-height: 400px;
 }
 
 .header-banner {
-  min-height: 500px;
+	min-height: 500px;
 }
 
 .Index {
-  background-image: url("/UrbanCity/MEDIA/IMG/maksim-istomin-_s2Rd-2K-9c-unsplash.jpg");
-  background-size: cover;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-position: center;
+	background-image:
+		url("/UrbanCity/MEDIA/IMG/maksim-istomin-_s2Rd-2K-9c-unsplash.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 .Catalogue {
-  background-image: url("/UrbanCity/MEDIA/IMG/maksim-istomin-RPqh-FS1WAk-unsplash.jpg");
-  background-size: cover;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-position: center;
+	background-image:
+		url("/UrbanCity/MEDIA/IMG/maksim-istomin-RPqh-FS1WAk-unsplash.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 .pucharse-made {
-  background-image: url("/UrbanCity/MEDIA/IMG/maksim-istomin-IUOxWCqpfGo-unsplash.jpg");
-  background-size: cover;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-position: center;
+	background-image:
+		url("/UrbanCity/MEDIA/IMG/maksim-istomin-IUOxWCqpfGo-unsplash.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 .cart {
-  background-image: url("/UrbanCity/MEDIA/IMG/peter-john-manlapig-YFsZMJs_46E-unsplash.jpg");
-  background-size: cover;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-position: center;
+	background-image:
+		url("/UrbanCity/MEDIA/IMG/peter-john-manlapig-YFsZMJs_46E-unsplash.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 .process {
-  background-image: url("/UrbanCity/MEDIA/IMG/traworld-official-o3LLzC-rJzo-unsplash.jpg");
-  background-size: cover;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-position: bottom;
+	background-image:
+		url("/UrbanCity/MEDIA/IMG/traworld-official-o3LLzC-rJzo-unsplash.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: bottom;
 }
 
 .center {
-  margin-top: 10%;
+	margin-top: 10%;
 }
 
 .center-header-banner {
-  line-height: 500px;
+	line-height: 500px;
 }
 
 .none {
-  display: none;
+	display: none;
 }
 
 .none-slider {
-  display: none;
+	display: none;
 }
 
 .no-padding {
-  padding: 0px 0px 0px 0px !important;
+	padding: 0px 0px 0px 0px !important;
 }
 
 .no-border-radius {
-  border-radius: 0px 0px 0px 0px !important;
+	border-radius: 0px 0px 0px 0px !important;
 }
 
 .page-item:first-child .page-link {
-  border-top-right-radius: 0px !important;
-  border-bottom-right-radius: 0px !important;
+	border-top-right-radius: 0px !important;
+	border-bottom-right-radius: 0px !important;
 }
 
 .page-item:last-child .page-link {
-  border-top-left-radius: 0px !important;
-  border-bottom-left-radius: 0px !important;
+	border-top-left-radius: 0px !important;
+	border-bottom-left-radius: 0px !important;
 }
 
 .border-top-separator {
-  border-top: #111111 solid 3px;
+	border-top: #111111 solid 3px;
 }
 
 .border-bottom-separator {
-  border-bottom: #111111 solid 3px;
+	border-bottom: #111111 solid 3px;
 }
 
 .bg-Urban-1 {
-  background-color: #111111 !important;
+	background-color: #111111 !important;
 }
 
 .bg-Urban-2 {
-  background-color: #303030 !important;
+	background-color: #303030 !important;
 }
 
 .bg-Urban-3 {
-  background-color: #E0E0E0 !important;
+	background-color: #E0E0E0 !important;
 }
 
 .bg-Urban-4 {
-  background-color: #EDEDED !important;
+	background-color: #EDEDED !important;
 }
 
 .bg-Urban-5 {
-  background-color: #FFFFFF !important;
+	background-color: #FFFFFF !important;
 }
 
 a.page-link {
-  background-color: #111111 !important;
-  color: white;
-  border: #111111 solid 5px;
-  -webkit-transition: all 1s;
-  transition: all 1s;
+	background-color: #111111 !important;
+	color: white;
+	border: #111111 solid 5px;
+	-webkit-transition: all 1s;
+	transition: all 1s;
 }
 
 .page-item.active .page-link {
-  border: #111111 solid 5px !important;
-  background-color: #FFFFFF !important;
-  color: #111111 !important;
-  -webkit-transition: all 1s;
-  transition: all 1s;
+	border: #111111 solid 5px !important;
+	background-color: #FFFFFF !important;
+	color: #111111 !important;
+	-webkit-transition: all 1s;
+	transition: all 1s;
 }
 
 a.page-link:hover {
-  color: #FFFFFF !important;
-  border: #111111 solid 5px;
-  background-color: #303030 !important;
-  -webkit-transition: all 1s;
-  transition: all 1s;
+	color: #FFFFFF !important;
+	border: #111111 solid 5px;
+	background-color: #303030 !important;
+	-webkit-transition: all 1s;
+	transition: all 1s;
 }
 
 .form-control {
-  border: solid 1px #111111 !important;
+	border: solid 1px #111111 !important;
 }
 
 .breadcrumb {
-  background-color: #FFFFFF !important;
+	background-color: #FFFFFF !important;
 }
 
 li.breadcrumb-item {
-  color: #111111 !important;
+	color: #111111 !important;
 }
 
 li.breadcrumb-item.active {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 
-.nav-pills .nav-link.active,
-.nav-pills .show > .nav-link {
-  background-color: #FFFFFF !important;
-  color: #111111 !important;
-  border: solid 5px #111111 !important;
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+	background-color: #FFFFFF !important;
+	color: #111111 !important;
+	border: solid 5px #111111 !important;
 }
 
-.nav-pills .nav-link,
-.nav-pills .show > .nav-link {
-  background-color: #111111 !important;
-  color: #FFFFFF !important;
-  border: solid 5px #111111 !important;
+.nav-pills .nav-link, .nav-pills .show>.nav-link {
+	background-color: #111111 !important;
+	color: #FFFFFF !important;
+	border: solid 5px #111111 !important;
+}
+
+.form-check-inline {
+	margin-right: 0px!important;
+	background-color: #111111 !important;
+	color: white;
+	font-weight: bold;
+}
+
+.selector {
+	padding: 0px 0px 0px 0px !important;
+}
+
+.btn-primary{
+	background-color: #111111!important;
+	border-color: #111111!important;
 }
 
 .nav-pills .nav-link {
-  border-radius: 0px !important;
+	border-radius: 0px !important;
 }
 /*TODO Actualizar en SASS*/
-a.breadcrumb-link{
-	color: #111111!important;
+a.breadcrumb-link {
+	color: #111111 !important;
 }
 
 .nav-pills .nav-link.active {
-  border-radius: 0px !important;
+	border-radius: 0px !important;
 }
 /*TODO Actualizar en SASS*/
-.navbar-brand{
-	margin-right:0px !important;
+.navbar-brand {
+	margin-right: 0px !important;
 }
 /*TODO Actualizar en SASS*/
 .nav-link {
-    text-align: center!important;
+	text-align: center !important;
 }
 
-@media (max-width: 700px) {
-  .product {
-    margin-top: 3rem !important;
-  }
-  .responsive-mt-5 {
-    margin-top: 3rem !important;
-  }
-  .navbar-collapse {
-    text-align: center;
-  }
-  .dropdown-menu {
-    background-color: #111111 !important;
-  }
-  a.dropdown-item {
-    text-align: center;
-    color: white !important;
-  }
-  .center {
-    margin-top: 40%;
-  }
-  .not-responsive {
-    display: none;
-  }
-  .none-slider {
-    display: block;
-  }
+@media ( max-width : 700px) {
+	.product {
+		margin-top: 3rem !important;
+	}
+	.responsive-mt-5 {
+		margin-top: 3rem !important;
+	}
+	.navbar-collapse {
+		text-align: center;
+	}
+	.dropdown-menu {
+		background-color: #111111 !important;
+	}
+	a.dropdown-item {
+		text-align: center;
+		color: white !important;
+	}
+	.center {
+		margin-top: 40%;
+	}
+	.not-responsive {
+		display: none;
+	}
+	.none-slider {
+		display: block;
+	}
 }
 /*# sourceMappingURL=style.css.map */
