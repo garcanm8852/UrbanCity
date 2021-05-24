@@ -68,6 +68,25 @@
         </attribute>
     </tag>
 
+  <tag> 
+        <name>BotonModificar</name> 
+        <tagclass>Product.ProductoBotonModificar</tagclass>
+        <bodycontent>empty</bodycontent>
+        <attribute> 
+            <name>idreferencia</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+  <tag> 
+        <name>BotonEliminar</name> 
+        <tagclass>Product.ProductoBotonEliminar</tagclass>
+        <bodycontent>empty</bodycontent>
+        <attribute> 
+            <name>idreferencia</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
     <tag> 
         <name>InfoCierre</name> 
         <tagclass>Product.ProductoInfoCierre</tagclass>

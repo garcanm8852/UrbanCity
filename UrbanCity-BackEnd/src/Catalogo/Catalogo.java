@@ -105,7 +105,7 @@ public class Catalogo extends HttpServlet {
 			/**
 			 * Carga de catálogo con búsqueda por categorias
 			 */
-			listaProductos = new Cproducto[8];
+			listaProductos = new Cproducto[12];
 			mProducto.cargarProductosPorCategorias(Integer.parseInt(request.getParameter("idcategoria")));
 
 			contadorProductos = 0;
