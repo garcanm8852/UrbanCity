@@ -76,7 +76,14 @@
 
 		</div>
 	</nav>
-
+	<!-- Banner -->
+	<div class="container-fluid  animate__animated animate__fadeIn">
+		<div class="row header-banner process">
+			<div class="col-md-12">
+				<h3 class="text-center text-white center-header-banner">Añadir Producto</h3>
+			</div>
+		</div>
+	</div>
 
 	<!-- Breadcrumbs -->
 	<section class="container mt-5 animate__animated animate__fadeIn">
@@ -90,7 +97,7 @@
 							class="breadcrumb-link" href="AdministrarProductos">
 								AdministrarProductos</a></li>
 						<li class="breadcrumb-item active"><a class="breadcrumb-link"
-							href="AdministrarProductos">Añadir Producto</a></li>
+							href="CrearProductos">Añadir Producto</a></li>
 					</ol>
 				</nav>
 			</div>
@@ -98,17 +105,18 @@
 	</section>
 
 
-	<section class="container">
-		<form class="row">
+	<form class="container animate__animated animate__fadeIn" method="post" action="CrearProducto" enctype="multipart/form-data">
+		
+		<section class="row">
 			<div class="col-md-8">
 				<div class="form-group ">
 					<label for="fidreferencia">ID del Producto:</label> <input
 						id="fidreferencia" class="form-control " type="text"
-						name="fidreferencia">
+						name="fidreferencia" required>
 				</div>
 				<div class="form-group ">
 					<label for="fnombre">Nombre:</label> <input id="fnombre"
-						class="form-control " type="text" name="fnombre">
+						class="form-control " type="text" name="fnombre" required>
 				</div>
 				<div class="form-group ">
 					<label for="fdescripcion">Descripción:</label>
@@ -118,13 +126,13 @@
 				</div>
 				<div class="form-group ">
 					<label for="fprecio">Precio:</label> <input id="fprecio"
-						class="form-control " type="number" name="fprecio">
+						class="form-control " type="number" name="fprecio" required>
 				</div>
 			</div>
 			<div class="col-md-4">
 				<div class="form-group">
 					<label for="fsubcategoria">Subcategoría:</label> <select
-						id="fsubcategoria" class="form-control" name="fsubcategoria">
+						id="fsubcategoria" class="form-control" name="fsubcategoria" required>
 						<%
 							CCategoria[] subcategorias = (CCategoria[]) session.getAttribute("Subcategorias");
 							for (int i = 0; i < subcategorias.length; i++) {
@@ -193,8 +201,17 @@
 
 
 			</div>
+			
+			</section>
+			
+					<section class="row">
+			<section class="col-md-12">
+				<div class='w-100'>
+			<button class="btn bg-Urban-1 text-center text-white p-3 w-100" type="submit">Añadir Producto</button>
+			</div>
+			</section>
+		</section>
 		</form>
-	</section>
 
 
 	<!-- FOOTER -->

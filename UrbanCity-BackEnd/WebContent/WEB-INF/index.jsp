@@ -31,7 +31,6 @@
 </head>
 
 <body>
-
 	<!-- Nav Bar -->
 	<nav class="navbar  navbar-dark bg-Urban-1 text-white">
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -43,6 +42,7 @@
 		<a class="navbar-brand" href="#"> <img src="" width="30px"
 			height="30px" class="img-center d-block" alt="">
 		</a> 
+
 
 
 
@@ -168,6 +168,11 @@
 				<h3 class="text-center">ÚLTIMAS NOVEDADES</h3>
 			</div>
 		</section>
+		<!-- TODO QUITAR BUSCADOR DE PRUEBA -->
+			<form method="post" action="Buscar">
+	<input type="text" id="termino" name="termino" required/>
+	<button type="submit">BUSCAR</button>
+	</form>
 		<!-- Fila Productos -->
 		<section
 			class="row mt-5 animate__animated animate__fadeInUp animate__slower">

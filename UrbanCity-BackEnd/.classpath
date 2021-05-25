@@ -19,5 +19,7 @@
 	<classpathentry kind="lib" path="libs/javax.servlet-api-3.1.0.jar"/>
 	<classpathentry kind="lib" path="libs/javax.servlet.jsp-api-2.3.0.jar"/>
 	<classpathentry kind="lib" path="libs/UrbanCityProductTag.jar"/>
+	<classpathentry kind="lib" path="libs/commons-fileupload-1.3.1.jar"/>
+	<classpathentry kind="lib" path="libs/commons-io-2.4.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

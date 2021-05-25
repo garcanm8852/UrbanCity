@@ -88,6 +88,20 @@ public class MProducto {
 		}
 	}
 	
+	public void buscarProductosPaginadosModular(String termino, int pPagina, int RangoPaginacion) {
+		pagina = RangoPaginacion * pPagina;
+		try {
+			establecerConexion();
+			ps = Conexion.prepareStatement("SELECT * FROM luftgun.producto WHERE nombre LIKE '"+ termino + "%'  offset ? limit ?");
+			ps.setInt(1, pagina);
+			ps.setInt(2, RangoPaginacion);
+			cargaProductos = ps.executeQuery();
+			cargaProductos.next();
+			cerrarConexion();
+		} catch (SQLException e) {
+		}
+	}
+	
 	public int numeroRegistros() {
 		numeroRegistros = 0;
 		try {
