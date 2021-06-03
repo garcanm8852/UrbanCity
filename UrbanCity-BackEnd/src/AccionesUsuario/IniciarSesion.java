@@ -62,7 +62,7 @@ public class IniciarSesion extends HttpServlet {
 			}
 
 			if (estadoSesion) {
-				if (!mCliente.getEstadoCliente().equals("Operativo")) {
+				if (!mCliente.getEstadoCliente().equals("Operativo") && !mCliente.getEstadoCliente().equals("Administrador")) {
 					sesion.setAttribute("idcliente", mCliente.getIdcliente());
 					sesion.setAttribute("email", mCliente.getEmail());
 					sesion.setAttribute("NombreUsuario", mCliente.getNombre());
@@ -72,7 +72,7 @@ public class IniciarSesion extends HttpServlet {
 					sesion.setAttribute("Iniciado", true);
 					sesion.setAttribute("NombreUsuario", mCliente.getNombre());
 					sesion.setAttribute("idcliente", mCliente.getIdcliente());
-					request.getRequestDispatcher("Catalogo").forward(request, response);
+					response.sendRedirect("Index");
 				}
 
 			} else {

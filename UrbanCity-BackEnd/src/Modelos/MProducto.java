@@ -303,7 +303,7 @@ public class MProducto {
 		}
 		return descripcion;
 	}
-	
+	//TODO CAMBIAR LOS GETTERS Y PONER CON MODELO URBAN CITY, SI EL VALOR ES 4 INCOMPATIBILIDAD CON LOS DATOS DE LUFTGUN
 	public Double getPrecio() {
 		precio = null;
 		try {

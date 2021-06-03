@@ -22,7 +22,8 @@ public class CerrarSesion extends HttpServlet {
 		// TODO Auto-generated method stub
 		sesion = request.getSession();
 		sesion.setAttribute("Iniciado", false);
-		request.getRequestDispatcher("Catalogo").forward(request, response);
+		sesion.setAttribute("idcliente", null);
+		response.sendRedirect("Index");
 	}
 
 

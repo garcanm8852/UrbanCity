@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 
 public class MPedido {
 	Connection Conexion;
@@ -15,6 +16,17 @@ public class MPedido {
 	final String USER = "a20-mgarde";
 	final String PASSW = "a20-mgarde";
 	int idpedido;
+	
+	boolean estado;
+	Date fecha;
+	String nombre;
+	String calle;
+	String provincia;
+	String localidad;
+	String cp;
+	String pais;
+	String tel;
+	
 
 	public MPedido() {
 	}
@@ -76,9 +88,10 @@ public class MPedido {
 	public void pedidosClientes(int pIdcliente) {
 		try {
 			establecerConexion();
-			ps = Conexion.prepareStatement("SELECT idpedido FROM luftgun.pedido where idcliente = ?");
+			ps = Conexion.prepareStatement("SELECT * FROM luftgun.pedido where idcliente = ?");
 			ps.setInt(1, pIdcliente);
-			ps.execute();
+			cargaPedido = 
+			ps.executeQuery();
 			cerrarConexion();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -87,7 +100,7 @@ public class MPedido {
 	}
 
 	public boolean consultarSiguiente() {
-		boolean estado = false;
+		 estado = false;
 		try {
 			estado =  cargaPedido.next();
 		} catch (SQLException e) {
@@ -108,6 +121,98 @@ public class MPedido {
 
 		return idpedido;
 	}
+	
+	public Date getFecha() {
+		fecha = null;
+		try {
+			fecha = cargaPedido.getDate(3);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+		return fecha;
+	}
+	
+	public String getNombre(){
+		nombre = null;
+		try {
+			nombre = cargaPedido.getString(4);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return nombre;
+	}
+	
+	public String getCalle(){
+		calle = null;
+		try {
+			calle = cargaPedido.getString(5);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return calle;
+	}
+	
+	public String getProvincia(){
+		provincia = null;
+		try {
+			provincia = cargaPedido.getString(6);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return provincia;
+	}
+	
+	public String getLocalidad(){
+		localidad = null;
+		try {
+			localidad = cargaPedido.getString(7);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return localidad;
+	}
+	
+	public String getCP(){
+		cp = null;
+		try {
+			cp = cargaPedido.getString(8);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return cp;
+	}
+	
+	public String getPais(){
+		pais = null;
+		try {
+			pais = cargaPedido.getString(9);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return pais;
+	}
+	
+	public String getTel(){
+		tel = null;
+		try {
+			tel = cargaPedido.getString(10);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return tel;
+	}
+	
+	
+	
+	
 
 	public void eliminarPedido(int idpedido2) {
 try {

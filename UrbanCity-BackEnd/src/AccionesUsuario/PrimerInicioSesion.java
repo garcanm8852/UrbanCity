@@ -54,7 +54,7 @@ public class PrimerInicioSesion extends HttpServlet {
 			sesion.setAttribute("email", null);
 			sesion.setAttribute("contTemp", null);
 			sesion.setAttribute("Iniciado", true);
-			response.sendRedirect("Catalogo");
+			response.sendRedirect("Index");
 		} else {
 			sesion.setAttribute("CodigoInvalido", true);
 
