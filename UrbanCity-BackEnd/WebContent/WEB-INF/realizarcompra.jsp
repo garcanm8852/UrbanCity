@@ -164,7 +164,7 @@
 									out.print("<div class='card-body'>");
 									out.print("<div class='row'>");
 									out.print("<div class='col-md-3'>");
-									out.print("<img class='card-img-top' src = '/exordinaria-20-GCM/DecodificarImagen?idreferencia="
+									out.print("<img class='card-img-top' src = '/UrbanCity/DecodificarImagen?idreferencia="
 											+ listaProductosCarrito[j].getIdreferencia() + "'>");
 									out.print("</div>");
 									out.print("<div class='col-md-3'>");

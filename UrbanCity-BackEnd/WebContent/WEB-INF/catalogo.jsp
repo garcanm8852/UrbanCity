@@ -79,7 +79,7 @@
 	<div class="container-fluid  animate__animated animate__fadeIn">
 		<div class="row header-banner Catalogue">
 			<div class="col-md-12">
-				<h3 class="text-center text-white center-header-banner">Catálogo
+				<h3 class="text-center text-white center-header-banner">Catálogo</h3>
 
 
 
@@ -118,7 +118,6 @@
 					for (int j = 0; j < listaProductos.length; j++) {
 						idreferencia = listaProductos[j].getIdreferencia();
 						nombre = listaProductos[j].getNombre();
-						marca = listaProductos[j].getMarca();
 						precio = listaProductos[j].getPrecio().toString();
 			%>
 			<producto:Cabecera />

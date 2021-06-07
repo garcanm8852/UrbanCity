@@ -83,21 +83,23 @@ public class MisPedidos extends HttpServlet {
 		 */
 		if (sesion.getAttribute("Iniciado") == null || (boolean) sesion.getAttribute("Iniciado") == false) {
 			sesion.setAttribute("Iniciado", false);
-			response.sendRedirect("Index");
+			response.sendRedirect("IniciarSesion");
 		} else {
 			try {
 				mPedido.pedidosClientes((int) sesion.getAttribute("idcliente"));
 				if (mPedido.consultarSiguiente()) {
 					// Caso: Existen Pedidos
 					int contadorPedidos = 0;
+					listaPedidos = new CPedido[25];
 
 					do {
+						mPedpro.consultarCantidadProductosPorPedido(mPedido.getIdpedido());
 						mPedpro.consultarProductosPorPedido(mPedido.getIdpedido());
+						System.out.println(mPedido.getIdpedido());
 						// TODO PASAR A DECLARACIONES
 						contadorProductos = 0;
 
-						listaProductos = new Cproducto[25];
-						listaPedidos = new CPedido[25];
+						listaProductos = new Cproducto[mPedpro.CantidadProductos()];
 
 						while (mPedpro.consultarSiguiente()) {
 							mProducto.consultarProducto(mPedpro.getIDreferencia());
@@ -108,8 +110,7 @@ public class MisPedidos extends HttpServlet {
 									mProducto.getDescripcion(),
 									mProducto.getPrecio());
 
-							System.out.println("PRODUCTO: " +contadorProductos +  mProducto.getIdreferencia() + mProducto.getNombre()
-									+ mProducto.getDescripcion() + mProducto.getPrecio());
+							System.out.println("PRODUCTO: " +contadorProductos +  mProducto.getIdreferencia());
 
 							contadorProductos++;
 						}
@@ -132,9 +133,9 @@ public class MisPedidos extends HttpServlet {
 						contadorPedidos++;
 
 					} while (mPedido.consultarSiguiente());
-
-					System.out.println("Test 3");
-
+					
+					request.setAttribute("listaPedidos", listaPedidos);
+					
 					request.getRequestDispatcher("WEB-INF/misPedidos.jsp").forward(request, response);
 
 				} else {

@@ -13,6 +13,8 @@ public class MPedPro {
 	final String USER = "a20-mgarde";
 	final String PASSW = "a20-mgarde";
 	ResultSet cargaPedidoProductos;
+	ResultSet cargaCantidad;
+	int cantidad;
 	String idreferencia;
 	boolean estado = false;
 
@@ -72,16 +74,28 @@ public class MPedPro {
 			ps = Conexion.prepareStatement("SELECT * FROM luftgun.pedpro WHERE idpedido = ?");
 			ps.setInt(1, idpedido);
 			cargaPedidoProductos = ps.executeQuery();
-			cargaPedidoProductos.next();
 			cerrarConexion();
 		} catch (Exception e) {
 			// TODO: handle exception
 
 		}
 	}
-	
-	
-	public String getIDreferencia(){
+
+	public void consultarCantidadProductosPorPedido(int idpedido) {
+		try {
+			establecerConexion();
+			ps = Conexion.prepareStatement("SELECT COUNT(idreferencia) FROM luftgun.pedpro WHERE idpedido = ?");
+			ps.setInt(1, idpedido);
+			cargaCantidad = ps.executeQuery();
+			cargaCantidad.next();
+			cerrarConexion();
+		} catch (Exception e) {
+			// TODO: handle exception
+
+		}
+	}
+
+	public String getIDreferencia() {
 		idreferencia = "";
 		try {
 			idreferencia = cargaPedidoProductos.getString(2);
@@ -90,13 +104,13 @@ public class MPedPro {
 			e.printStackTrace();
 		}
 		return idreferencia;
-	
+
 	}
-	
+
 	public boolean consultarSiguiente() {
 		estado = false;
 		try {
-			 estado = cargaPedidoProductos.next();
+			estado = cargaPedidoProductos.next();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -104,5 +118,15 @@ public class MPedPro {
 
 	}
 	
-	
+	public int CantidadProductos() {
+		cantidad = 0;
+		try {
+			cantidad = cargaCantidad.getInt(1);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return cantidad;
+	}
+
 }

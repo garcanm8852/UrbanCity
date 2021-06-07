@@ -5,6 +5,8 @@
 	pageEncoding='UTF-8'%>
 <%@page import="Catalogo.Cproducto"%>
 <%@page import="Catalogo.CCategoria"%>
+<%@page import="Compra.CPedido"%>
+
 
 <!DOCTYPE html>
 <%
@@ -13,6 +15,8 @@
 	String nombre;
 	String marca;
 	String precio;
+	CPedido[] listaPedidos;
+	Cproducto[] listaProductos;
 %>
 
 
@@ -78,11 +82,11 @@
 	<div class="container-fluid  animate__animated animate__fadeIn">
 		<div class="row header-banner Catalogue">
 			<div class="col-md-12">
-				<h3 class="text-center text-white center-header-banner">Mis Pedidos</h3>
+				<h3 class="text-center text-white center-header-banner">Mis
+					Pedidos</h3>
 
 
 
-				
 			</div>
 		</div>
 	</div>
@@ -102,19 +106,133 @@
 		</section>
 	</section>
 
+	<section class="container">
+		<section class="row">
+			<section class="col-md-12">
+
+				<div class="accordion" id="accordionFather">
+
+					<%
+						listaPedidos = (CPedido[]) request.getAttribute("listaPedidos");
+
+						for (int j = 0; j < 19; j++) {
+					%>
+					<div class="card">
+						<div class="card-header" id="<%=listaPedidos[j].getIdpedido()%>">
+							<h2 class="mb-0">
+								<button class="btn btn-link btn-block text-left" type="button"
+									data-toggle="collapse"
+									data-target="#<%=listaPedidos[j].getIdpedido()%>target"
+									aria-expanded="true" aria-controls="collapseOne">
+									<!--FECHA DEL PEDIDO O ID DEL PEDIDO-->
+									Pedido:
+									<%=listaPedidos[j].getIdpedido()%>
+								</button>
+							</h2>
+						</div>
+						<div id="<%=listaPedidos[j].getIdpedido()%>target"
+							class="collapse show"
+							aria-labelledby="<%=listaPedidos[j].getIdpedido()%>"
+							data-parent="#accordionFather">
+							<div class="card-body">
+								<!--PRINCIPIO BUCLE-->
+								<div
+									class="container  animate__animated animate__fadeIn animate__slower">
+									<div
+										class="row  animate__animated animate__fadeInUp animate__slower">
+
+										<%
+											listaProductos = listaPedidos[j].getListaProductosPedido();
+												for (int k = 0; k < listaProductos.length; k++) {
+													idreferencia = listaProductos[k].getIdreferencia();
+													nombre = listaProductos[k].getNombre();
+													precio = listaProductos[k].getPrecio().toString();
+										%>
+
+										<producto:Cabecera />
+										<producto:Imagen idreferencia="<%=idreferencia%>" />
+										<producto:CuerpoApertura />
+										<producto:Nombre nombre="<%=nombre%>" />
+										<producto:InfoApertura />
+										<producto:Precio precio="<%=precio%>" />
+										<producto:Boton idreferencia="<%=idreferencia%>" />
+										<producto:InfoCierre />
+										<producto:CuerpoCierre />
+										<producto:Footer />
+
+										<%
+											}
+										%>
+									</div>
 
 
-	<section
-		class="container mt-5 animate__animated animate__fadeIn animate__slower">
-		<!-- Fila Productos -->
-		<section
-			class="row mt-5 animate__animated animate__fadeInUp ">
 
+									<!--FIN BUCLE-->
+
+									<div class="row">
+									
+										<div class="col-md-12 pl-5 pr-5 mt-5 pb-5">
+											<form>
+												<h2>Datos de envio</h2>
+												<div class="form-froup mt-3">
+													<label for="fNombre">Nombre Completo:</label> <input
+														type="text" class="form-control" name="fNombre" value=""
+														disabled>
+												</div>
+
+												<div class="form-froup mt-3">
+													<label for="fTelefono">Número de teléfono:</label> <input
+														type="tel" class="form-control" minlength="9"
+														name="fTelefono"
+														value="<%=listaPedidos[j].getTel().toString()%>" disabled>
+												</div>
+												<div class="form-froup mt-3">
+													<label for="fCalle">Calle:</label> <input type="text"
+														class="form-control" name="fCalle"
+														value="<%=listaPedidos[j].getCalle().toString()%>"
+														disabled>
+												</div>
+												<div class="form-froup mt-3">
+													<label for="fProvincia">Provincia:</label> <input
+														type="text" class="form-control" name="fProvincia"
+														value="<%=listaPedidos[j].getProvincia()%>" disabled>
+												</div>
+												<div class="form-froup mt-3">
+													<label for="fLocalidad">Localidad:</label> <input
+														type="text" class="form-control" name="fLocalidad"
+														value="<%=listaPedidos[j].getLocalidad()%>" disabled>
+												</div>
+												<div class="form-froup mt-3">
+													<label for="fCp">Código Postal:</label> <input
+														type="number" class="form-control" name="fCp"
+														value="<%=listaPedidos[j].getCp()%>" disabled>
+												</div>
+												<div class="form-froup mt-3">
+													<label for="fPais">País:</label> <input type="text"
+														class="form-control" name="fPais"
+														value="<%=listaPedidos[j].getPais()%>" disabled>
+												</div>
+
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<%
+						}
+					%>
+				</div>
+			</section>
 		</section>
 	</section>
 
 
-<!-- FOOTER -->
+
+	<!-- FOOTER -->
 
 	<div class="container-fluid footer bg-Urban-1 mt-5 ">
 		<div class="row p-5">
@@ -150,9 +268,10 @@
 					<div class="col-12 text-center text-white mt-3">
 						<h5>
 							<i class="fab fa-facebook"></i> @UrbanCity
+						</h5>
+
 					</div>
 
-					</h5>
 				</div>
 				<div class="row">
 					<div class="col-12 text-center text-white mt-3">
