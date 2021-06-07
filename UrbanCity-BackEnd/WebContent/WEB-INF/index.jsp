@@ -33,15 +33,28 @@
 <body>
 	<!-- Nav Bar -->
 	<nav class="navbar  navbar-dark bg-Urban-1 text-white">
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarSupportedContent"
-			aria-controls="navbarSupportedContent" aria-expanded="false"
-			aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
+		<div class="w-25">
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+		</div>
+
+
+
 		<a class="navbar-brand" href="#"> <img src="" width="30px"
 			height="30px" class="img-center d-block" alt="">
-		</a> 
+		</a>
+		<div class="w-25">
+			<form class="form-inline w-100" method="post" action="Buscar">
+				<input class="form-control w-75 no-border-radius" type="search"
+					placeholder="Buscar" name="termino">
+				<button class="no-border-radius btn bg-Urban-2 text-center text-white w-25" type="submit">Buscar</button>
+			</form>
+
+		</div>
 
 
 
@@ -55,8 +68,9 @@
 				<%
 					CCategoria[] categorias = (CCategoria[]) session.getAttribute("Categorias");
 					for (int i = 0; i < categorias.length; i++) {
-						out.print("<li class='nav-item '><a class='nav-link ' href='Catalogo?idcategoria=" + categorias[i].getIdcategoria()
-								+ "' tabindex='-1 ' aria-disabled='true '>" + categorias[i].getNombre() + "</a></li>");
+						out.print("<li class='nav-item '><a class='nav-link ' href='Catalogo?idcategoria="
+								+ categorias[i].getIdcategoria() + "' tabindex='-1 ' aria-disabled='true '>"
+								+ categorias[i].getNombre() + "</a></li>");
 					}
 				%>
 				<%
@@ -168,11 +182,11 @@
 				<h3 class="text-center">ÚLTIMAS NOVEDADES</h3>
 			</div>
 		</section>
-		<!-- TODO QUITAR BUSCADOR DE PRUEBA -->
-			<form method="post" action="Buscar">
-	<input type="text" id="termino" name="termino" required/>
-	<button type="submit">BUSCAR</button>
-	</form>
+
+
+
+
+
 		<!-- Fila Productos -->
 		<section
 			class="row mt-5 animate__animated animate__fadeInUp animate__slower">
