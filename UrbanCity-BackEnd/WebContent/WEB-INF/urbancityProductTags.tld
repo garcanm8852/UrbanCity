@@ -105,5 +105,15 @@
         <bodycontent>empty</bodycontent>
     </tag>
 
+    <tag> 
+        <name>Selector</name> 
+        <tagclass>Product.SelectorTalla</tagclass>
+        <bodycontent>empty</bodycontent>
+        <attribute> 
+            <name>talla</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
 
 </taglib>

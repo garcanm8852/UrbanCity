@@ -5,7 +5,6 @@
 	pageEncoding="UTF-8"%>
 <%@page import="Catalogo.Cproducto"%>
 <%@page import="Catalogo.CCategoria"%>
-
 <!DOCTYPE html>
 
 
@@ -149,54 +148,7 @@
 						<div class="col"><%=producto.getDescripcion()%></div>
 					</div>
 
-				  <div class="row mt-4 text-center justify-content-center">
-                        <div class="col-md-12 selector">
-                            <div class="container-fluid">
-                                <div class="row ">
-                                    <div class="col selector">
-                                        <div class="form-check-inline w-100 justify-content-center p-3">
-                                            <input class="form-check-input" type="radio" name="size" id="sizexs" value="xs" hidden>
-                                            <label class="form-check-label" for="sizexs">
-                                    XS
-                                </label>
-                                        </div>
-                                    </div>
-                                    <div class="col selector">
-                                        <div class="form-check-inline w-100 justify-content-center p-3">
-                                            <input class="form-check-input" type="radio" name="size" id="sizes" value="s" hidden>
-                                            <label class="form-check-label" for="sizes">
-                                    S
-                                </label>
-                                        </div>
-                                    </div>
-                                    <div class="col selector">
-                                        <div class="form-check-inline w-100 justify-content-center p-3">
-                                            <input class="form-check-input" type="radio" name="size" id="sizem" value="m" checked hidden>
-                                            <label class="form-check-label" for="sizem">
-                                    M
-                                </label>
-                                        </div>
-                                    </div>
-                                    <div class="col selector">
-                                        <div class="form-check-inline w-100 justify-content-center p-3">
-                                            <input class="form-check-input" type="radio" name="size" id="sizel" value="l" hidden>
-                                            <label class="form-check-label" for="sizel">
-                                    L
-                                </label>
-                                        </div>
-                                    </div>
-                                    <div class="col selector">
-                                        <div class="form-check-inline w-100 justify-content-center p-3">
-                                            <input class="form-check-input" type="radio" name="size" id="sizexl" value="xl" hidden>
-                                            <label class="form-check-label" for="sizexl">
-                                    XL
-                                </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+					<producto:Selector talla="m" />
 
 					<div class="row mt-4 ">
 						<div class="col-12 no-padding">
