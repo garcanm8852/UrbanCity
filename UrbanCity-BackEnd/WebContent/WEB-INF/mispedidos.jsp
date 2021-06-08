@@ -39,15 +39,28 @@
 
 	<!-- Nav Bar -->
 	<nav class="navbar  navbar-dark bg-Urban-1 text-white">
-		<span>&nbsp;</span> <a class="navbar-brand" href="#"> <img src=""
-			width="30px" height="30px" class="img-center d-block" alt="">
+		<div class="w-25">
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+		</div>
+
+
+
+		<a class="navbar-brand" href="#"> <img src="" width="30px"
+			height="30px" class="img-center d-block" alt="">
 		</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarSupportedContent"
-			aria-controls="navbarSupportedContent" aria-expanded="false"
-			aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
+		<div class="w-25">
+			<form class="form-inline w-100" method="post" action="Buscar">
+				<input class="form-control w-75 no-border-radius" type="search"
+					placeholder="Buscar" name="termino">
+				<button class="no-border-radius btn bg-Urban-2 text-center text-white w-25" type="submit">Buscar</button>
+			</form>
+
+		</div>
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
