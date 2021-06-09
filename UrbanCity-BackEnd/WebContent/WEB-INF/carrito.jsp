@@ -167,7 +167,7 @@
 				</a>
 			</div>
 			<div class="col-4 no-padding text-center">
-				<h4>M</h4>
+				<h4><%=listaProductosCarrito[h].getTalla() %></h4>
 			</div>
 			<div class="col-4 no-padding text-center">
 				<h4><%=listaProductosCarrito[h].getPrecio()%>€

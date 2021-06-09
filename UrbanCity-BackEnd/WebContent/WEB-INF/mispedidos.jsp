@@ -128,12 +128,12 @@
 					<%
 						listaPedidos = (CPedido[]) request.getAttribute("listaPedidos");
 
-						for (int j = 0; j < 19; j++) {
+						for (int j = 0; j < listaPedidos.length; j++) {
 					%>
 					<div class="card">
 						<div class="card-header" id="<%=listaPedidos[j].getIdpedido()%>">
 							<h2 class="mb-0">
-								<button class="btn btn-link btn-block text-left" type="button"
+								<button class="btn btn-link btn-block text-center" type="button"
 									data-toggle="collapse"
 									data-target="#<%=listaPedidos[j].getIdpedido()%>target"
 									aria-expanded="true" aria-controls="collapseOne">
@@ -189,7 +189,7 @@
 												<h2>Datos de envio</h2>
 												<div class="form-froup mt-3">
 													<label for="fNombre">Nombre Completo:</label> <input
-														type="text" class="form-control" name="fNombre" value=""
+														type="text" class="form-control" name="fNombre" value="<%=listaPedidos[j].getNombre()%>"
 														disabled>
 												</div>
 

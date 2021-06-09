@@ -30,7 +30,7 @@ public class PrimerInicioSesion extends HttpServlet {
 		sesion = request.getSession();
 		sesion.setAttribute("CodigoInvalido", false);
 		try {
-			OutMail.enviar("luftgunmail@gmail.com", "Luftgun20$", (String) sesion.getAttribute("email"),
+			OutMail.enviar("urbancitynoreply@gmail.com", "6T482g8#W$7@9H@kt$#S", (String) sesion.getAttribute("email"),
 					(String) sesion.getAttribute("NombreUsuario ") + " Código de validación LuftGun",
 					"Su código de validación de registro de LuftGun es: " + (int) sesion.getAttribute("PrimerInicio"));
 		} catch (Exception e) {

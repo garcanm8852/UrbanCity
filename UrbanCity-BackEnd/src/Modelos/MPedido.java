@@ -11,7 +11,8 @@ public class MPedido {
 	Connection Conexion;
 	PreparedStatement ps;
 	ResultSet cargaPedido;
-
+	ResultSet cargaCantidad;
+	
 	final String URL = "jdbc:postgresql://ns3034756.ip-91-121-81.eu/a20-mgarde";
 	final String USER = "a20-mgarde";
 	final String PASSW = "a20-mgarde";
@@ -26,7 +27,7 @@ public class MPedido {
 	String cp;
 	String pais;
 	String tel;
-	
+	int cantidad;
 
 	public MPedido() {
 	}
@@ -48,21 +49,22 @@ public class MPedido {
 
 	}
 
-	public void AnadirPedido(int pIdpedido, int pIdcliente, int pTelefono, String pCalle, String pProvincia,
+	public void AnadirPedido(int pIdpedido, int pIdcliente, String pNombre,int pTelefono, String pCalle, String pProvincia,
 			String pLocalidad, int pCp, String pPais) {
 		try {
 			establecerConexion();
 			ps = Conexion.prepareStatement(
-					"INSERT INTO urbancity.pedido(idpedido, idcliente, fecha, tel, calle, provincia, localidad, cp, pais) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+					"INSERT INTO urbancity.pedido(idpedido, idcliente, fecha, nombre, tel, calle, provincia, localidad, cp, pais) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			ps.setInt(1, pIdpedido);
 			ps.setInt(2, pIdcliente);
 			ps.setDate(3, java.sql.Date.valueOf(java.time.LocalDate.now()));
-			ps.setInt(4, pTelefono);
-			ps.setString(5, pCalle);
-			ps.setString(6, pProvincia);
-			ps.setString(7, pLocalidad);
-			ps.setInt(8, pCp);
-			ps.setString(9, pPais);
+			ps.setString(4, pNombre);
+			ps.setInt(5, pTelefono);
+			ps.setString(6, pCalle);
+			ps.setString(7, pProvincia);
+			ps.setString(8, pLocalidad);
+			ps.setInt(9, pCp);
+			ps.setString(10, pPais);
 			ps.execute();
 			cerrarConexion();
 		} catch (Exception e) {
@@ -110,6 +112,31 @@ public class MPedido {
 		
 		return estado;
 	}
+	
+	public void consultarCantidadPedidosPorCliente(int idpedido) {
+		try {
+			establecerConexion();
+			ps = Conexion.prepareStatement("SELECT COUNT(idpedido) FROM urbancity.pedido WHERE idcliente = ?");
+			ps.setInt(1, idpedido);
+			cargaCantidad = ps.executeQuery();
+			cargaCantidad.next();
+			cerrarConexion();
+		} catch (Exception e) {
+			// TODO: handle exception
+
+		}
+	}
+	
+	public int getCantidad() {
+		cantidad = 0;
+		try {
+			cantidad = cargaCantidad.getInt(1);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return cantidad;
+	}
 
 	public int getIdpedido() {
 		idpedido = 0;
@@ -125,7 +152,7 @@ public class MPedido {
 	public Date getFecha() {
 		fecha = null;
 		try {
-			fecha = cargaPedido.getDate(3);
+			fecha = cargaPedido.getDate("fecha");
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -136,7 +163,7 @@ public class MPedido {
 	public String getNombre(){
 		nombre = null;
 		try {
-			nombre = cargaPedido.getString(4);
+			nombre = cargaPedido.getString("nombre");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -147,7 +174,7 @@ public class MPedido {
 	public String getCalle(){
 		calle = null;
 		try {
-			calle = cargaPedido.getString(5);
+			calle = cargaPedido.getString("calle");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -158,7 +185,7 @@ public class MPedido {
 	public String getProvincia(){
 		provincia = null;
 		try {
-			provincia = cargaPedido.getString(6);
+			provincia = cargaPedido.getString("provincia");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -169,7 +196,7 @@ public class MPedido {
 	public String getLocalidad(){
 		localidad = null;
 		try {
-			localidad = cargaPedido.getString(7);
+			localidad = cargaPedido.getString("localidad");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -180,7 +207,7 @@ public class MPedido {
 	public String getCP(){
 		cp = null;
 		try {
-			cp = cargaPedido.getString(8);
+			cp = cargaPedido.getString("cp");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -191,7 +218,7 @@ public class MPedido {
 	public String getPais(){
 		pais = null;
 		try {
-			pais = cargaPedido.getString(9);
+			pais = cargaPedido.getString("pais");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -202,7 +229,7 @@ public class MPedido {
 	public String getTel(){
 		tel = null;
 		try {
-			tel = cargaPedido.getString(10);
+			tel = cargaPedido.getString("tel");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

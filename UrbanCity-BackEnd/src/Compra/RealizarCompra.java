@@ -61,6 +61,7 @@ public class RealizarCompra extends HttpServlet {
 			mPedido.AnadirPedido(
 					(mPedido.getIdpedido())+1,
 					(int)sesion.getAttribute("idcliente"),
+					request.getParameter("fNombre"),
 					Integer.parseInt(request.getParameter("fTelefono")),
 					request.getParameter("fCalle"),
 					request.getParameter("fProvincia"),

@@ -219,6 +219,16 @@ a.breadcrumb-link {
 .nav-link {
 	text-align: center !important;
 }
+/*TODO Actualizar en SASS*/
+.accordion>.card>.card-header{
+		text-align: center !important;
+		background-color: #111111 !important;	
+}
+
+button.btn.btn-link.btn-block.text-center {
+    color: white!important;
+    font-weight: bold!important;
+}
 
 @media ( max-width : 700px) {
 	.product {

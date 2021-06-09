@@ -90,12 +90,11 @@ public class MisPedidos extends HttpServlet {
 				if (mPedido.consultarSiguiente()) {
 					// Caso: Existen Pedidos
 					int contadorPedidos = 0;
-					listaPedidos = new CPedido[25];
-
+					mPedido.consultarCantidadPedidosPorCliente((int) sesion.getAttribute("idcliente"));
+					listaPedidos = new CPedido[mPedido.getCantidad()];
 					do {
 						mPedpro.consultarCantidadProductosPorPedido(mPedido.getIdpedido());
 						mPedpro.consultarProductosPorPedido(mPedido.getIdpedido());
-						System.out.println(mPedido.getIdpedido());
 						// TODO PASAR A DECLARACIONES
 						contadorProductos = 0;
 
@@ -110,8 +109,6 @@ public class MisPedidos extends HttpServlet {
 									mProducto.getDescripcion(),
 									mProducto.getPrecio());
 
-							System.out.println("PRODUCTO: " +contadorProductos +  mProducto.getIdreferencia());
-
 							contadorProductos++;
 						}
 
@@ -125,7 +122,7 @@ public class MisPedidos extends HttpServlet {
 								mPedido.getLocalidad(),
 								mPedido.getCP(),
 								mPedido.getPais(),
-								mPedido.getPais() // TODO CAMBIAR POR TEL QUE SINO PETA
+								mPedido.getTel() // TODO CAMBIAR POR TEL QUE SINO PETA
 																												// CAMBIAR
 																												// SINO
 																												// PETA

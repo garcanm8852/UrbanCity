@@ -28,8 +28,8 @@ public class VerificarCuenta extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		sesion = request.getSession();
 		  try {
-			    OutMail.enviar("luftgunmail@gmail.com",
-			            "Luftgun20$",
+			    OutMail.enviar("urbancitynoreply@gmail.com",
+			            "6T482g8#W$7@9H@kt$#S",
 			           (String) sesion.getAttribute("vEmail") ,
 			           (String) sesion.getAttribute("vNombre") + " C�digo de validaci�n LuftGun",
 			          "Su c�digo de validaci�n de registro de LuftGun es: " + (int) sesion.getAttribute("Validacion"));

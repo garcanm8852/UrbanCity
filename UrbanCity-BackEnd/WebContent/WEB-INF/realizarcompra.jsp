@@ -58,7 +58,9 @@
 			<form class="form-inline w-100" method="post" action="Buscar">
 				<input class="form-control w-75 no-border-radius" type="search"
 					placeholder="Buscar" name="termino">
-				<button class="no-border-radius btn bg-Urban-2 text-center text-white w-25" type="submit">Buscar</button>
+				<button
+					class="no-border-radius btn bg-Urban-2 text-center text-white w-25"
+					type="submit">Buscar</button>
 			</form>
 
 		</div>
@@ -102,6 +104,10 @@
 			<div class="col-md-4">
 				<form method="post">
 					<h2>Datos de envio</h2>
+					<div class="form-froup mt-3">
+						<label for="fNombre">Nombre Completo:</label> <input type="text"
+							class="form-control" name="fNombre" required>
+					</div>
 					<div class="form-froup mt-3">
 						<label for="fTelefono">Número de teléfono:</label> <input
 							type="tel" class="form-control" minlength="9" name="fTelefono"
@@ -225,9 +231,9 @@
 		</article>
 
 	</section>
-	
-	
-	
+
+
+
 	<!-- 
 
 ███████╗ ██████╗  ██████╗ ████████╗███████╗██████╗ 
