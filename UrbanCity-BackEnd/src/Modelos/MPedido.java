@@ -53,7 +53,7 @@ public class MPedido {
 		try {
 			establecerConexion();
 			ps = Conexion.prepareStatement(
-					"INSERT INTO luftgun.pedido(idpedido, idcliente, fecha, tel, calle, provincia, localidad, cp, pais) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+					"INSERT INTO urbancity.pedido(idpedido, idcliente, fecha, tel, calle, provincia, localidad, cp, pais) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			ps.setInt(1, pIdpedido);
 			ps.setInt(2, pIdcliente);
 			ps.setDate(3, java.sql.Date.valueOf(java.time.LocalDate.now()));
@@ -75,7 +75,7 @@ public class MPedido {
 	public void getUltimoPedido() {
 		try {
 			establecerConexion();
-			ps = Conexion.prepareStatement("SELECT MAX(idpedido) FROM luftgun.pedido");
+			ps = Conexion.prepareStatement("SELECT MAX(idpedido) FROM urbancity.pedido");
 			cargaPedido = ps.executeQuery();
 			cargaPedido.next();
 			cerrarConexion();
@@ -88,7 +88,7 @@ public class MPedido {
 	public void pedidosClientes(int pIdcliente) {
 		try {
 			establecerConexion();
-			ps = Conexion.prepareStatement("SELECT * FROM luftgun.pedido where idcliente = ?");
+			ps = Conexion.prepareStatement("SELECT * FROM urbancity.pedido where idcliente = ?");
 			ps.setInt(1, pIdcliente);
 			cargaPedido = 
 			ps.executeQuery();
@@ -217,7 +217,7 @@ public class MPedido {
 	public void eliminarPedido(int idpedido2) {
 try {
 	establecerConexion();
-	ps = Conexion.prepareStatement("DELETE FROM luftgun.pedido where idpedido = ?");
+	ps = Conexion.prepareStatement("DELETE FROM urbancity.pedido where idpedido = ?");
 	ps.setInt(1, idpedido2);
 	ps.execute();
 	cerrarConexion();

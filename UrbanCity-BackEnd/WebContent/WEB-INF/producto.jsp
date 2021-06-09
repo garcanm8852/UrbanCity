@@ -53,7 +53,9 @@
 			<form class="form-inline w-100" method="post" action="Buscar">
 				<input class="form-control w-75 no-border-radius" type="search"
 					placeholder="Buscar" name="termino">
-				<button class="no-border-radius btn bg-Urban-2 text-center text-white w-25" type="submit">Buscar</button>
+				<button
+					class="no-border-radius btn bg-Urban-2 text-center text-white w-25"
+					type="submit">Buscar</button>
 			</form>
 
 		</div>
@@ -160,8 +162,7 @@
 					<div class="row mt-4 text-center">
 						<div class="col"><%=producto.getDescripcion()%></div>
 					</div>
-
-					<producto:Selector talla="m" />
+					<producto:Selector talla="<%=producto.getTalla() %>" />
 
 					<div class="row mt-4 ">
 						<div class="col-12 no-padding">
@@ -176,7 +177,6 @@
 			</div>
 		</div>
 	</section>
-
 	<!-- Composición y cuidados | Guia de Tallas -->
 	<section
 		class="container mt-5 responsive-mt-5 animate__animated animate__fadeIn animate__slower">

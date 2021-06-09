@@ -61,7 +61,7 @@ public class Carrito extends HttpServlet {
 					do {
 						mProducto.consultarProducto(mCarrito.getIdreferencia());
 						listaProductos[contadorCarrito] = new Cproducto(mProducto.getIdreferencia(),
-								mProducto.getNombre(), mProducto.getMarca(), mProducto.getDescripcion(),
+								mProducto.getNombre(), mProducto.getTalla(), mProducto.getDescripcion(),
 								mProducto.getPrecio(), null, mProducto.getStock(), mProducto.getSubcategoria());
 						listaidCarrito[contadorCarrito] = mCarrito.getIdcarrito();
 						contadorCarrito++;
@@ -91,7 +91,7 @@ public class Carrito extends HttpServlet {
 						mProducto.consultarProducto(cookies[i].getValue());
 						if (!cookies[i].getName().equals("JSESSIONID")) {
 							listaProductos[contadorCookies] = new Cproducto(mProducto.getIdreferencia(),
-									mProducto.getNombre(), mProducto.getMarca(), mProducto.getDescripcion(),
+									mProducto.getNombre(), mProducto.getTalla(), mProducto.getDescripcion(),
 									mProducto.getPrecio(), null, mProducto.getStock(), mProducto.getSubcategoria());
 							contadorCookies++;
 						}
@@ -115,7 +115,7 @@ public class Carrito extends HttpServlet {
 						mProducto.consultarProducto(cookies[i].getValue());
 						if (!cookies[i].getName().equals("JSESSIONID")) {
 							listaProductos[contadorCookies] = new Cproducto(mProducto.getIdreferencia(),
-									mProducto.getNombre(), mProducto.getMarca(), mProducto.getDescripcion(),
+									mProducto.getNombre(), mProducto.getTalla(), mProducto.getDescripcion(),
 									mProducto.getPrecio(), null, mProducto.getStock(), mProducto.getSubcategoria());
 							contadorCookies++;
 						}

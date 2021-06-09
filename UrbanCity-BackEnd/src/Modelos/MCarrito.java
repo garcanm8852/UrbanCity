@@ -64,7 +64,7 @@ public class MCarrito {
 	public void AnadirProductoCarrito(String pReferencia, int pIdcliente) {
 		try {
 			establecerConexion();
-			ps = Conexion.prepareStatement("INSERT INTO luftgun.carrito (idreferencia, idcliente) VALUES (?,?)");
+			ps = Conexion.prepareStatement("INSERT INTO urbancity.carrito (idreferencia, idcliente) VALUES (?,?)");
 			ps.setString(1, pReferencia);
 			ps.setInt(2, pIdcliente);
 			ps.execute();
@@ -77,7 +77,7 @@ public class MCarrito {
 	public void cargarCarrito(int pIdcliente) {
 		try {
 			establecerConexion();
-			ps = Conexion.prepareStatement("SELECT * FROM luftgun.carrito where idcliente = ?");
+			ps = Conexion.prepareStatement("SELECT * FROM urbancity.carrito where idcliente = ?");
 			ps.setInt(1, pIdcliente);
 			cargaCarrito = ps.executeQuery();
 			cargaCarrito.next();
@@ -92,7 +92,7 @@ public class MCarrito {
 
 		try {
 			establecerConexion();
-			ps = Conexion.prepareStatement("DELETE FROM luftgun.carrito WHERE idcarrito = ?");
+			ps = Conexion.prepareStatement("DELETE FROM urbancity.carrito WHERE idcarrito = ?");
 			ps.setInt(1, pIDcarrito);
 			ps.execute();
 			cerrarConexion();
@@ -105,7 +105,7 @@ public class MCarrito {
 
 		try {
 			establecerConexion();
-			ps = Conexion.prepareStatement("DELETE FROM luftgun.carrito WHERE idcliente = ?");
+			ps = Conexion.prepareStatement("DELETE FROM urbancity.carrito WHERE idcliente = ?");
 			ps.setInt(1, pIDcliente);
 			ps.execute();
 			cerrarConexion();

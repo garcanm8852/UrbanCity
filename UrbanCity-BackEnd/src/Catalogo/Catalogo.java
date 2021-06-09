@@ -112,7 +112,7 @@ public class Catalogo extends HttpServlet {
 			try {
 				do {
 					listaProductos[contadorProductos] = new Cproducto(mProducto.getIdreferencia(),
-							mProducto.getNombre(), mProducto.getMarca(), mProducto.getDescripcion(),
+							mProducto.getNombre(), mProducto.getTalla(), mProducto.getDescripcion(),
 							mProducto.getPrecio(), mProducto.getStock(), mProducto.getCategoria(),
 							mProducto.getSubcategoria(), mProducto.getNombreCategoria(),
 							mProducto.getNombreSubcategoria());
@@ -165,7 +165,7 @@ public class Catalogo extends HttpServlet {
 				try {
 					do {
 						listaProductos[contadorProductos] = new Cproducto(mProducto.getIdreferencia(),
-								mProducto.getNombre(), mProducto.getMarca(), mProducto.getDescripcion(),
+								mProducto.getNombre(), mProducto.getTalla(), mProducto.getDescripcion(),
 								mProducto.getPrecio(), mProducto.getStock(), mProducto.getCategoria(),
 								mProducto.getSubcategoria(), mProducto.getNombreCategoria(),
 								mProducto.getNombreSubcategoria());
@@ -206,7 +206,7 @@ public class Catalogo extends HttpServlet {
 					try {
 						do {
 							listaProductos[contadorProductos] = new Cproducto(mProducto.getIdreferencia(),
-									mProducto.getNombre(), mProducto.getMarca(), mProducto.getDescripcion(),
+									mProducto.getNombre(), mProducto.getTalla(), mProducto.getDescripcion(),
 									mProducto.getPrecio(), mProducto.getStock(), mProducto.getSubcategoria());
 							contadorProductos++;
 						} while (mProducto.consultarSiguiente());
@@ -242,7 +242,7 @@ public class Catalogo extends HttpServlet {
 					try {
 						do {
 							listaProductos[contadorProductos] = new Cproducto(mProducto.getIdreferencia(),
-									mProducto.getNombre(), mProducto.getMarca(), mProducto.getDescripcion(),
+									mProducto.getNombre(), mProducto.getTalla(), mProducto.getDescripcion(),
 									mProducto.getPrecio(), mProducto.getStock(), mProducto.getSubcategoria());
 							contadorProductos++;
 						} while (mProducto.consultarSiguiente());

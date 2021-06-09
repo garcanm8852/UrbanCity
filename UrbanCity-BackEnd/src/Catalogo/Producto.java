@@ -64,7 +64,7 @@ public class Producto extends HttpServlet {
 
 		try {
 			mProducto.consultarProducto(request.getParameter("idreferencia"));
-			productoSolicitado = new Cproducto(mProducto.getIdreferencia(), mProducto.getNombre(), mProducto.getMarca(),
+			productoSolicitado = new Cproducto(mProducto.getIdreferencia(), mProducto.getNombre(), mProducto.getTalla(),
 					mProducto.getDescripcion(), mProducto.getPrecio(), mProducto.getStock(), mProducto.getCategoria(),
 					mProducto.getSubcategoria(), mProducto.getNombreCategoria(), mProducto.getNombreSubcategoria());
 			sesion.setAttribute("Producto", productoSolicitado);

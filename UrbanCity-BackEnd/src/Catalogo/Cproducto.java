@@ -4,7 +4,7 @@ public class Cproducto {
 
 	String idreferencia;
 	String nombre;
-	String marca;
+	String talla;
 	String descripcion;
 	Double precio;
 	byte[] img;
@@ -14,11 +14,11 @@ public class Cproducto {
 	String nombreCategoria;
 	String nombreSubcategoria;
 
-	public Cproducto(String pidreferencia, String pnombre, String pmarca, String pdescripcion, Double pprecio,
+	public Cproducto(String pidreferencia, String pnombre, String ptalla, String pdescripcion, Double pprecio,
 			byte[] pimg, int pstock, int psubcategoria) {
 		idreferencia = pidreferencia;
 		nombre = pnombre;
-		marca = pmarca;
+		talla = ptalla;
 		descripcion = pdescripcion;
 		precio = pprecio;
 		img = pimg;
@@ -28,11 +28,11 @@ public class Cproducto {
 	
 	
 	
-	public Cproducto(String pidreferencia, String pnombre, String pmarca, String pdescripcion, Double pprecio,
+	public Cproducto(String pidreferencia, String pnombre, String ptalla, String pdescripcion, Double pprecio,
 		int pstock, int psubcategoria) {
 		idreferencia = pidreferencia;
 		nombre = pnombre;
-		marca = pmarca;
+		talla = ptalla;
 		descripcion = pdescripcion;
 		precio = pprecio;
 		stock = pstock;
@@ -47,11 +47,11 @@ public class Cproducto {
 			precio = pprecio;
 		}
 
-	public Cproducto(String pidreferencia, String pnombre, String pmarca, String pdescripcion, Double pprecio,
+	public Cproducto(String pidreferencia, String pnombre, String ptalla, String pdescripcion, Double pprecio,
 			int pstock, int pcategoria, int psubcategoria, String pnombreCategoria, String pnombreSubcategoria) {
 		idreferencia = pidreferencia;
 		nombre = pnombre;
-		marca = pmarca;
+		talla = ptalla;
 		descripcion = pdescripcion;
 		precio = pprecio;
 		stock = pstock;
@@ -69,8 +69,8 @@ public class Cproducto {
 		return nombre;
 	}
 
-	public String getMarca() {
-		return marca;
+	public String getTalla() {
+		return talla;
 	}
 
 	public String getDescripcion() {

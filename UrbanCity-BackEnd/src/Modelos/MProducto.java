@@ -13,7 +13,7 @@ public class MProducto {
 	ResultSet cargaRegistros;
 	String idreferencia;
 	String nombre;
-	String marca;
+	String talla;
 	String descripcion;
 	Double precio;
 	byte[] img;
@@ -53,7 +53,7 @@ public class MProducto {
 	public void cargarProductos() {
 		try {
 			establecerConexion();
-			ps = Conexion.prepareStatement("SELECT * FROM luftgun.producto");
+			ps = Conexion.prepareStatement("SELECT * FROM urbancity.producto");
 			cargaProductos = ps.executeQuery();
 			cargaProductos.next();
 			cerrarConexion();
@@ -65,7 +65,7 @@ public class MProducto {
 		pagina = 8 * pPagina;
 		try {
 			establecerConexion();
-			ps = Conexion.prepareStatement("SELECT * FROM luftgun.producto offset ? limit 8");
+			ps = Conexion.prepareStatement("SELECT * FROM urbancity.producto offset ? limit 8");
 			ps.setInt(1, pagina);
 			cargaProductos = ps.executeQuery();
 			cargaProductos.next();
@@ -78,7 +78,7 @@ public class MProducto {
 		pagina = RangoPaginacion * pPagina;
 		try {
 			establecerConexion();
-			ps = Conexion.prepareStatement("SELECT * FROM luftgun.producto offset ? limit ?");
+			ps = Conexion.prepareStatement("SELECT * FROM urbancity.producto offset ? limit ?");
 			ps.setInt(1, pagina);
 			ps.setInt(2, RangoPaginacion);
 			cargaProductos = ps.executeQuery();
@@ -92,7 +92,7 @@ public class MProducto {
 		pagina = RangoPaginacion * pPagina;
 		try {
 			establecerConexion();
-			ps = Conexion.prepareStatement("SELECT * FROM luftgun.producto WHERE nombre LIKE '"+ termino + "%'  offset ? limit ?");
+			ps = Conexion.prepareStatement("SELECT * FROM urbancity.producto WHERE nombre LIKE '"+ termino + "%'  offset ? limit ?");
 			ps.setInt(1, pagina);
 			ps.setInt(2, RangoPaginacion);
 			cargaProductos = ps.executeQuery();
@@ -106,7 +106,7 @@ public class MProducto {
 		numeroRegistros = 0;
 		try {
 			establecerConexion();
-			ps = Conexion.prepareStatement("SELECT COUNT(idreferencia) from luftgun.producto");
+			ps = Conexion.prepareStatement("SELECT COUNT(idreferencia) from urbancity.producto");
 			cargaRegistros = ps.executeQuery();
 			cargaRegistros.next();			
 			numeroRegistros = cargaRegistros.getInt(1);
@@ -122,7 +122,7 @@ public class MProducto {
 		numeroRegistros = 0;
 		try {
 			establecerConexion();
-			ps = Conexion.prepareStatement("SELECT COUNT(idreferencia) from luftgun.producto WHERE idcategoria=?");
+			ps = Conexion.prepareStatement("SELECT COUNT(idreferencia) from urbancity.producto WHERE idcategoria=?");
 			ps.setInt(idcategoria, 1);
 			cargaRegistros = ps.executeQuery();
 			cargaRegistros.next();			
@@ -139,7 +139,7 @@ public class MProducto {
 		numeroRegistros = 0;
 		try {
 			establecerConexion();
-			ps = Conexion.prepareStatement("SELECT COUNT(idreferencia) from luftgun.producto WHERE idsubcategoria=?");
+			ps = Conexion.prepareStatement("SELECT COUNT(idreferencia) from urbancity.producto WHERE idsubcategoria=?");
 			ps.setInt(idsubcategoria, 1);
 			cargaRegistros = ps.executeQuery();
 			cargaRegistros.next();			
@@ -155,7 +155,7 @@ public class MProducto {
 	public void cargarProductosPorCategorias(int pidCategoria) {
 		try {
 			establecerConexion();
-			ps = Conexion.prepareStatement("SELECT * FROM luftgun.DatosProductosCompletoBusqueda(?);");
+			ps = Conexion.prepareStatement("SELECT * FROM urbancity.DatosProductosCompletoBusqueda(?);");
 			ps.setInt(1, pidCategoria);
 			cargaProductos = ps.executeQuery();
 			cargaProductos.next();
@@ -168,7 +168,7 @@ public class MProducto {
 	public void cargarProductosPorCategoriasModular(int pidCategoria, int pPagina ,int RangoPaginacion) {
 		try {
 			establecerConexion();
-			ps = Conexion.prepareStatement("SELECT * FROM luftgun.DatosProductosCompletoBusqueda(?);");
+			ps = Conexion.prepareStatement("SELECT * FROM urbancity.DatosProductosCompletoBusqueda(?);");
 			ps.setInt(1, pidCategoria);
 			cargaProductos = ps.executeQuery();
 			cargaProductos.next();
@@ -181,7 +181,7 @@ public class MProducto {
 	public void cargarProductosPorSubcategorias(int idSubcategoria) {
 		try {
 			establecerConexion();
-			ps = Conexion.prepareStatement("SELECT * FROM luftgun.DatosProductoSubcategoria(?);");
+			ps = Conexion.prepareStatement("SELECT * FROM urbancity.DatosProductoSubcategoria(?);");
 			ps.setInt(1, idSubcategoria);
 			cargaProductos = ps.executeQuery();
 			cargaProductos.next();
@@ -196,7 +196,7 @@ public class MProducto {
 		srcProducto = null;
 		try {
 			establecerConexion();
-			ps = Conexion.prepareStatement("SELECT img FROM luftgun.producto WHERE idreferencia = ?");
+			ps = Conexion.prepareStatement("SELECT img FROM urbancity.producto WHERE idreferencia = ?");
 			ps.setString(1, pidreferencia);
 			srcProducto = ps.executeQuery();
 			srcProducto.next();
@@ -211,7 +211,7 @@ public class MProducto {
 	public void consultarProducto(String pidreferencia) {
 		try {
 			establecerConexion();
-			ps = Conexion.prepareStatement("SELECT * FROM luftgun.DatosProductoBusqueda(?)");
+			ps = Conexion.prepareStatement("SELECT * FROM urbancity.DatosProductoBusqueda(?)");
 			ps.setString(1, pidreferencia);
 			cargaProductos = ps.executeQuery();
 			cargaProductos.next();
@@ -265,7 +265,7 @@ public class MProducto {
 	public String getIdreferencia(){
 		idreferencia = "";
 		try {
-			idreferencia = cargaProductos.getString(1);
+			idreferencia = cargaProductos.getString("idreferencia");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -276,7 +276,7 @@ public class MProducto {
 	public String getNombre(){
 		nombre = null;
 		try {
-			nombre = cargaProductos.getString(2);
+			nombre = cargaProductos.getString("nombre");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -284,30 +284,31 @@ public class MProducto {
 		return nombre;
 	}
 	
-	public String getMarca() {
-		marca= null;
+	//TODO CAMBIAR POR TALLA
+	public String getTalla() {
+		talla= null;
 		try {
-			marca = cargaProductos.getString(3);
+			talla = cargaProductos.getString("talla");
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		return marca;
+		return talla;
 	}
 	
 	public String getDescripcion() {
 		descripcion= null;
 		try {
-			descripcion = cargaProductos.getString(4);
+			descripcion = cargaProductos.getString("descripcion");
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
 		return descripcion;
 	}
-	//TODO CAMBIAR LOS GETTERS Y PONER CON MODELO URBAN CITY, SI EL VALOR ES 4 INCOMPATIBILIDAD CON LOS DATOS DE LUFTGUN
+
 	public Double getPrecio() {
 		precio = null;
 		try {
-			precio = cargaProductos.getDouble(5);
+			precio = cargaProductos.getDouble("precio");
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -317,7 +318,7 @@ public class MProducto {
 	public byte[] getImg() {
 		img = null;
 		try {
-			img = cargaProductos.getBytes(6);
+			img = cargaProductos.getBytes("img");
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -328,7 +329,7 @@ public class MProducto {
 	public int getStock() {
 		stock = 0;
 		try {
-			stock = cargaProductos.getInt(7);
+			stock = cargaProductos.getInt("stock");
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -338,7 +339,7 @@ public class MProducto {
 	public int getSubcategoria() {
 		subcategoria = 0;
 		try {
-			subcategoria = cargaProductos.getInt(8);
+			subcategoria = cargaProductos.getInt("idsubcategoria");
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -348,7 +349,7 @@ public class MProducto {
 	public String getNombreSubcategoria(){
 		nombreSubcategoria = "";
 		try {
-			nombreSubcategoria = cargaProductos.getString(9);
+			nombreSubcategoria = cargaProductos.getString("nombresubcategoria");
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -359,7 +360,7 @@ public class MProducto {
 	public int getCategoria() {
 		categoria = 0;
 		try {
-			categoria = cargaProductos.getInt(10);
+			categoria = cargaProductos.getInt("idcategoria");
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -370,7 +371,7 @@ public class MProducto {
 	public String getNombreCategoria() {
 		nombreCategoria = "";
 		try {
-			nombreCategoria = cargaProductos.getString(11);
+			nombreCategoria = cargaProductos.getString("nombrecategoria");
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

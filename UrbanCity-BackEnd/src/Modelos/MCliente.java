@@ -48,7 +48,7 @@ public class MCliente {
 	public void DatosInicioSesion(String pEmail, String pContrasena) {
 		try {
 			establecerConexion();
-			ps = Conexion.prepareStatement("SELECT * FROM luftgun.cliente WHERE email = ? AND contrasena = ?");
+			ps = Conexion.prepareStatement("SELECT * FROM urbancity.cliente WHERE email = ? AND contrasena = ?");
 			ps.setString(1, pEmail);
 			ps.setString(2, pContrasena);
 			cargaCliente = ps.executeQuery();
@@ -61,7 +61,7 @@ public class MCliente {
 	public boolean ExisteCliente(String pEmail) {
 		try {
 			establecerConexion();
-			ps = Conexion.prepareStatement("SELECT * FROM luftgun.cliente where email = ?");
+			ps = Conexion.prepareStatement("SELECT * FROM urbancity.cliente where email = ?");
 			ps.setString(1, pEmail);
 			cargaCliente = ps.executeQuery();
 			cargaCliente.next();
@@ -77,7 +77,7 @@ public class MCliente {
 	public boolean cargarCliente(int pIdcliente) {
 		try {
 			establecerConexion();
-			ps = Conexion.prepareStatement("SELECT * FROM luftgun.cliente where idcliente = ?");
+			ps = Conexion.prepareStatement("SELECT * FROM urbancity.cliente where idcliente = ?");
 			ps.setInt(1, pIdcliente);
 			cargaCliente = ps.executeQuery();
 			cargaCliente.next();
@@ -95,7 +95,7 @@ public class MCliente {
 		cargaID = null;
 		try {
 			establecerConexion();
-			ps = Conexion.prepareStatement("SELECT MAX(idcliente) FROM luftgun.cliente");
+			ps = Conexion.prepareStatement("SELECT MAX(idcliente) FROM urbancity.cliente");
 			cargaID = ps.executeQuery();
 			cargaID.next();
 			cerrarConexion();
@@ -112,7 +112,7 @@ public class MCliente {
 		try {
 			establecerConexion();
 			ps = Conexion.prepareStatement(
-					"INSERT INTO luftgun.cliente(idcliente, nombre, apellido, email, contrasena, estado, calle, localidad, provincia, cp, pais, tel) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
+					"INSERT INTO urbancity.cliente(idcliente, nombre, apellido, email, contrasena, estado, calle, localidad, provincia, cp, pais, tel) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
 			ps.setInt(1, pIdcliente);
 			ps.setString(2, pnombre);
 			ps.setString(3, pApellido);
@@ -137,7 +137,7 @@ public class MCliente {
 
 		try {
 			establecerConexion();
-			ps = Conexion.prepareStatement("UPDATE luftgun.cliente SET estado=?	WHERE idcliente =?");
+			ps = Conexion.prepareStatement("UPDATE urbancity.cliente SET estado=?	WHERE idcliente =?");
 			ps.setString(1, pEstado);
 			ps.setInt(2, pIdcliente);
 			ps.execute();
@@ -150,7 +150,7 @@ public class MCliente {
 	public void EliminarCuenta(int pIdcuenta) {
 		try {
 			establecerConexion();
-			ps = Conexion.prepareStatement("DELETE FROM luftgun.cliente WHERE idcliente = ?;");
+			ps = Conexion.prepareStatement("DELETE FROM urbancity.cliente WHERE idcliente = ?;");
 			ps.setInt(1, pIdcuenta);
 			ps.execute();
 			cerrarConexion();
@@ -163,7 +163,7 @@ public class MCliente {
 	public void actualizarDatos(String pNombre, String pApellido, String pEmail, String pContrasena, String pCalle, String pLocalidad, String pProvincia, String pCp, String pPais, String pTel, int pIdcliente) {
 		try {
 			establecerConexion();
-			ps = Conexion.prepareStatement("UPDATE luftgun.cliente SET nombre=?, apellido=?, email=?, contrasena=?, calle=?, localidad=?, provincia=?, cp=?, pais=?, tel=? WHERE idcliente = ?;");
+			ps = Conexion.prepareStatement("UPDATE urbancity.cliente SET nombre=?, apellido=?, email=?, contrasena=?, calle=?, localidad=?, provincia=?, cp=?, pais=?, tel=? WHERE idcliente = ?;");
 			ps.setInt(1, pIdcliente);
 			ps.setString(1, pNombre);
 			ps.setString(2, pApellido);

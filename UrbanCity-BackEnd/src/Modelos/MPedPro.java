@@ -43,7 +43,7 @@ public class MPedPro {
 		try {
 			establecerConexion();
 
-			ps = Conexion.prepareStatement("INSERT INTO luftgun.pedpro(idpedido, idreferencia)VALUES (?, ?)");
+			ps = Conexion.prepareStatement("INSERT INTO urbancity.pedpro(idpedido, idreferencia)VALUES (?, ?)");
 			ps.setInt(1, pIdPedido);
 			ps.setString(2, pIdreferencia);
 			ps.execute();
@@ -59,7 +59,7 @@ public class MPedPro {
 
 		try {
 			establecerConexion();
-			ps = Conexion.prepareStatement("DELETE FROM luftgun.pedpro WHERE idpedido = ?");
+			ps = Conexion.prepareStatement("DELETE FROM urbancity.pedpro WHERE idpedido = ?");
 			ps.setInt(1, idpedido);
 			ps.execute();
 			cerrarConexion();
@@ -71,7 +71,7 @@ public class MPedPro {
 	public void consultarProductosPorPedido(int idpedido) {
 		try {
 			establecerConexion();
-			ps = Conexion.prepareStatement("SELECT * FROM luftgun.pedpro WHERE idpedido = ?");
+			ps = Conexion.prepareStatement("SELECT * FROM urbancity.pedpro WHERE idpedido = ?");
 			ps.setInt(1, idpedido);
 			cargaPedidoProductos = ps.executeQuery();
 			cerrarConexion();
@@ -84,7 +84,7 @@ public class MPedPro {
 	public void consultarCantidadProductosPorPedido(int idpedido) {
 		try {
 			establecerConexion();
-			ps = Conexion.prepareStatement("SELECT COUNT(idreferencia) FROM luftgun.pedpro WHERE idpedido = ?");
+			ps = Conexion.prepareStatement("SELECT COUNT(idreferencia) FROM urbancity.pedpro WHERE idpedido = ?");
 			ps.setInt(1, idpedido);
 			cargaCantidad = ps.executeQuery();
 			cargaCantidad.next();

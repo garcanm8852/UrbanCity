@@ -184,7 +184,7 @@
 									out.print("<h5 class='card-title'>" + listaProductosCarrito[j].getNombre() + "</h5>");
 									out.print("</div>");
 									out.print("<div class='col-md-2'>");
-									out.print("<h6 class='card-subtitle mb-2 text-muted'>" + listaProductosCarrito[j].getMarca()
+									out.print("<h6 class='card-subtitle mb-2 text-muted'>" + listaProductosCarrito[j].getTalla()
 											+ "</h6>");
 									out.print("</div>");
 									out.print("<div class='col-md-2'>");

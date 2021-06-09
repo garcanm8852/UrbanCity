@@ -105,7 +105,7 @@ public class Buscar extends HttpServlet {
 					try {
 						do {
 							listaProductos[contadorProductos] = new Cproducto(mProducto.getIdreferencia(),
-									mProducto.getNombre(), mProducto.getMarca(), mProducto.getDescripcion(),
+									mProducto.getNombre(), mProducto.getTalla(), mProducto.getDescripcion(),
 									mProducto.getPrecio(), mProducto.getStock(), mProducto.getSubcategoria());
 							contadorProductos++;
 						} while (mProducto.consultarSiguiente());
@@ -138,7 +138,7 @@ public class Buscar extends HttpServlet {
 					try {
 						do {
 							listaProductos[contadorProductos] = new Cproducto(mProducto.getIdreferencia(),
-									mProducto.getNombre(), mProducto.getMarca(), mProducto.getDescripcion(),
+									mProducto.getNombre(), mProducto.getTalla(), mProducto.getDescripcion(),
 									mProducto.getPrecio(), mProducto.getStock(), mProducto.getSubcategoria());
 							contadorProductos++;
 						} while (mProducto.consultarSiguiente());

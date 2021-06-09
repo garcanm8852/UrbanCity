@@ -132,7 +132,7 @@
 					for (int j = 0; j < listaProductos.length; j++) {
 						idreferencia = listaProductos[j].getIdreferencia();
 						nombre = listaProductos[j].getNombre();
-						marca = listaProductos[j].getMarca();
+						marca = listaProductos[j].getTalla();
 						precio = listaProductos[j].getPrecio().toString();
 			%>
 			<producto:Cabecera />
