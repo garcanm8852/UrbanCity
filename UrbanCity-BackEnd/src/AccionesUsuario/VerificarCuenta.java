@@ -17,13 +17,14 @@ import Utilidades.EnvioCorreo;
 @WebServlet("/VerificarCuenta")
 public class VerificarCuenta extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	EnvioCorreo OutMail = new EnvioCorreo();
 	HttpSession sesion;
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		EnvioCorreo OutMail = new EnvioCorreo();
+
 		response.setCharacterEncoding("UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		sesion = request.getSession();
@@ -32,7 +33,7 @@ public class VerificarCuenta extends HttpServlet {
 			            "6T482g8#W$7@9H@kt$#S",
 			           (String) sesion.getAttribute("vEmail") ,
 			           (String) sesion.getAttribute("vNombre") + " C�digo de validaci�n LuftGun",
-			          "Su c�digo de validaci�n de registro de LuftGun es: " + (int) sesion.getAttribute("Validacion"));
+			          "Su c�digo de validaci�n de registro de UrbanCity es: " + (int) sesion.getAttribute("Validacion"));
 
 			} catch (Exception e) {
 			    e.printStackTrace();
@@ -53,14 +54,8 @@ public class VerificarCuenta extends HttpServlet {
 		    	request.getParameter("fNombre"),
 				request.getParameter("fApellido"),
 				request.getParameter("fEmail"),
-				request.getParameter("fContrasena"),
-				request.getParameter("fCalle"),
-				request.getParameter("fLocalidad"),
-				request.getParameter("fProvincia"),
-				request.getParameter("fCp"),
-				request.getParameter("fPais"),
-				request.getParameter("fTel"));
-		    request.getRequestDispatcher("Catalogo").forward(request, response);
+				request.getParameter("fContrasena"));
+		    response.sendRedirect("Index");
 
 		}else {
 			doGet(request, response);

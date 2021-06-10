@@ -20,54 +20,82 @@
 	crossorigin="anonymous">
 <title>Urban City - Políticas de Cookies</title>
 </head>
-<nav class="navbar  navbar-dark bg-Urban-1 text-white">
-	<div class="w-25">
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarSupportedContent"
-			aria-controls="navbarSupportedContent" aria-expanded="false"
-			aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-	</div>
+	<!-- Nav Bar -->
+	<nav class="navbar  navbar-dark bg-Urban-1 text-white">
+		<div class="w-25">
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+		</div>
 
 
 
-	<a class="navbar-brand" href="#"> <img src="" width="30px"
-		height="30px" class="img-center d-block" alt="">
-	</a>
-	<div class="w-25">
-		<form class="form-inline w-100" method="post" action="Buscar">
-			<input class="form-control w-75 no-border-radius" type="search"
-				placeholder="Buscar" name="termino">
-			<button
-				class="no-border-radius btn bg-Urban-2 text-center text-white w-25"
-				type="submit">Buscar</button>
-		</form>
+		<a class="navbar-brand " href="#"> <img class="not-responsive"
+			src="" width="30px" height="30px" class="img-center d-block" alt="">
+		</a>
+		<div class="w-25 not-responsive">
+			<form class="form-inline w-100" method="post" action="Buscar">
+				<input class="form-control w-75 no-border-radius" type="search"
+					placeholder="Buscar" name="termino">
+				<button
+					class="no-border-radius btn bg-Urban-2 text-center text-white w-25"
+					type="submit">Buscar</button>
+			</form>
 
-	</div>
-	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-		<ul class="navbar-nav mr-auto">
-			<li class="nav-item active"><a class="nav-link" href="Index">Incio</a>
-			</li>
-			<li class="nav-item"><a class="nav-link" href="Catalogo">Catálogo</a></li>
+		</div>
 
-			<%
-				if ((boolean) session.getAttribute("Iniciado")) {
-			%>
-			<navegacion:Iniciado nombre="<%=NombreUsuario%>" />
-			<%
-				} else {
-			%>
-			<navegacion:noIniciado />
+		<div class="w-75 none-slider">
+			<form class="form-inline w-100" method="post" action="Buscar">
+				<input class="form-control w-75 no-border-radius" type="search"
+					placeholder="Buscar" name="termino">
+				<button
+					class="no-border-radius btn bg-Urban-2 text-center text-white w-25"
+					type="submit">Buscar</button>
+			</form>
 
-			<%
-				}
-			%>
-		</ul>
+		</div>
 
 
-	</div>
-</nav>
+
+
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="nav-link" href="Index">Incio</a>
+				</li>
+				<li class="nav-item"><a class="nav-link" href="Catalogo">Catálogo</a></li>
+
+				<li class="nav-item"><a class="nav-link" href="Carrito">Carrito</a></li>
+
+				<div class="dropdown-divider"></div>
+
+				<%
+					if ((boolean) session.getAttribute("Iniciado")) {
+				%>
+				<navegacion:Iniciado nombre="<%=NombreUsuario%>" />
+				<%
+					} else {
+				%>
+				<navegacion:noIniciado />
+
+				<%
+					}
+				%>
+				<div class="dropdown-divider"></div>
+
+				<li class="nav-item"><a class="nav-link" href="AvisoLegal">Aviso
+						Legal</a></li>
+				<li class="nav-item"><a class="nav-link" href="PoliticasCookie">Políticas
+						de Cookies</a></li>
+
+			</ul>
+
+
+		</div>
+	</nav>
 
 
 

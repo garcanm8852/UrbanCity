@@ -28,10 +28,11 @@ public class Producto extends HttpServlet {
 			throws ServletException, IOException {
 		MProducto mProducto = new MProducto();
 		String idreferencia;
-		Cproducto productoSolicitado;
+		Cproducto productoSolicitado, productosSimilares[];
 		int ContadorCategorias;
 		CCategoria[] categorias;
 		int numeroCategorias=1;
+		int contadorProductos = 0;
 		MCategoria mCategoria = new MCategoria();
 
 		response.setCharacterEncoding("UTF-8");
@@ -68,6 +69,21 @@ public class Producto extends HttpServlet {
 					mProducto.getDescripcion(), mProducto.getPrecio(), mProducto.getStock(), mProducto.getCategoria(),
 					mProducto.getSubcategoria(), mProducto.getNombreCategoria(), mProducto.getNombreSubcategoria());
 			sesion.setAttribute("Producto", productoSolicitado);
+			
+			mProducto.cargarProductosPorSimilares(mProducto.getSubcategoria());
+			productosSimilares  = new Cproducto[4];
+			do {
+				productosSimilares[contadorProductos] = new Cproducto(mProducto.getIdreferencia(),
+						mProducto.getNombre(), mProducto.getTalla(), mProducto.getDescripcion(),
+						mProducto.getPrecio(), mProducto.getStock(), mProducto.getCategoria(),
+						mProducto.getSubcategoria(), mProducto.getNombreCategoria(),
+						mProducto.getNombreSubcategoria());
+				;
+				contadorProductos++;
+			} while (mProducto.consultarSiguiente());			
+			sesion.setAttribute("ProductosSimilares", productosSimilares);
+
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

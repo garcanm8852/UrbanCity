@@ -10,8 +10,10 @@
 
 <%
 	String NombreUsuario = (String) session.getAttribute("NombreUsuario");
-	CCategoria[] categorias = (CCategoria[]) session.getAttribute("Categorias");
-
+	Cproducto[] listaProductos = (Cproducto[]) session.getAttribute("ProductosSimilares");
+	String idreferencia;
+	String nombre;
+	String precio;
 	Cproducto producto = (Cproducto) session.getAttribute("Producto");
 %>
 
@@ -46,10 +48,10 @@
 
 
 
-		<a class="navbar-brand" href="#"> <img src="" width="30px"
-			height="30px" class="img-center d-block" alt="">
+		<a class="navbar-brand " href="#"> <img class="not-responsive"
+			src="" width="30px" height="30px" class="img-center d-block" alt="">
 		</a>
-		<div class="w-25">
+		<div class="w-25 not-responsive">
 			<form class="form-inline w-100" method="post" action="Buscar">
 				<input class="form-control w-75 no-border-radius" type="search"
 					placeholder="Buscar" name="termino">
@@ -60,18 +62,48 @@
 
 		</div>
 
+		<div class="w-75 none-slider">
+			<form class="form-inline w-100" method="post" action="Buscar">
+				<input class="form-control w-75 no-border-radius" type="search"
+					placeholder="Buscar" name="termino">
+				<button
+					class="no-border-radius btn bg-Urban-2 text-center text-white w-25"
+					type="submit">Buscar</button>
+			</form>
+
+		</div>
+
+
+
+
+
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active"><a class="nav-link" href="Index">Incio</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="Catalogo">Catálogo</a></li>
-				<%
-					for (int i = 0; i < categorias.length; i++) {
-						out.print("<li class='nav-item '><a class='nav-link ' href='Catalogo?idcategoria="
-								+ categorias[i].getIdcategoria() + "' tabindex='-1 ' aria-disabled='true '>"
-								+ categorias[i].getNombre() + "</a></li>");
-					}
-				%>
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> Categorias </a>
+					<div
+						class="dropdown-menu animate__fadeInLeft animate__animated  animate__faster"
+						aria-labelledby="navbarDropdown">
+
+
+						<%
+							CCategoria[] categorias = (CCategoria[]) session.getAttribute("Categorias");
+							for (int i = 0; i < categorias.length; i++) {
+
+								out.print("<a class='dropdown-item' href='Catalogo?idcategoria=" + categorias[i].getIdcategoria() + "'>"
+										+ categorias[i].getNombre() + "</a>");
+							}
+						%>
+					</div></li>
+				<li class="nav-item"><a class="nav-link" href="Carrito">Carrito</a></li>
+
+				<div class="dropdown-divider"></div>
+
 				<%
 					if ((boolean) session.getAttribute("Iniciado")) {
 				%>
@@ -84,12 +116,18 @@
 				<%
 					}
 				%>
+				<div class="dropdown-divider"></div>
+
+				<li class="nav-item"><a class="nav-link" href="AvisoLegal">Aviso
+						Legal</a></li>
+				<li class="nav-item"><a class="nav-link" href="PoliticasCookie">Políticas
+						de Cookies</a></li>
+
 			</ul>
 
 
 		</div>
 	</nav>
-
 
 	<!-- Breadcrumbs -->
 	<section class="container mt-5">
@@ -123,12 +161,6 @@
 				style="max-height: 230px; overflow: hidden;">
 				<img
 					src="/UrbanCity/DecodificarImagen?idreferencia=<%=producto.getIdreferencia()%>"
-					alt="" class="block img-center w-50"> <img
-					src="/UrbanCity/DecodificarImagen?idreferencia=<%=producto.getIdreferencia()%>"
-					alt="" class="block img-center w-50"> <img
-					src="/UrbanCity/DecodificarImagen?idreferencia=<%=producto.getIdreferencia()%>"
-					alt="" class="block img-center w-50"> <img
-					src="/UrbanCity/DecodificarImagen?idreferencia=<%=producto.getIdreferencia()%>"
 					alt="" class="block img-center w-50">
 			</div>
 			<div class="col-md-5 responsive-mt-5">
@@ -160,9 +192,9 @@
 						<div class="col text-center"><%=producto.getIdreferencia()%></div>
 					</div>
 					<div class="row mt-4 text-center">
-						<div class="col"><%=producto.getDescripcion()%></div>
+						<div class="col"><%=producto.getDescripcion().substring(0, 60)%>... <a href="#pills-tabContent ">Leer más</a></div>
 					</div>
-					<producto:Selector talla="<%=producto.getTalla() %>" />
+					<producto:Selector talla="<%=producto.getTalla()%>" />
 
 					<div class="row mt-4 ">
 						<div class="col-12 no-padding">
@@ -198,7 +230,9 @@
 						<%=producto.getDescripcion()%>
 					</div>
 					<div class="tab-pane fade p-5" id="pills-profile" role="tabpanel"
-						aria-labelledby="pills-profile-tab">GUIA DE TALLAS TAG</div>
+						aria-labelledby="pills-profile-tab">
+						<producto:GuiaTalla talla="<%=producto.getTalla()%>" />
+					</div>
 				</div>
 			</div>
 		</section>
@@ -217,19 +251,32 @@
 		<!-- Fila Productos -->
 		<section
 			class="row mt-5  animate__animated animate__fadeInUp animate__slower">
-			<!-- Producto -->
-
-			<!-- TODO FOR CON PRODUCTOS -->
+			<%
+				try {
+					listaProductos = (Cproducto[]) session.getAttribute("ProductosSimilares");
+					for (int j = 0; j < listaProductos.length; j++) {
+						idreferencia = listaProductos[j].getIdreferencia();
+						nombre = listaProductos[j].getNombre();
+						precio = listaProductos[j].getPrecio().toString();
+			%>
 			<producto:Cabecera />
-			<producto:Imagen idreferencia="<%=producto.getIdreferencia()%>" />
+			<producto:Imagen idreferencia="<%=idreferencia%>" />
 			<producto:CuerpoApertura />
-			<producto:Nombre nombre="<%=producto.getNombre()%>" />
+			<producto:Nombre nombre="<%=nombre%>" />
 			<producto:InfoApertura />
-			<producto:Precio precio="<%=producto.getPrecio().toString()%>" />
-			<producto:Boton idreferencia="<%=producto.getIdreferencia()%>" />
+			<producto:Precio precio="<%=precio%>" />
+			<producto:Boton idreferencia="<%=idreferencia%>" />
 			<producto:InfoCierre />
 			<producto:CuerpoCierre />
 			<producto:Footer />
+
+			<%
+				}
+				} catch (Exception e) {
+					// Throw e;
+
+				}
+			%>
 		</section>
 	</section>
 

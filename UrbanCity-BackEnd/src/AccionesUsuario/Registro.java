@@ -85,12 +85,6 @@ public class Registro extends HttpServlet {
 			sesion.setAttribute("vApellido", request.getParameter("fApellido"));
 			sesion.setAttribute("vEmail", request.getParameter("fEmail"));
 			sesion.setAttribute("vContrasena", request.getParameter("fContrasena"));
-			sesion.setAttribute("vCalle", request.getParameter("fCalle"));
-			sesion.setAttribute("vLocalidad", request.getParameter("fLocalidad"));
-			sesion.setAttribute("vProvincia", request.getParameter("fProvincia"));
-			sesion.setAttribute("vCp", request.getParameter("fCp"));
-			sesion.setAttribute("vPais", request.getParameter("fPais"));
-			sesion.setAttribute("vTel", request.getParameter("fTel"));
 			response.sendRedirect("VerificarCuenta");
 		} else {
 			request.getRequestDispatcher("WEB-INF/registro.jsp").forward(request, response);

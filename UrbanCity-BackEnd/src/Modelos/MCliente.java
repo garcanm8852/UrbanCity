@@ -108,23 +108,17 @@ public class MCliente {
 		return ultimoID;
 	}
 
-	public void insertarCliente(int pIdcliente, String pnombre, String pApellido, String pEmail, String pContrasena, String pCalle, String pLocalidad, String pProvincia, String pCp, String pais, String pTel) {
+	public void insertarCliente(int pIdcliente, String pnombre, String pApellido, String pEmail, String pContrasena) {
 		try {
 			establecerConexion();
 			ps = Conexion.prepareStatement(
-					"INSERT INTO urbancity.cliente(idcliente, nombre, apellido, email, contrasena, estado, calle, localidad, provincia, cp, pais, tel) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
+					"INSERT INTO urbancity.cliente(idcliente, nombre, apellido, email, contrasena, estado) VALUES (?, ?, ?, ?, ?, ?);");
 			ps.setInt(1, pIdcliente);
 			ps.setString(2, pnombre);
 			ps.setString(3, pApellido);
 			ps.setString(4, pEmail);
 			ps.setString(5, pContrasena);
 			ps.setString(6, "No Operativo");
-			ps.setString(7, pCalle);
-			ps.setString(8, pLocalidad);
-			ps.setString(9, pProvincia);
-			ps.setString(10, pCp);
-			ps.setString(11, pProvincia);
-			ps.setString(12, pTel);
 			ps.execute();
 			cerrarConexion();
 
@@ -160,22 +154,15 @@ public class MCliente {
 		
 	}
 	
-	public void actualizarDatos(String pNombre, String pApellido, String pEmail, String pContrasena, String pCalle, String pLocalidad, String pProvincia, String pCp, String pPais, String pTel, int pIdcliente) {
+	public void actualizarDatos(String pNombre, String pApellido, String pEmail, String pContrasena, int pIdcliente) {
 		try {
 			establecerConexion();
-			ps = Conexion.prepareStatement("UPDATE urbancity.cliente SET nombre=?, apellido=?, email=?, contrasena=?, calle=?, localidad=?, provincia=?, cp=?, pais=?, tel=? WHERE idcliente = ?;");
-			ps.setInt(1, pIdcliente);
+			ps = Conexion.prepareStatement("UPDATE urbancity.cliente SET nombre=?, apellido=?, email=?, contrasena=? WHERE idcliente = ?;");
 			ps.setString(1, pNombre);
 			ps.setString(2, pApellido);
 			ps.setString(3, pEmail);
 			ps.setString(4, pContrasena);
-			ps.setString(5, pCalle);
-			ps.setString(6, pLocalidad);
-			ps.setString(7, pProvincia);
-			ps.setString(8, pCp);
-			ps.setString(9, pProvincia);
-			ps.setString(10, pTel);
-			ps.setInt(11, pIdcliente);
+			ps.setInt(5, pIdcliente);
 			ps.execute();
 			cerrarConexion();
 		} catch (Exception e) {

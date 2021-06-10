@@ -39,23 +39,45 @@
 
 
 
-		<a class="navbar-brand" href="#"> <img src="" width="30px"
-			height="30px" class="img-center d-block" alt="">
+		<a class="navbar-brand " href="#"> <img class="not-responsive"
+			src="" width="30px" height="30px" class="img-center d-block" alt="">
 		</a>
-		<div class="w-25">
+		<div class="w-25 not-responsive">
 			<form class="form-inline w-100" method="post" action="Buscar">
 				<input class="form-control w-75 no-border-radius" type="search"
 					placeholder="Buscar" name="termino">
-				<button class="no-border-radius btn bg-Urban-2 text-center text-white w-25" type="submit">Buscar</button>
+				<button
+					class="no-border-radius btn bg-Urban-2 text-center text-white w-25"
+					type="submit">Buscar</button>
 			</form>
 
 		</div>
+
+		<div class="w-75 none-slider">
+			<form class="form-inline w-100" method="post" action="Buscar">
+				<input class="form-control w-75 no-border-radius" type="search"
+					placeholder="Buscar" name="termino">
+				<button
+					class="no-border-radius btn bg-Urban-2 text-center text-white w-25"
+					type="submit">Buscar</button>
+			</form>
+
+		</div>
+
+
+
+
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active"><a class="nav-link" href="Index">Incio</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="Catalogo">Catálogo</a></li>
+
+				<li class="nav-item"><a class="nav-link" href="Carrito">Carrito</a></li>
+
+				<div class="dropdown-divider"></div>
+
 				<%
 					if ((boolean) session.getAttribute("Iniciado")) {
 				%>
@@ -68,12 +90,18 @@
 				<%
 					}
 				%>
+				<div class="dropdown-divider"></div>
+
+				<li class="nav-item"><a class="nav-link" href="AvisoLegal">Aviso
+						Legal</a></li>
+				<li class="nav-item"><a class="nav-link" href="PoliticasCookie">Políticas
+						de Cookies</a></li>
+
 			</ul>
 
 
 		</div>
 	</nav>
-
     <!-- Banner -->
     <div class="container-fluid animate__animated animate__fadeIn">
         <div class="row header-banner pucharse-made">

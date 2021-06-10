@@ -50,31 +50,62 @@
 
 
 
-		<a class="navbar-brand" href="#"> <img src="" width="30px"
-			height="30px" class="img-center d-block" alt="">
+		<a class="navbar-brand " href="#"> <img class="not-responsive"
+			src="" width="30px" height="30px" class="img-center d-block" alt="">
 		</a>
-		<div class="w-25">
+		<div class="w-25 not-responsive">
 			<form class="form-inline w-100" method="post" action="Buscar">
 				<input class="form-control w-75 no-border-radius" type="search"
 					placeholder="Buscar" name="termino">
-				<button class="no-border-radius btn bg-Urban-2 text-center text-white w-25" type="submit">Buscar</button>
+				<button
+					class="no-border-radius btn bg-Urban-2 text-center text-white w-25"
+					type="submit">Buscar</button>
 			</form>
 
 		</div>
+
+		<div class="w-75 none-slider">
+			<form class="form-inline w-100" method="post" action="Buscar">
+				<input class="form-control w-75 no-border-radius" type="search"
+					placeholder="Buscar" name="termino">
+				<button
+					class="no-border-radius btn bg-Urban-2 text-center text-white w-25"
+					type="submit">Buscar</button>
+			</form>
+
+		</div>
+
+
+
+
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active"><a class="nav-link" href="Index">Incio</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="Catalogo">Catálogo</a></li>
-				<%
-					CCategoria[] categorias = (CCategoria[]) session.getAttribute("Categorias");
-					for (int i = 0; i < categorias.length; i++) {
-						out.print("<li class='nav-item '><a class='nav-link ' href='Catalogo?idcategoria="
-								+ categorias[i].getIdcategoria() + "' tabindex='-1 ' aria-disabled='true '>"
-								+ categorias[i].getNombre() + "</a></li>");
-					}
-				%>
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> Categorias </a>
+					<div
+						class="dropdown-menu animate__fadeInLeft animate__animated  animate__faster"
+						aria-labelledby="navbarDropdown">
+
+
+						<%
+							CCategoria[] categorias = (CCategoria[]) session.getAttribute("Categorias");
+							for (int i = 0; i < categorias.length; i++) {
+
+								out.print("<a class='dropdown-item' href='Catalogo?idcategoria=" + categorias[i].getIdcategoria() + "'>"
+										+ categorias[i].getNombre() + "</a>");
+							}
+						%>
+					</div></li>
+				<li class="nav-item"><a class="nav-link" href="Carrito">Carrito</a></li>
+
+				<div class="dropdown-divider"></div>
+
 				<%
 					if ((boolean) session.getAttribute("Iniciado")) {
 				%>
@@ -87,6 +118,13 @@
 				<%
 					}
 				%>
+				<div class="dropdown-divider"></div>
+
+				<li class="nav-item"><a class="nav-link" href="AvisoLegal">Aviso
+						Legal</a></li>
+				<li class="nav-item"><a class="nav-link" href="PoliticasCookie">Políticas
+						de Cookies</a></li>
+
 			</ul>
 
 
@@ -123,29 +161,27 @@
 		<section class="row">
 			<section class="col-md-12">
 
-				<div class="accordion" id="accordionFather">
 
-					<%
-						listaPedidos = (CPedido[]) request.getAttribute("listaPedidos");
-
+				<%
+					listaPedidos = (CPedido[]) request.getAttribute("listaPedidos");
+					if (listaPedidos != null) {
 						for (int j = 0; j < listaPedidos.length; j++) {
-					%>
+				%>
+				<div class="accordion mt-5" id="accordionFather">
+
 					<div class="card">
-						<div class="card-header" id="<%=listaPedidos[j].getIdpedido()%>">
+						<div class="card-header" id="">
 							<h2 class="mb-0">
 								<button class="btn btn-link btn-block text-center" type="button"
-									data-toggle="collapse"
-									data-target="#<%=listaPedidos[j].getIdpedido()%>target"
-									aria-expanded="true" aria-controls="collapseOne">
+									data-toggle="collapse" data-target="" aria-expanded="true"
+									aria-controls="collapseOne">
 									<!--FECHA DEL PEDIDO O ID DEL PEDIDO-->
 									Pedido:
 									<%=listaPedidos[j].getIdpedido()%>
 								</button>
 							</h2>
 						</div>
-						<div id="<%=listaPedidos[j].getIdpedido()%>target"
-							class="collapse show"
-							aria-labelledby="<%=listaPedidos[j].getIdpedido()%>"
+						<div id="" class="collapse show" aria-labelledby=""
 							data-parent="#accordionFather">
 							<div class="card-body">
 								<!--PRINCIPIO BUCLE-->
@@ -156,12 +192,11 @@
 
 										<%
 											listaProductos = listaPedidos[j].getListaProductosPedido();
-												for (int k = 0; k < listaProductos.length; k++) {
-													idreferencia = listaProductos[k].getIdreferencia();
-													nombre = listaProductos[k].getNombre();
-													precio = listaProductos[k].getPrecio().toString();
+													for (int k = 0; k < listaProductos.length; k++) {
+														idreferencia = listaProductos[k].getIdreferencia();
+														nombre = listaProductos[k].getNombre();
+														precio = listaProductos[k].getPrecio().toString();
 										%>
-
 										<producto:Cabecera />
 										<producto:Imagen idreferencia="<%=idreferencia%>" />
 										<producto:CuerpoApertura />
@@ -176,21 +211,21 @@
 										<%
 											}
 										%>
+
+
 									</div>
-
-
 
 									<!--FIN BUCLE-->
 
 									<div class="row">
-									
+
 										<div class="col-md-12 pl-5 pr-5 mt-5 pb-5">
 											<form>
 												<h2>Datos de envio</h2>
 												<div class="form-froup mt-3">
 													<label for="fNombre">Nombre Completo:</label> <input
-														type="text" class="form-control" name="fNombre" value="<%=listaPedidos[j].getNombre()%>"
-														disabled>
+														type="text" class="form-control" name="fNombre"
+														value="<%=listaPedidos[j].getNombre()%>" disabled>
 												</div>
 
 												<div class="form-froup mt-3">
@@ -234,11 +269,24 @@
 						</div>
 
 					</div>
-
-					<%
-						}
-					%>
 				</div>
+
+				<%
+					}
+					} else {
+				%>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<h3 class="text-center">!Ups! Parece que no tienes pedidos.
+								Por favor realiza un pedido para visualizarlos en esta sección.</h3>
+						</div>
+					</div>
+				</div>
+				<%
+					}
+				%>
+
 			</section>
 		</section>
 	</section>

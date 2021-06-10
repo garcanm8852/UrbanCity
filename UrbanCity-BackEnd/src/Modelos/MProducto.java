@@ -191,6 +191,19 @@ public class MProducto {
 		}
 	}
 	
+	public void cargarProductosPorSimilares(int idSubcategoria) {
+		try {
+			establecerConexion();
+			ps = Conexion.prepareStatement("SELECT * FROM urbancity.DatosProductoSubcategoria(?) OFFSET 0 LIMIT 4;");
+			ps.setInt(1, idSubcategoria);
+			cargaProductos = ps.executeQuery();
+			cargaProductos.next();
+			cerrarConexion();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+	
 	public byte[] cargarImagenProducto(String pidreferencia) {
 		src = null;
 		srcProducto = null;

@@ -32,7 +32,7 @@ public class PrimerInicioSesion extends HttpServlet {
 		try {
 			OutMail.enviar("urbancitynoreply@gmail.com", "6T482g8#W$7@9H@kt$#S", (String) sesion.getAttribute("email"),
 					(String) sesion.getAttribute("NombreUsuario ") + " Código de validación LuftGun",
-					"Su código de validación de registro de LuftGun es: " + (int) sesion.getAttribute("PrimerInicio"));
+					"Su código de validación de registro de Urban City es: " + (int) sesion.getAttribute("PrimerInicio"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

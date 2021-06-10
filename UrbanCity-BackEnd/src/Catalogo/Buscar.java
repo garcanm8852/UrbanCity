@@ -103,12 +103,16 @@ public class Buscar extends HttpServlet {
 					mProducto.buscarProductosPaginadosModular(request.getAttribute("busqueda").toString(), 0, 12);
 					contadorProductos = 0;
 					try {
-						do {
-							listaProductos[contadorProductos] = new Cproducto(mProducto.getIdreferencia(),
-									mProducto.getNombre(), mProducto.getTalla(), mProducto.getDescripcion(),
-									mProducto.getPrecio(), mProducto.getStock(), mProducto.getSubcategoria());
-							contadorProductos++;
-						} while (mProducto.consultarSiguiente());
+						if (mProducto.consultarSiguiente()) {
+							do {
+								listaProductos[contadorProductos] = new Cproducto(mProducto.getIdreferencia(),
+										mProducto.getNombre(), mProducto.getTalla(), mProducto.getDescripcion(),
+										mProducto.getPrecio(), mProducto.getStock(), mProducto.getSubcategoria());
+								contadorProductos++;
+							} while (mProducto.consultarSiguiente());
+						} else {
+							listaProductos = null;
+						}
 
 						if (contadorProductos % 12 == 0) {
 							numeroPaginas = contadorProductos / 12;
@@ -136,12 +140,20 @@ public class Buscar extends HttpServlet {
 					mProducto.cargarProductosPaginadosModular(Integer.parseInt(request.getParameter("Pagina")), 12);
 					contadorProductos = 0;
 					try {
-						do {
-							listaProductos[contadorProductos] = new Cproducto(mProducto.getIdreferencia(),
-									mProducto.getNombre(), mProducto.getTalla(), mProducto.getDescripcion(),
-									mProducto.getPrecio(), mProducto.getStock(), mProducto.getSubcategoria());
-							contadorProductos++;
-						} while (mProducto.consultarSiguiente());
+						if (mProducto.consultarSiguiente()) {
+
+							do {
+								listaProductos[contadorProductos] = new Cproducto(mProducto.getIdreferencia(),
+										mProducto.getNombre(), mProducto.getTalla(), mProducto.getDescripcion(),
+										mProducto.getPrecio(), mProducto.getStock(), mProducto.getSubcategoria());
+								contadorProductos++;
+							} while (mProducto.consultarSiguiente());
+						}
+
+						else {
+							listaProductos = null;
+
+						}
 						if (contadorProductos % 12 == 0) {
 							numeroPaginas = contadorProductos / 12;
 						} else {

@@ -27,22 +27,23 @@ public class ModificarCuenta extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		sesion = request.getSession();
-		if ((boolean) sesion.getAttribute("Iniciado")) {
+		if (sesion.getAttribute("Iniciado") == null || (boolean) sesion.getAttribute("Iniciado") == false) {
+			sesion.setAttribute("Iniciado", false);
+			response.sendRedirect("IniciarSesion");
+
+		} else {
+
 			MCliente mCliente = new MCliente();
 			try {
 				mCliente.cargarCliente((int) sesion.getAttribute("idcliente"));
 				cliente clienteModificar = new cliente(mCliente.getIdcliente(), mCliente.getNombre(),
-						mCliente.getApellido(), mCliente.getEmail(), mCliente.getContrasena(), mCliente.getCalle(),
-						mCliente.getLocalidad(), mCliente.getProvincia(), mCliente.getCp(), mCliente.getPais(),
-						mCliente.getTel());
+						mCliente.getApellido(), mCliente.getEmail(), mCliente.getContrasena());
 				sesion.setAttribute("DatosCliente", clienteModificar);
 				request.getRequestDispatcher("WEB-INF/modificarPerfil.jsp").forward(request, response);
 			} catch (Exception e) {
 				// TODO: handle exception
 				e.printStackTrace();
 			}
-		} else {
-			response.sendRedirect("IniciarSesion");
 		}
 
 	}
@@ -60,9 +61,7 @@ public class ModificarCuenta extends HttpServlet {
 		try {
 			MCliente mCliente = new MCliente();
 			mCliente.actualizarDatos(request.getParameter("fNombre"), request.getParameter("fApellido"),
-					request.getParameter("fEmail"), request.getParameter("fContrasena"), request.getParameter("fCalle"),
-					request.getParameter("fLocalidad"), request.getParameter("fProvincia"), request.getParameter("fCp"),
-					request.getParameter("fPais"), request.getParameter("fTel"),
+					request.getParameter("fEmail"), request.getParameter("fContrasena"),
 					(int) sesion.getAttribute("idcliente"));
 			sesion.setAttribute("NombreUsuario", request.getParameter("fNombre"));
 

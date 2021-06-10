@@ -229,6 +229,25 @@ button.btn.btn-link.btn-block.text-center {
     color: white!important;
     font-weight: bold!important;
 }
+.dropdown-menu.show {
+    background-color: #111111;
+    color: white!important;
+    text-align: center!important;
+}
+a.dropdown-item {
+    color: white!important;
+    
+}
+a.dropdown-item:hover {
+    background-color: #111111!important;
+}
+
+div.dropdown-divider {
+    height: 0;
+    margin: .5rem 0;
+    overflow: hidden;
+    border-top: 1px solid #303030!important;
+}
 
 @media ( max-width : 700px) {
 	.product {

@@ -47,31 +47,62 @@
 
 
 
-		<a class="navbar-brand" href="#"> <img src="" width="30px"
-			height="30px" class="img-center d-block" alt="">
+		<a class="navbar-brand " href="#"> <img class="not-responsive"
+			src="" width="30px" height="30px" class="img-center d-block" alt="">
 		</a>
-		<div class="w-25">
+		<div class="w-25 not-responsive">
 			<form class="form-inline w-100" method="post" action="Buscar">
 				<input class="form-control w-75 no-border-radius" type="search"
 					placeholder="Buscar" name="termino">
-				<button class="no-border-radius btn bg-Urban-2 text-center text-white w-25" type="submit">Buscar</button>
+				<button
+					class="no-border-radius btn bg-Urban-2 text-center text-white w-25"
+					type="submit">Buscar</button>
 			</form>
 
 		</div>
+
+		<div class="w-75 none-slider">
+			<form class="form-inline w-100" method="post" action="Buscar">
+				<input class="form-control w-75 no-border-radius" type="search"
+					placeholder="Buscar" name="termino">
+				<button
+					class="no-border-radius btn bg-Urban-2 text-center text-white w-25"
+					type="submit">Buscar</button>
+			</form>
+
+		</div>
+
+
+
+
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active"><a class="nav-link" href="Index">Incio</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="Catalogo">Catálogo</a></li>
-				<%
-					CCategoria[] categorias = (CCategoria[]) session.getAttribute("Categorias");
-					for (int i = 0; i < categorias.length; i++) {
-						out.print("<li class='nav-item '><a class='nav-link ' href='Catalogo?idcategoria="
-								+ categorias[i].getIdcategoria() + "' tabindex='-1 ' aria-disabled='true '>"
-								+ categorias[i].getNombre() + "</a></li>");
-					}
-				%>
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> Categorias </a>
+					<div
+						class="dropdown-menu animate__fadeInLeft animate__animated  animate__faster"
+						aria-labelledby="navbarDropdown">
+
+
+						<%
+							CCategoria[] categorias = (CCategoria[]) session.getAttribute("Categorias");
+							for (int i = 0; i < categorias.length; i++) {
+
+								out.print("<a class='dropdown-item' href='Catalogo?idcategoria=" + categorias[i].getIdcategoria() + "'>"
+										+ categorias[i].getNombre() + "</a>");
+							}
+						%>
+					</div></li>
+				<li class="nav-item"><a class="nav-link" href="Carrito">Carrito</a></li>
+
+				<div class="dropdown-divider"></div>
+
 				<%
 					if ((boolean) session.getAttribute("Iniciado")) {
 				%>
@@ -84,6 +115,13 @@
 				<%
 					}
 				%>
+				<div class="dropdown-divider"></div>
+
+				<li class="nav-item"><a class="nav-link" href="AvisoLegal">Aviso
+						Legal</a></li>
+				<li class="nav-item"><a class="nav-link" href="PoliticasCookie">Políticas
+						de Cookies</a></li>
+
 			</ul>
 
 
@@ -93,7 +131,8 @@
 	<div class="container-fluid  animate__animated animate__fadeIn">
 		<div class="row header-banner process">
 			<div class="col-md-12">
-				<h3 class="text-center text-white center-header-banner">Añadir Producto</h3>
+				<h3 class="text-center text-white center-header-banner">Añadir
+					Producto</h3>
 			</div>
 		</div>
 	</div>
@@ -118,8 +157,9 @@
 	</section>
 
 
-	<form class="container animate__animated animate__fadeIn" method="post" action="CrearProducto" enctype="multipart/form-data">
-		
+	<form class="container animate__animated animate__fadeIn" method="post"
+		action="CrearProducto" enctype="multipart/form-data">
+
 		<section class="row">
 			<div class="col-md-8">
 				<div class="form-group ">
@@ -145,7 +185,8 @@
 			<div class="col-md-4">
 				<div class="form-group">
 					<label for="fsubcategoria">Subcategoría:</label> <select
-						id="fsubcategoria" class="form-control" name="fsubcategoria" required>
+						id="fsubcategoria" class="form-control" name="fsubcategoria"
+						required>
 						<%
 							CCategoria[] subcategorias = (CCategoria[]) session.getAttribute("Subcategorias");
 							for (int i = 0; i < subcategorias.length; i++) {
@@ -214,17 +255,18 @@
 
 
 			</div>
-			
-			</section>
-			
-					<section class="row">
+
+		</section>
+
+		<section class="row">
 			<section class="col-md-12">
 				<div class='w-100'>
-			<button class="btn bg-Urban-1 text-center text-white p-3 w-100" type="submit">Añadir Producto</button>
-			</div>
+					<button class="btn bg-Urban-1 text-center text-white p-3 w-100"
+						type="submit">Añadir Producto</button>
+				</div>
 			</section>
 		</section>
-		</form>
+	</form>
 
 
 	<!-- FOOTER -->

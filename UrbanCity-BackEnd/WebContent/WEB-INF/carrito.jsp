@@ -43,23 +43,45 @@
 
 
 
-		<a class="navbar-brand" href="#"> <img src="" width="30px"
-			height="30px" class="img-center d-block" alt="">
+		<a class="navbar-brand " href="#"> <img class="not-responsive"
+			src="" width="30px" height="30px" class="img-center d-block" alt="">
 		</a>
-		<div class="w-25">
+		<div class="w-25 not-responsive">
 			<form class="form-inline w-100" method="post" action="Buscar">
 				<input class="form-control w-75 no-border-radius" type="search"
 					placeholder="Buscar" name="termino">
-				<button class="no-border-radius btn bg-Urban-2 text-center text-white w-25" type="submit">Buscar</button>
+				<button
+					class="no-border-radius btn bg-Urban-2 text-center text-white w-25"
+					type="submit">Buscar</button>
 			</form>
 
 		</div>
+
+		<div class="w-75 none-slider">
+			<form class="form-inline w-100" method="post" action="Buscar">
+				<input class="form-control w-75 no-border-radius" type="search"
+					placeholder="Buscar" name="termino">
+				<button
+					class="no-border-radius btn bg-Urban-2 text-center text-white w-25"
+					type="submit">Buscar</button>
+			</form>
+
+		</div>
+
+
+
+
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active"><a class="nav-link" href="Index">Incio</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="Catalogo">Catálogo</a></li>
+
+				<li class="nav-item"><a class="nav-link" href="Carrito">Carrito</a></li>
+
+				<div class="dropdown-divider"></div>
+
 				<%
 					if ((boolean) session.getAttribute("Iniciado")) {
 				%>
@@ -72,12 +94,18 @@
 				<%
 					}
 				%>
+				<div class="dropdown-divider"></div>
+
+				<li class="nav-item"><a class="nav-link" href="AvisoLegal">Aviso
+						Legal</a></li>
+				<li class="nav-item"><a class="nav-link" href="PoliticasCookie">Políticas
+						de Cookies</a></li>
+
 			</ul>
 
 
 		</div>
 	</nav>
-
 
 
 	<!-- Banner -->
@@ -89,7 +117,7 @@
 
 
 
-				
+
 			</div>
 		</div>
 	</div>
@@ -132,7 +160,7 @@
 				</a>
 			</div>
 			<div class="col-4 no-padding text-center">
-				<h4>M</h4>
+				<h4><%=listaProductosCarrito[j].getTalla()%></h4>
 			</div>
 			<div class="col-4 no-padding text-center">
 				<h4><%=listaProductosCarrito[j].getPrecio()%>€
@@ -167,7 +195,7 @@
 				</a>
 			</div>
 			<div class="col-4 no-padding text-center">
-				<h4><%=listaProductosCarrito[h].getTalla() %></h4>
+				<h4><%=listaProductosCarrito[h].getTalla()%></h4>
 			</div>
 			<div class="col-4 no-padding text-center">
 				<h4><%=listaProductosCarrito[h].getPrecio()%>€
@@ -206,7 +234,8 @@
 					<h4>Subtotal</h4>
 				</div>
 				<div class="col-6 text-center">
-					<h4><%= precioTotal %>€</h4>
+					<h4><%=precioTotal%>€
+					</h4>
 				</div>
 			</div>
 			<div class="row mt-5 pb-5 border-bottom-separator">
@@ -222,11 +251,12 @@
 					<h4>Total</h4>
 				</div>
 				<div class="col-6 text-center">
-					<h4><%= precioTotal %>€</h4>
+					<h4><%=precioTotal%>€
+					</h4>
 				</div>
 			</div>
 			<div class="row mt-5">
-	
+
 				<%
 					if ((boolean) session.getAttribute("Iniciado")) {
 						if (precioTotal > 0) {

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import Modelos.MCarrito;
 import Modelos.MCliente;
 import Modelos.MPedPro;
 import Modelos.MPedido;
@@ -20,25 +21,39 @@ import Utilidades.EnvioCorreo;
 public class EliminarCuenta extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	HttpSession sesion;
-	EnvioCorreo OutMail = new EnvioCorreo();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		EnvioCorreo OutMail = new EnvioCorreo();
 
 		response.setCharacterEncoding("UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		sesion = request.getSession();
-		sesion.setAttribute("Validacion", (int) (Math.random() * 999999 + 1));
 
-		try {
-			OutMail.enviar("luftgunmail@gmail.com", "Luftgun20$", (String) sesion.getAttribute("vEmail"),
-					(String) sesion.getAttribute("vNombre") + " C�digo de validaci�n LuftGun",
-					"Su código de eliminación de registro de LuftGun es: " + (int) sesion.getAttribute("Validacion"));
+		if (sesion.getAttribute("Iniciado") == null || (boolean) sesion.getAttribute("Iniciado") == false) {
+			sesion.setAttribute("Iniciado", false);
+			response.sendRedirect("IniciarSesion");
 
-		} catch (Exception e) {
-			e.printStackTrace();
+		} else {
+			sesion.setAttribute("Validacion", (int) (Math.random() * 999999 + 1));
+
+			MCliente mCliente = new MCliente();
+
+			try {
+				mCliente.cargarCliente((int) sesion.getAttribute("idcliente"));
+
+				OutMail.enviar("urbancitynoreply@gmail.com", "6T482g8#W$7@9H@kt$#S",
+						mCliente.getEmail(),
+						mCliente.getContrasena() + " C�digo de validaci�n Urban City",
+						"Su código de eliminación de registro de Urban City es: "
+								+ (int) sesion.getAttribute("Validacion"));
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			request.getRequestDispatcher("WEB-INF/eliminarCuenta.jsp").forward(request, response);
+
 		}
-		request.getRequestDispatcher("WEB-INF/eliminarCuenta.jsp").forward(request, response);
 
 	}
 
@@ -53,14 +68,17 @@ public class EliminarCuenta extends HttpServlet {
 			MCliente mCliente = new MCliente();
 			MPedido mPedido = new MPedido();
 			MPedPro mPedPro = new MPedPro();
-			mPedido.pedidosClientes((int)sesion.getAttribute("idcliente"));
+			MCarrito mCarrito = new MCarrito();
+			mPedido.pedidosClientes((int) sesion.getAttribute("idcliente"));
+			mCarrito.vaciarCarrito((int) sesion.getAttribute("idcliente"));
 			while (mPedido.consultarSiguiente()) {
 				mPedPro.eliminarRelacion(mPedido.getIdpedido());
 				mPedido.eliminarPedido(mPedido.getIdpedido());
 			}
-			
-			mCliente.EliminarCuenta((int)sesion.getAttribute("idcliente"));
+
+			mCliente.EliminarCuenta((int) sesion.getAttribute("idcliente"));
 			sesion.setAttribute("Iniciado", false);
+			request.setAttribute("idcliente", null);
 		} else {
 			doGet(request, response);
 		}
