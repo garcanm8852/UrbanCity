@@ -62,11 +62,6 @@ public class CrearProducto extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		sesion = request.getSession(true);
 
-		/**
-		 * TODO QUITAR ACCESO OBLIGATORIO IMPORTANTE!!!!
-		 */
-		sesion.setAttribute("idcliente", 1);
-
 		/* Obetención del número de categorias y Categorías */
 		try {
 			mCategoria.cargarCategorias();
@@ -137,80 +132,15 @@ public class CrearProducto extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
 		try {
-	        MProducto mProducto = new MProducto();
-	        File file = null;
-	        int maxFileSize = 5000 * 1024;
-	        int maxMemSize = 5000 * 1024;
-	        ServletContext servletContext;
-	        String filePath;
-	        String contentType;
-	        PrintWriter out;
-	        FileItem fi;
-	        List<FileItem> fileItems;
-	        DiskFileItemFactory factory;
-	        String fileName = null;
-
-	        servletContext = getServletContext();
-	        filePath = servletContext.getInitParameter("file-upload");
-	        contentType = request.getContentType();
-
-	        if ((contentType.indexOf("multipart/form-data") >= 0)) {
-	            factory = new DiskFileItemFactory();
-	            factory.setSizeThreshold(maxMemSize);
-	            factory.setRepository(new File("."));
-	            ServletFileUpload upload = new ServletFileUpload(factory);
-	            upload.setSizeMax(maxFileSize);
-	            try {
-	                fileItems = upload.parseRequest(request);
-
-	                Iterator<FileItem> i = fileItems.iterator();
-	                while (i.hasNext()) {
-	                    fi = (FileItem) i.next();
-	                    if (!fi.isFormField()) {
-	                        String fieldName = fi.getFieldName();
-	                        fileName = fi.getName();
-	                        boolean isInMemory = fi.isInMemory();
-	                        long sizeInBytes = fi.getSize();
-	                        if (fileName.lastIndexOf("/") >= 0) {
-	                            file = new File(filePath + fileName.substring(fileName.lastIndexOf("/")));
-	                        } else {
-	                            file = new File(filePath + "/" + fileName.substring(fileName.lastIndexOf("/") + 1));
-	                        }
-	                        fi.write(file);
-	                    }
-	                }
-	            } catch (Exception ex) {
-	                System.out.println(ex);
-	            }
-	        } else {
-
-	        }
-	        
-	        String rutaImagen;
-	        FileInputStream fis;
-	        rutaImagen = filePath + "/" + fileName;
-	        
-	        fis = new FileInputStream(file);
+			MProducto mProducto = new MProducto();
+			mProducto.insertarProducto(request.getParameter("fidreferencia"), request.getParameter("fnombre"),
+					request.getParameter("fdescripcion"), Double.parseDouble(request.getParameter("fprecio")),
+					Integer.parseInt(request.getParameter("fsubcategoria")), request.getParameter("ftalla"));
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		
-		try {
-
-			System.out.println(request.getParameter("fidreferencia"));
-			System.out.println(request.getParameter("fnombre"));
-			System.out.println(request.getParameter("fdescripcion"));
-			System.out.println(request.getParameter("fprecio"));
-			System.out.println(request.getParameter("fsubcategoria"));
-			// MProducto.crearProducto();
-			doGet(request, response);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		response.sendRedirect("AdministrarProductos");
 	}
 }

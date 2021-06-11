@@ -40,7 +40,7 @@ public class MProducto {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void cerrarConexion() {
 		try {
 			Conexion.close();
@@ -48,7 +48,6 @@ public class MProducto {
 			e.printStackTrace();
 		}
 	}
-	
 
 	public void cargarProductos() {
 		try {
@@ -60,7 +59,7 @@ public class MProducto {
 		} catch (SQLException e) {
 		}
 	}
-	
+
 	public void cargarProductosPaginados(int pPagina) {
 		pagina = 8 * pPagina;
 		try {
@@ -73,7 +72,7 @@ public class MProducto {
 		} catch (SQLException e) {
 		}
 	}
-	
+
 	public void cargarProductosPaginadosModular(int pPagina, int RangoPaginacion) {
 		pagina = RangoPaginacion * pPagina;
 		try {
@@ -87,12 +86,13 @@ public class MProducto {
 		} catch (SQLException e) {
 		}
 	}
-	
+
 	public void buscarProductosPaginadosModular(String termino, int pPagina, int RangoPaginacion) {
 		pagina = RangoPaginacion * pPagina;
 		try {
 			establecerConexion();
-			ps = Conexion.prepareStatement("SELECT * FROM urbancity.producto WHERE nombre LIKE '"+ termino + "%'  offset ? limit ?");
+			ps = Conexion.prepareStatement(
+					"SELECT * FROM urbancity.producto WHERE nombre LIKE '" + termino + "%'  offset ? limit ?");
 			ps.setInt(1, pagina);
 			ps.setInt(2, RangoPaginacion);
 			cargaProductos = ps.executeQuery();
@@ -101,23 +101,23 @@ public class MProducto {
 		} catch (SQLException e) {
 		}
 	}
-	
+
 	public int numeroRegistros() {
 		numeroRegistros = 0;
 		try {
 			establecerConexion();
 			ps = Conexion.prepareStatement("SELECT COUNT(idreferencia) from urbancity.producto");
 			cargaRegistros = ps.executeQuery();
-			cargaRegistros.next();			
+			cargaRegistros.next();
 			numeroRegistros = cargaRegistros.getInt(1);
 			cerrarConexion();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		
+
 		return numeroRegistros;
 	}
-	
+
 	public int numeroRegistrosPorCategoria(int idcategoria) {
 		numeroRegistros = 0;
 		try {
@@ -125,16 +125,16 @@ public class MProducto {
 			ps = Conexion.prepareStatement("SELECT COUNT(idreferencia) from urbancity.producto WHERE idcategoria=?");
 			ps.setInt(idcategoria, 1);
 			cargaRegistros = ps.executeQuery();
-			cargaRegistros.next();			
+			cargaRegistros.next();
 			numeroRegistros = cargaRegistros.getInt(1);
 			cerrarConexion();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		
+
 		return numeroRegistros;
 	}
-	
+
 	public int numeroRegistrosPorSubcategoria(int idsubcategoria) {
 		numeroRegistros = 0;
 		try {
@@ -142,16 +142,16 @@ public class MProducto {
 			ps = Conexion.prepareStatement("SELECT COUNT(idreferencia) from urbancity.producto WHERE idsubcategoria=?");
 			ps.setInt(idsubcategoria, 1);
 			cargaRegistros = ps.executeQuery();
-			cargaRegistros.next();			
+			cargaRegistros.next();
 			numeroRegistros = cargaRegistros.getInt(1);
 			cerrarConexion();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		
+
 		return numeroRegistros;
 	}
-	
+
 	public void cargarProductosPorCategorias(int pidCategoria) {
 		try {
 			establecerConexion();
@@ -164,8 +164,8 @@ public class MProducto {
 			// TODO: handle exception
 		}
 	}
-	
-	public void cargarProductosPorCategoriasModular(int pidCategoria, int pPagina ,int RangoPaginacion) {
+
+	public void cargarProductosPorCategoriasModular(int pidCategoria, int pPagina, int RangoPaginacion) {
 		try {
 			establecerConexion();
 			ps = Conexion.prepareStatement("SELECT * FROM urbancity.DatosProductosCompletoBusqueda(?);");
@@ -177,7 +177,7 @@ public class MProducto {
 			// TODO: handle exception
 		}
 	}
-	
+
 	public void cargarProductosPorSubcategorias(int idSubcategoria) {
 		try {
 			establecerConexion();
@@ -190,7 +190,7 @@ public class MProducto {
 			// TODO: handle exception
 		}
 	}
-	
+
 	public void cargarProductosPorSimilares(int idSubcategoria) {
 		try {
 			establecerConexion();
@@ -203,7 +203,7 @@ public class MProducto {
 			// TODO: handle exception
 		}
 	}
-	
+
 	public byte[] cargarImagenProducto(String pidreferencia) {
 		src = null;
 		srcProducto = null;
@@ -220,7 +220,7 @@ public class MProducto {
 		}
 		return src;
 	}
-	
+
 	public void consultarProducto(String pidreferencia) {
 		try {
 			establecerConexion();
@@ -232,31 +232,69 @@ public class MProducto {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		
+
+	}
+
+	public void insertarProducto(String pIdreferencia, String pNombre, String pDescripcion, Double pPrecio,
+			int pIDsubcategoria, String pTalla) {
+		try {
+			establecerConexion();
+			ps = Conexion.prepareStatement(
+					"INSERT INTO urbancity.producto(	idreferencia, nombre, descripcion, precio, idsubcategoria, talla) VALUES (?, ?, ?, ?, ?, ?);");
+			ps.setString(1, pIdreferencia);
+			ps.setString(2, pNombre);
+			ps.setString(3, pDescripcion);
+			ps.setDouble(4, pPrecio);
+			ps.setInt(5, pIDsubcategoria);
+			ps.setString(6, pTalla);
+			ps.execute();
+			cerrarConexion();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+
+	public void modificarProducto(String pIdreferencia, String pNombre, String pDescripcion, Double pPrecio,
+			int pIDsubcategoria, String pTalla) {
+		try {
+			establecerConexion();
+			ps = Conexion.prepareStatement(
+					"UPDATE urbancity.producto SET nombre=?, descripcion=?, precio=?, idsubcategoria=?, talla=? WHERE idreferencia = ?;");
+			ps.setString(1, pNombre);
+			ps.setString(2, pDescripcion);
+			ps.setDouble(3, pPrecio);
+			ps.setInt(4, pIDsubcategoria);
+			ps.setString(5, pTalla);
+			ps.setString(6, pIdreferencia);
+			ps.execute();
+			cerrarConexion();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 	}
 
 	public boolean consultarSiguiente() {
 		estado = false;
 		try {
-			 estado = cargaProductos.next();
+			estado = cargaProductos.next();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return estado;
 
 	}
-	
+
 	public boolean consultarAnterior() {
 		estado = false;
 		try {
-			 estado = cargaProductos.previous();
+			estado = cargaProductos.previous();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return estado;
 
 	}
-	
+
 	public void cursorPrincipio() {
 		try {
 			cargaProductos.first();
@@ -274,8 +312,8 @@ public class MProducto {
 			e.printStackTrace();
 		}
 	}
-	
-	public String getIdreferencia(){
+
+	public String getIdreferencia() {
 		idreferencia = "";
 		try {
 			idreferencia = cargaProductos.getString("idreferencia");
@@ -285,8 +323,8 @@ public class MProducto {
 		}
 		return idreferencia;
 	}
-	
-	public String getNombre(){
+
+	public String getNombre() {
 		nombre = null;
 		try {
 			nombre = cargaProductos.getString("nombre");
@@ -296,10 +334,10 @@ public class MProducto {
 		}
 		return nombre;
 	}
-	
-	//TODO CAMBIAR POR TALLA
+
+	// TODO CAMBIAR POR TALLA
 	public String getTalla() {
-		talla= null;
+		talla = null;
 		try {
 			talla = cargaProductos.getString("talla");
 		} catch (Exception e) {
@@ -307,9 +345,9 @@ public class MProducto {
 		}
 		return talla;
 	}
-	
+
 	public String getDescripcion() {
-		descripcion= null;
+		descripcion = null;
 		try {
 			descripcion = cargaProductos.getString("descripcion");
 		} catch (Exception e) {
@@ -327,7 +365,7 @@ public class MProducto {
 		}
 		return precio;
 	}
-	
+
 	public byte[] getImg() {
 		img = null;
 		try {
@@ -335,10 +373,10 @@ public class MProducto {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		
+
 		return img;
 	}
-	
+
 	public int getStock() {
 		stock = 0;
 		try {
@@ -348,7 +386,7 @@ public class MProducto {
 		}
 		return stock;
 	}
-	
+
 	public int getSubcategoria() {
 		subcategoria = 0;
 		try {
@@ -358,18 +396,18 @@ public class MProducto {
 		}
 		return subcategoria;
 	}
-	
-	public String getNombreSubcategoria(){
+
+	public String getNombreSubcategoria() {
 		nombreSubcategoria = "";
 		try {
 			nombreSubcategoria = cargaProductos.getString("nombresubcategoria");
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		
+
 		return nombreSubcategoria;
 	}
-	
+
 	public int getCategoria() {
 		categoria = 0;
 		try {
@@ -377,10 +415,10 @@ public class MProducto {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		
+
 		return categoria;
 	}
-	
+
 	public String getNombreCategoria() {
 		nombreCategoria = "";
 		try {
@@ -391,9 +429,4 @@ public class MProducto {
 		return nombreCategoria;
 	}
 
-
-
-
-	
-	
 }

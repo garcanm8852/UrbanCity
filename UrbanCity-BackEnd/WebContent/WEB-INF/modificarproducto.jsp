@@ -10,10 +10,7 @@
 <%
 	Cproducto[] listaProductos;
 	String NombreUsuario = (String) session.getAttribute("NombreUsuario");
-	String idreferencia;
-	String nombre;
-	String marca;
-	String precio;
+	Cproducto producto = (Cproducto) session.getAttribute("Producto");
 %>
 
 
@@ -131,7 +128,8 @@
 	<div class="container-fluid  animate__animated animate__fadeIn">
 		<div class="row header-banner process">
 			<div class="col-md-12">
-				<h3 class="text-center text-white center-header-banner">Modificar Producto</h3>
+				<h3 class="text-center text-white center-header-banner">Modificar
+					Producto</h3>
 			</div>
 		</div>
 	</div>
@@ -156,41 +154,46 @@
 	</section>
 
 
-	<form class="container animate__animated animate__fadeIn" method="post" action="CrearProducto" enctype="multipart/form-data">
-		
+	<form class="container animate__animated animate__fadeIn" method="post"
+		action="ModificarProducto" >
+
 		<section class="row">
 			<div class="col-md-8">
 				<div class="form-group ">
 					<label for="fidreferencia">ID del Producto:</label> <input
-						id="fidreferencia" class="form-control " type="text"
-						name="fidreferencia" required>
+						id="fidreferencia" class="form-control"
+						value="<%=producto.getIdreferencia()%>" type="text"
+						name="fidreferencia" readonly>
 				</div>
 				<div class="form-group ">
 					<label for="fnombre">Nombre:</label> <input id="fnombre"
-						class="form-control " type="text" name="fnombre" required>
+						class="form-control " type="text" name="fnombre"
+						value="<%=producto.getNombre()%>" required>
 				</div>
 				<div class="form-group ">
 					<label for="fdescripcion">Descripción:</label>
 					<textarea id="fdescripcion" class="form-control" rows="3"
-						name="fdescripcion">
-                </textarea>
+						name="fdescripcion"><%=producto.getDescripcion()%></textarea>
 				</div>
 				<div class="form-group ">
 					<label for="fprecio">Precio:</label> <input id="fprecio"
-						class="form-control " type="number" name="fprecio" required>
+						class="form-control " type="number" name="fprecio"
+						value="<%=producto.getPrecio()%>" required>
 				</div>
-			</div>
-			<div class="col-md-4">
+
+
 				<div class="form-group">
 					<label for="fsubcategoria">Subcategoría:</label> <select
-						id="fsubcategoria" class="form-control" name="fsubcategoria" required>
+						id="fsubcategoria" class="form-control" name="fsubcategoria"
+						required>
 						<%
 							CCategoria[] subcategorias = (CCategoria[]) session.getAttribute("Subcategorias");
 							for (int i = 0; i < subcategorias.length; i++) {
+						%>
 
-								out.print("<option value='" + subcategorias[i].getIdcategoria() + "'>" + subcategorias[i].getNombre()
-										+ "</option>");
-
+						<option value="<%=subcategorias[i].getIdcategoria()%>"
+							<%=producto.getSubcategoria() == subcategorias[i].getIdcategoria() ? "selected" : null%>><%=subcategorias[i].getNombre()%></option>
+						<%
 							}
 						%>
 
@@ -202,67 +205,40 @@
 				</div>
 
 				<div class="form-group">
-					<label class="" for="file">Imagen: </label> <input type=file
-						size=60 name="file" value="Examinar">
+					<label for="ftalla">Talla:</label> <select id="ftalla"
+						class="form-control" name="ftalla" required>
+						<option value="xs">XS</option>
+						<option value="s">S</option>
+						<option value="m">M</option>
+						<option value="l">L</option>
+						<option value="xl">XL</option>
+					</select>
 				</div>
+
+				<div class='w-100'>
+					<button class="btn bg-Urban-1 text-center text-white p-3 w-100"
+						type="submit">Modificar Producto</button>
+				</div>
+			</div>
+			<div class="col-md-4">
+
+
 
 				<div class="row mt-4 text-center justify-content-center">
-					<div class="col-md-12 selector">
-						<div class="container-fluid">
-							<div class="row ">
-								<div class="col selector">
-									<div class="form-check-inline w-100 justify-content-center p-3">
-										<input class="form-check-input" type="radio" name="size"
-											id="sizexs" value="xs" hidden> <label
-											class="form-check-label" for="sizexs"> XS </label>
-									</div>
-								</div>
-								<div class="col selector">
-									<div class="form-check-inline w-100 justify-content-center p-3">
-										<input class="form-check-input" type="radio" name="size"
-											id="sizes" value="s" hidden> <label
-											class="form-check-label" for="sizes"> S </label>
-									</div>
-								</div>
-								<div class="col selector">
-									<div class="form-check-inline w-100 justify-content-center p-3">
-										<input class="form-check-input" type="radio" name="size"
-											id="sizem" value="m" checked hidden> <label
-											class="form-check-label" for="sizem"> M </label>
-									</div>
-								</div>
-								<div class="col selector">
-									<div class="form-check-inline w-100 justify-content-center p-3">
-										<input class="form-check-input" type="radio" name="size"
-											id="sizel" value="l" hidden> <label
-											class="form-check-label" for="sizel"> L </label>
-									</div>
-								</div>
-								<div class="col selector">
-									<div class="form-check-inline w-100 justify-content-center p-3">
-										<input class="form-check-input" type="radio" name="size"
-											id="sizexl" value="xl" hidden> <label
-											class="form-check-label" for="sizexl"> XL </label>
-									</div>
-								</div>
-							</div>
-						</div>
+					<div class="col-md-12 ">
+
+						<img class="w-100"
+							src="/UrbanCity/DecodificarImagen?idreferencia=<%=producto.getIdreferencia()%>">
+						<a class="btn mt-5 bg-Urban-1 text-center text-white p-3 w-100"
+							href="SubirImagen?idreferencia=<%=producto.getIdreferencia()%>">Cambiar
+							la imagen del producto.</a>
 					</div>
 				</div>
+			</div>
 
 
-			</div>
-			
-			</section>
-			
-					<section class="row">
-			<section class="col-md-12">
-				<div class='w-100'>
-			<button class="btn bg-Urban-1 text-center text-white p-3 w-100" type="submit">Añadir Producto</button>
-			</div>
-			</section>
 		</section>
-		</form>
+	</form>
 
 
 	<!-- FOOTER -->

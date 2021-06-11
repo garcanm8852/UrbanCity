@@ -43,11 +43,6 @@ public class AdministrarProductos extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		sesion = request.getSession(true);
 		
-		/**
-		 * TODO QUITAR ACCESO OBLIGATORIO IMPORTANTE!!!!
-		 * */
-		sesion.setAttribute("idcliente", 1);
-
 		/* Obetención del número de categorias y Categorías */
 		try {
 			mCategoria.cargarCategorias();

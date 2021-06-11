@@ -8,12 +8,9 @@
 
 <!DOCTYPE html>
 <%
-	Cproducto[] listaProductos;
+
 	String NombreUsuario = (String) session.getAttribute("NombreUsuario");
-	String idreferencia;
-	String nombre;
-	String marca;
-	String precio;
+
 %>
 
 
@@ -29,7 +26,7 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
 	integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
 	crossorigin="anonymous">
-<title>Urban City - Añadir Producto</title>
+<title>Urban City - Subir Imagen</title>
 </head>
 
 <body>
@@ -81,24 +78,6 @@
 				<li class="nav-item active"><a class="nav-link" href="Index">Incio</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="Catalogo">Catálogo</a></li>
-				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> Categorias </a>
-					<div
-						class="dropdown-menu animate__fadeInLeft animate__animated  animate__faster"
-						aria-labelledby="navbarDropdown">
-
-
-						<%
-							CCategoria[] categorias = (CCategoria[]) session.getAttribute("Categorias");
-							for (int i = 0; i < categorias.length; i++) {
-
-								out.print("<a class='dropdown-item' href='Catalogo?idcategoria=" + categorias[i].getIdcategoria() + "'>"
-										+ categorias[i].getNombre() + "</a>");
-							}
-						%>
-					</div></li>
 				<li class="nav-item"><a class="nav-link" href="Carrito">Carrito</a></li>
 
 				<div class="dropdown-divider"></div>
@@ -127,104 +106,32 @@
 
 		</div>
 	</nav>
+
 	<!-- Banner -->
 	<div class="container-fluid  animate__animated animate__fadeIn">
-		<div class="row header-banner process">
+		<div class="row header-banner Index">
 			<div class="col-md-12">
-				<h3 class="text-center text-white center-header-banner">Añadir
-					Producto</h3>
+				<h3 class="text-center text-white center-header-banner">Subir Imagen</h3>
 			</div>
 		</div>
 	</div>
 
-	<!-- Breadcrumbs -->
-	<section class="container mt-5 animate__animated animate__fadeIn">
-		<section class="row">
-			<div class="col-md-12">
-				<nav aria-label="Page breadcrumb">
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item" aria-current="page"><a
-							class="breadcrumb-link" href="Index"> Urban City</a></li>
-						<li class="breadcrumb-item" aria-current="page"><a
-							class="breadcrumb-link" href="AdministrarProductos">
-								AdministrarProductos</a></li>
-						<li class="breadcrumb-item active"><a class="breadcrumb-link"
-							href="CrearProductos">Añadir Producto</a></li>
-					</ol>
-				</nav>
-			</div>
-		</section>
-	</section>
 
 
-	<form class="container animate__animated animate__fadeIn" method="post"
-		action="CrearProducto" enctype="multipart/form-data">
-
-		<section class="row">
-			<div class="col-md-12">
-				<div class="form-group ">
-					<label for="fidreferencia">ID del Producto:</label> <input
-						id="fidreferencia" class="form-control " type="text"
-						name="fidreferencia" required>
+<form class="w-100 justify-content-center" action="SubirImagen" method="post" enctype="multipart/form-data">
+	<div class="container mt-5">
+	<div class="row">
+				<div class="col-8">
+				 <input class="w-100" type=file size=60 name="file" value="Examinar"><br><br>
 				</div>
-				<div class="form-group ">
-					<label for="fnombre">Nombre:</label> <input id="fnombre"
-						class="form-control " type="text" name="fnombre" required>
+				<div class="col-4"> <input class="btn bg-Urban-1 text-center text-white p-3 w-100" type=submit value="subir"><br>
 				</div>
-				<div class="form-group ">
-					<label for="fdescripcion">Descripción:</label>
-					<textarea id="fdescripcion" class="form-control" rows="3"
-						name="fdescripcion">
-                </textarea>
-				</div>
-				<div class="form-group ">
-					<label for="fprecio">Precio:</label> <input id="fprecio"
-						class="form-control " type="number" name="fprecio" required>
-				</div>
-				<div class="form-group">
-					<label for="fsubcategoria">Subcategoría:</label> <select
-						id="fsubcategoria" class="form-control" name="fsubcategoria"
-						required>
-						<%
-							CCategoria[] subcategorias = (CCategoria[]) session.getAttribute("Subcategorias");
-							for (int i = 0; i < subcategorias.length; i++) {
-
-								out.print("<option value='" + subcategorias[i].getIdcategoria() + "'>" + subcategorias[i].getNombre()
-										+ "</option>");
-
-							}
-						%>
+	</div></div>
 
 
 
-
-
-					</select>
-				</div>
-				<div class="form-group">
-					<label for="ftalla">Talla:</label> <select id="ftalla"
-						class="form-control" name="ftalla" required>
-						<option value="xs">XS</option>
-						<option value="s">S</option>
-						<option value="m">M</option>
-						<option value="l">L</option>
-						<option value="xl">XL</option>
-					</select>
-				</div>
-				
-				<div class='w-100'>
-					<button class="btn bg-Urban-1 text-center text-white p-3 w-100"
-						type="submit">Añadir Producto</button>
-				</div>
-
-			</div>
-
-		</section>
-
-	</form>
-
-
-	<!-- FOOTER -->
+</form>
+<!-- FOOTER -->
 
 	<div class="container-fluid footer bg-Urban-1 mt-5 ">
 		<div class="row p-5">
