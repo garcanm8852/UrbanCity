@@ -31,11 +31,12 @@ public class PrimerInicioSesion extends HttpServlet {
 		sesion.setAttribute("CodigoInvalido", false);
 		try {
 			OutMail.enviar("urbancitynoreply@gmail.com", "6T482g8#W$7@9H@kt$#S", (String) sesion.getAttribute("email"),
-					(String) sesion.getAttribute("NombreUsuario ") + " Código de validación LuftGun",
+					(String) sesion.getAttribute("NombreUsuario ") + " Código de validación Urban City",
 					"Su código de validación de registro de Urban City es: " + (int) sesion.getAttribute("PrimerInicio"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		System.out.println((int) sesion.getAttribute("PrimerInicio") + "");
 		request.getRequestDispatcher("WEB-INF/primerinicio.jsp").forward(request, response);
 	}
 

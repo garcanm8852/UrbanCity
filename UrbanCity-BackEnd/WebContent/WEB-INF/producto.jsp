@@ -156,20 +156,13 @@
 	<section
 		class="container mt-5 animate__animated animate__fadeIn animate__slower">
 		<div class="row justify-content-center">
-			<!-- TODO Tratar Overflow -->
-			<div class="col-md-2 not-responsive"
-				style="max-height: 230px; overflow: hidden;">
-				<img
-					src="/UrbanCity/DecodificarImagen?idreferencia=<%=producto.getIdreferencia()%>"
-					alt="" class="block img-center w-50">
-			</div>
-			<div class="col-md-5 responsive-mt-5">
+			<div class="col-md-6 responsive-mt-5">
 				<img
 					src="/UrbanCity/DecodificarImagen?idreferencia=<%=producto.getIdreferencia()%>"
 					alt="" class="w-100 d-block img-center"
 					style="max-height: 230px; width: auto !important;">
 			</div>
-			<div class="col-md-5 responsive-mt-5">
+			<div class="col-md-6 responsive-mt-5">
 				<!-- Sección Info Producto -->
 				<div class="container">
 					<div class="row">

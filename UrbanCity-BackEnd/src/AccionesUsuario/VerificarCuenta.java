@@ -32,12 +32,13 @@ public class VerificarCuenta extends HttpServlet {
 			    OutMail.enviar("urbancitynoreply@gmail.com",
 			            "6T482g8#W$7@9H@kt$#S",
 			           (String) sesion.getAttribute("vEmail") ,
-			           (String) sesion.getAttribute("vNombre") + " C�digo de validaci�n LuftGun",
+			           (String) sesion.getAttribute("vNombre") + " C�digo de validaci�n Urban City",
 			          "Su c�digo de validaci�n de registro de UrbanCity es: " + (int) sesion.getAttribute("Validacion"));
 
 			} catch (Exception e) {
 			    e.printStackTrace();
 			}
+		  System.out.println("" + (int) sesion.getAttribute("Validacion"));
 		request.getRequestDispatcher("WEB-INF/VerificarCuenta.jsp").forward(request, response);
 	}
 

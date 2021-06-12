@@ -10,6 +10,6 @@ public class ProductoCabecera extends SimpleTagSupport {
 	@Override
 	public void doTag() throws JspException, IOException {
 		JspWriter out = getJspContext().getOut();
-		out.println("<div class='col-md-3 product'>");
+		out.println("<div class='col-md-3 product mb-5'>");
 	}
 }

@@ -272,6 +272,18 @@ public class MProducto {
 			// TODO: handle exception
 		}
 	}
+	public void eliminarProducto(String pIdreferencia) {
+try {
+	establecerConexion();
+	ps = Conexion.prepareStatement("DELETE FROM urbancity.producto WHERE idreferencia = ?");
+	ps.setString(1, pIdreferencia);
+	ps.execute();
+	cerrarConexion();
+	
+		} catch (Exception e) {
+	// TODO: handle exception
+}		
+	}
 
 	public boolean consultarSiguiente() {
 		estado = false;
@@ -428,5 +440,7 @@ public class MProducto {
 		}
 		return nombreCategoria;
 	}
+
+
 
 }

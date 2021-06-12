@@ -115,5 +115,15 @@
         </attribute>
     </tag>
 
+    <tag> 
+        <name>GuiaTalla</name> 
+        <tagclass>Product.ProductoGuiaTalla</tagclass>
+        <bodycontent>empty</bodycontent>
+        <attribute> 
+            <name>talla</name>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
 
 </taglib>

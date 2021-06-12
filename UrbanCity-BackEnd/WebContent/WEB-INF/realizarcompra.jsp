@@ -138,7 +138,7 @@
 					<div class="form-froup mt-3">
 						<label for="fTelefono">Número de teléfono:</label> <input
 							type="tel" class="form-control" minlength="9" name="fTelefono"
-							required>
+							required pattern="[0-9]{9}" title="El número de telefono debe contener 9 dígitos">
 					</div>
 					<div class="form-froup mt-3">
 						<label for="fCalle">Calle:</label> <input type="text"
@@ -155,7 +155,7 @@
 					<div class="form-froup mt-3">
 						<label for="fCp">Código Postal:</label> <input type="number"
 							maxlength="5" minlength="5" class="form-control" name="fCp"
-							required>
+							required pattern="[0-9]{5}" title="El Código Postal debe contener 5 dígitos">
 					</div>
 					<div class="form-froup mt-3">
 						<label for="fPais">País:</label> <input type="text"
@@ -169,12 +169,12 @@
 					<div class="form-froup mt-3">
 						<label for="fNumeroTarjeta">Número de la tarjeta:</label> <input
 							type="number" minlength="16" maxlength="16" class="form-control"
-							name="fNumeroTarjeta" required>
+							name="fNumeroTarjeta" pattern="[0-9]{16}" title="El Número de la tarjeta debe contener 16 dígitos" required>
 					</div>
 					<div class="form-froup mt-3">
 						<label for="fMesTarjeta">Mes de vencimiento de la tarjeta:</label>
 						<input type="number" max="12" min="1" class="form-control"
-							name="fMesTarjeta" required>
+							name="fMesTarjeta" pattern="[1-9]{1}}|[10]{1}|[11]{1}}|[12]{1}" title="El mes de vencimiento debe estar entre 1 y 12" required>
 					</div>
 					<div class="form-froup mt-3">
 						<label for="fAnoTarjeta">Año de vencimiento de la tarjeta:</label>
@@ -184,7 +184,7 @@
 					<div class="form-froup mt-3">
 						<label for="fCVVTarjeta">Número secreto de la tarjeta:</label> <input
 							type="number" minlength="3" maxlength="3" min="100" max="999"
-							class="form-control" name="fCVVTarjeta" required>
+							class="form-control" name="fCVVTarjeta" pattern="[0-9]{3}" title="El Número secreto de la tarjeta debe contener 3 dígitos" required>
 					</div>
 					<button type="submit " class="btn w-100 btn-primary mt-3 mb-5">Realizar
 						compra</button>
