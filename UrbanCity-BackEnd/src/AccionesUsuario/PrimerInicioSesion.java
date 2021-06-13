@@ -30,6 +30,9 @@ public class PrimerInicioSesion extends HttpServlet {
 		sesion = request.getSession();
 		sesion.setAttribute("CodigoInvalido", false);
 		try {
+			/*
+			 * Envío de código de primer inicio sesión
+			 * */
 			OutMail.enviar("urbancitynoreply@gmail.com", "6T482g8#W$7@9H@kt$#S", (String) sesion.getAttribute("email"),
 					(String) sesion.getAttribute("NombreUsuario ") + " Código de validación Urban City",
 					"Su código de validación de registro de Urban City es: " + (int) sesion.getAttribute("PrimerInicio"));
@@ -37,6 +40,9 @@ public class PrimerInicioSesion extends HttpServlet {
 			e.printStackTrace();
 		}
 		System.out.println((int) sesion.getAttribute("PrimerInicio") + "");
+		/*
+		 * Reenvio del JSP.
+		 * */
 		request.getRequestDispatcher("WEB-INF/primerinicio.jsp").forward(request, response);
 	}
 
@@ -49,7 +55,9 @@ public class PrimerInicioSesion extends HttpServlet {
 		// TODO Auto-generated method stub
 		sesion = request.getSession();
 		MCliente mCliente = new MCliente();
-
+		/*
+		 * Establecer cuenta en operativa
+		 * */
 		if (Integer.parseInt(request.getParameter("fValidacion")) == (int) sesion.getAttribute("PrimerInicio")) {
 			mCliente.CambiarEstado((int) sesion.getAttribute("idcliente"), "Operativo");
 			sesion.setAttribute("email", null);
@@ -58,6 +66,7 @@ public class PrimerInicioSesion extends HttpServlet {
 			response.sendRedirect("Index");
 		} else {
 			sesion.setAttribute("CodigoInvalido", true);
+			doGet(request, response);
 
 		}
 	}

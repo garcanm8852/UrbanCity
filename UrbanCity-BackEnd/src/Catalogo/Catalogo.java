@@ -29,7 +29,9 @@ public class Catalogo extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		/*
+		 * Inicialización de variables.
+		 * */
 		CCategoria[] categorias = null;
 		Cproducto[] listaProductos;
 		int ContadorCategorias;

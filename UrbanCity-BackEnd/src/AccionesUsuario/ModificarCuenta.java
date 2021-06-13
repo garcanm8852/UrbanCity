@@ -27,12 +27,17 @@ public class ModificarCuenta extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		sesion = request.getSession();
+		/*
+		 * Comprobación Usuario está iniciado.
+		 */
 		if (sesion.getAttribute("Iniciado") == null || (boolean) sesion.getAttribute("Iniciado") == false) {
 			sesion.setAttribute("Iniciado", false);
 			response.sendRedirect("IniciarSesion");
 
 		} else {
-
+			/*
+			 * Recogida de datos del cliente y Reenvio al JSP.
+			 */
 			MCliente mCliente = new MCliente();
 			try {
 				mCliente.cargarCliente((int) sesion.getAttribute("idcliente"));
@@ -56,8 +61,14 @@ public class ModificarCuenta extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		sesion = request.getSession();
+		/*
+		 * Codificación UTF-8
+		 */
 		response.setCharacterEncoding("UTF-8");
 		request.setCharacterEncoding("UTF-8");
+		/*
+		 * Modificación en los datos del usuario.
+		 */
 		try {
 			MCliente mCliente = new MCliente();
 			mCliente.actualizarDatos(request.getParameter("fNombre"), request.getParameter("fApellido"),

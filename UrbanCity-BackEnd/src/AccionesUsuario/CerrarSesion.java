@@ -20,9 +20,15 @@ public class CerrarSesion extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		/*
+		 * Cierre de parámetros de sesión
+		 * */
 		sesion = request.getSession();
 		sesion.setAttribute("Iniciado", false);
 		sesion.setAttribute("idcliente", null);
+		/*
+		 * Reenvio al Index.
+		 * */
 		response.sendRedirect("Index");
 	}
 

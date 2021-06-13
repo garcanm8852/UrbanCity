@@ -26,10 +26,15 @@ public class Registro extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		/*
+		 * Codificación UTF-8
+		 */
 		response.setCharacterEncoding("UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		sesion = request.getSession();
-
+		/*
+		 * Control de sesión
+		 * */
 		if (sesion.getAttribute("Error") == null) {
 			sesion.setAttribute("Error", false);
 
@@ -41,7 +46,9 @@ public class Registro extends HttpServlet {
 		if (sesion.getAttribute("Correo") == null) {
 			sesion.setAttribute("Correo", false);
 		}
-
+		/*
+		 * Reenvio al JSP.
+		 */
 		request.getRequestDispatcher("WEB-INF/registro.jsp").forward(request, response);
 	}
 
@@ -51,8 +58,14 @@ public class Registro extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		/*
+		 * Codificación UTF-8.
+		 * */
 		response.setCharacterEncoding("UTF-8");
 		request.setCharacterEncoding("UTF-8");
+		/*
+		 * Inicialización de variables.
+		 * */
 		boolean estadoRegistro;
 		boolean existeCorreo;
 		MCliente mCliente = new MCliente();
@@ -60,11 +73,16 @@ public class Registro extends HttpServlet {
 		sesion.setAttribute("Validacion", (int) (Math.random() * 999999 + 1));
 		estadoRegistro = true;
 
+		/*
+		 * Comprobación son la misma contraseña.
+		 * */
 		if (!request.getParameter("fContrasena").equals(request.getParameter("fContasenaRep"))) {
 			sesion.setAttribute("Contrasena", true);
 			estadoRegistro = false;
 		}
-
+		/*
+		 * Comprobación el correo ya existe.
+		 * */
 		existeCorreo = false;
 		mCliente.ExisteCliente(request.getParameter("fEmail"));
 		try {
@@ -79,7 +97,9 @@ public class Registro extends HttpServlet {
 			sesion.setAttribute("Correo", true);
 			estadoRegistro = false;
 		}
-
+		/*
+		 * Reenvio a Verificar Cuenta.
+		 * */
 		if (estadoRegistro == true) {
 			sesion.setAttribute("vNombre", request.getParameter("fNombre"));
 			sesion.setAttribute("vApellido", request.getParameter("fApellido"));

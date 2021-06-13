@@ -23,6 +23,9 @@ public class Index extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		/*
+		 * Inicialización de variables.
+		 * */
 		CCategoria[] categorias = null;
 		Cproducto[] listaProductos;
 		int contadorProductos;
@@ -30,7 +33,9 @@ public class Index extends HttpServlet {
 		MProducto mProducto = new MProducto();
 		int numeroCategorias = 1;
 		int ContadorCategorias;
-
+		/*
+		 * Codificación UTF-8.
+		 * */
 		response.setCharacterEncoding("UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		sesion = request.getSession(true);

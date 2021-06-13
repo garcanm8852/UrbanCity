@@ -20,11 +20,17 @@ public class AvisoLegal extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
+		/*
+		 * Método para controlar el inicio de Sesión.
+		 * */
 		sesion = request.getSession();
 		if (sesion.getAttribute("Iniciado") == null) {
 			sesion.setAttribute("Iniciado", false);
 		}
+		/*
+		 * Reenvío al JSP.
+		 * */
 		request.getRequestDispatcher("WEB-INF/avisoLegal.jsp").forward(request, response);
 	}
 

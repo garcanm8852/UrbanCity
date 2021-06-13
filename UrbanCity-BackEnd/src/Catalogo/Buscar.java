@@ -34,6 +34,9 @@ public class Buscar extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		/*
+		 * Inicialización de Variables.
+		 * */
 		MCliente mCliente = new MCliente();
 		CCategoria[] categorias = null;
 		Cproducto[] listaProductos;
@@ -43,11 +46,15 @@ public class Buscar extends HttpServlet {
 		MCategoria mCategoria = new MCategoria();
 		MProducto mProducto = new MProducto();
 		int numeroCategorias = 1;
-
+		/*
+		 * Codificación UTF-8.
+		 * */
 		response.setCharacterEncoding("UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		sesion = request.getSession(true);
-
+		/*
+		 * Búsqueda de producto.
+		 * */
 		if (request.getAttribute("busqueda") != null) {
 			request.setAttribute("termino", request.getAttribute("busqueda") + "");
 			/* Obetención del número de categorias y Categorías */

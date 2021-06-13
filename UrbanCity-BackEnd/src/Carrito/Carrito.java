@@ -29,6 +29,9 @@ public class Carrito extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		/*
+		 * Inicialización de Variables.
+		 * */
 		MCarrito mCarrito = new MCarrito();
 		Cproducto[] listaProductos;
 		MProducto mProducto = new MProducto();
@@ -37,15 +40,21 @@ public class Carrito extends HttpServlet {
 		int contadorCookies;
 		Cookie CookieProducto;
 		Cookie[] cookies;
-
+		/*
+		 * Codificación UTF-8.
+		 * */
 		response.setCharacterEncoding("UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		sesion = request.getSession(true);
-
+		/*
+		 * Control de sesión.
+		 * */
 		if (sesion.getAttribute("Iniciado") == null) {
 			sesion.setAttribute("Iniciado", false);
 		}
-
+		/*
+		 * Añadir Producto a la BD.
+		 * */
 		if ((boolean) sesion.getAttribute("Iniciado") == true) {
 
 			if (request.getParameter("idproducto") != null) {
@@ -76,7 +85,9 @@ public class Carrito extends HttpServlet {
 			request.getRequestDispatcher("WEB-INF/carrito.jsp").forward(request, response);
 
 		} // Fin usuario iniciado
-
+		/*
+		 * Carrito para usuarios anonimos por cookies.
+		 * */
 		else {
 			sesion.setAttribute("ProductosCarrito", null);
 			if (request.getParameter("idproducto") != null) {

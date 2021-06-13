@@ -26,6 +26,9 @@ public class Producto extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		/*
+		 * Inicialización de variables.
+		 * */
 		MProducto mProducto = new MProducto();
 		String idreferencia;
 		Cproducto productoSolicitado, productosSimilares[];
@@ -34,11 +37,15 @@ public class Producto extends HttpServlet {
 		int numeroCategorias=1;
 		int contadorProductos = 0;
 		MCategoria mCategoria = new MCategoria();
-
+		/*
+		 * Codificación UTF-8.
+		 * */
 		response.setCharacterEncoding("UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		sesion = request.getSession(true);
-
+		/*
+		 * Control de usuarios
+		 * */
 		if (sesion.getAttribute("Iniciado") == null) {
 			sesion.setAttribute("Iniciado", false);
 		}
@@ -62,14 +69,18 @@ public class Producto extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		/*
+		 * Obtención del producto
+		 * */
 		try {
 			mProducto.consultarProducto(request.getParameter("idreferencia"));
 			productoSolicitado = new Cproducto(mProducto.getIdreferencia(), mProducto.getNombre(), mProducto.getTalla(),
 					mProducto.getDescripcion(), mProducto.getPrecio(), mProducto.getStock(), mProducto.getCategoria(),
 					mProducto.getSubcategoria(), mProducto.getNombreCategoria(), mProducto.getNombreSubcategoria());
 			sesion.setAttribute("Producto", productoSolicitado);
-			
+			/*
+			 * Carga de productos Similares.
+			 * */
 			mProducto.cargarProductosPorSimilares(mProducto.getSubcategoria());
 			productosSimilares  = new Cproducto[4];
 			do {

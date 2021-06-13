@@ -31,7 +31,9 @@ public class EliminarProducto extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
+		/*
+		 * Eliminación directa del producto.
+		 */
 		try {
 			MProducto mProducto = new MProducto();
 			mProducto.eliminarProducto(request.getParameter("idreferencia"));

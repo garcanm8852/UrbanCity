@@ -39,8 +39,9 @@ public class MisPedidos extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-
+		/*
+		 * Inicialización de variables.
+		 */
 		CCategoria[] categorias = null;
 		Cproducto[] listaProductos;
 		CPedido[] listaPedidos;
@@ -53,7 +54,9 @@ public class MisPedidos extends HttpServlet {
 		MPedido mPedido = new MPedido();
 		MPedPro mPedpro = new MPedPro();
 		int numeroCategorias = 1;
-
+		/*
+		 * Codificación UTF-8.
+		 */
 		response.setCharacterEncoding("UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		sesion = request.getSession(true);
@@ -103,26 +106,21 @@ public class MisPedidos extends HttpServlet {
 						while (mPedpro.consultarSiguiente()) {
 							mProducto.consultarProducto(mPedpro.getIDreferencia());
 							// TODO QUITAR STOCK, MARCA
-							listaProductos[contadorProductos] = new Cproducto(
-									mProducto.getIdreferencia(),
-									mProducto.getNombre(),
-									mProducto.getDescripcion(),
-									mProducto.getPrecio());
+							listaProductos[contadorProductos] = new Cproducto(mProducto.getIdreferencia(),
+									mProducto.getNombre(), mProducto.getDescripcion(), mProducto.getPrecio());
 
 							contadorProductos++;
 						}
 
-						listaPedidos[contadorPedidos] = new CPedido(
-								mPedido.getIdpedido(),
-								listaProductos,
-								mPedido.getFecha(),
-								mPedido.getNombre(),
-								mPedido.getCalle(),
-								mPedido.getProvincia(),
-								mPedido.getLocalidad(),
-								mPedido.getCP(),
-								mPedido.getPais(),
-								mPedido.getTel() // TODO CAMBIAR POR TEL QUE SINO PETA
+						listaPedidos[contadorPedidos] = new CPedido(mPedido.getIdpedido(), listaProductos,
+								mPedido.getFecha(), mPedido.getNombre(), mPedido.getCalle(), mPedido.getProvincia(),
+								mPedido.getLocalidad(), mPedido.getCP(), mPedido.getPais(), mPedido.getTel() // TODO
+																												// CAMBIAR
+																												// POR
+																												// TEL
+																												// QUE
+																												// SINO
+																												// PETA
 																												// CAMBIAR
 																												// SINO
 																												// PETA
@@ -130,9 +128,9 @@ public class MisPedidos extends HttpServlet {
 						contadorPedidos++;
 
 					} while (mPedido.consultarSiguiente());
-					
+
 					request.setAttribute("listaPedidos", listaPedidos);
-					
+
 					request.getRequestDispatcher("WEB-INF/misPedidos.jsp").forward(request, response);
 
 				} else {

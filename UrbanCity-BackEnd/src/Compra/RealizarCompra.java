@@ -50,11 +50,16 @@ public class RealizarCompra extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		/*
+		 * Inicialización de variables
+		 * */
 		MPedido mPedido = new MPedido();
 		MPedPro mPedPro = new MPedPro();
 		MCarrito mCarrito = new MCarrito();
 		Cproducto[] listaProductos;
-		
+		/*
+		 * Añadido del pedido.
+		 * */
 		try {
 			sesion = request.getSession();
 			mPedido.getUltimoPedido();
@@ -70,7 +75,9 @@ public class RealizarCompra extends HttpServlet {
 					request.getParameter("fPais"));
 			
 			listaProductos = (Cproducto[]) sesion.getAttribute("ProductosCarrito");
-			
+			/*
+			 * Añadido de relación al pedido con tabla PedPro.
+			 * */
 			try {
 				for (int i = 0; i < listaProductos.length; i++) {
 					mPedPro.AnadirRelacion((mPedido.getIdpedido())+1,listaProductos[i].getIdreferencia());

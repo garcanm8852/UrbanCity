@@ -28,6 +28,9 @@ public class AdministrarProductos extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		/*
+		 * Inicialización de Variables.
+		 * */
 		MCliente mCliente = new MCliente();
 		CCategoria[] categorias = null;
 		Cproducto[] listaProductos;
@@ -38,7 +41,9 @@ public class AdministrarProductos extends HttpServlet {
 		MProducto mProducto = new MProducto();
 		int numeroCategorias = 1;
 		boolean seguridad = false;
-		
+		/*
+		 * Codificación UTF-8.
+		 * */
 		response.setCharacterEncoding("UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		sesion = request.getSession(true);

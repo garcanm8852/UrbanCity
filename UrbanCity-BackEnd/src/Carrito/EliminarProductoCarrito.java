@@ -29,6 +29,9 @@ public class EliminarProductoCarrito extends HttpServlet {
 		MCarrito mCarrito = new MCarrito();
 		Cookie[] Cookies;
 		sesion = request.getSession();
+		/*
+		 * Eliminación de productos del carrito en bd.
+		 * */
 		if ((boolean) sesion.getAttribute("Iniciado") != false) {
 			if (request.getParameter("idcarrito") != null) {
 				try {
@@ -42,6 +45,9 @@ public class EliminarProductoCarrito extends HttpServlet {
 			}
 
 		} else {
+			/*
+			 * Eliminación de productos en cookies.
+			 * */
 			Cookies = request.getCookies();
 			for (int i = 0; i < Cookies.length; i++) {
 				if (request.getParameter("idcookie").equals(Cookies[i].getName())) {

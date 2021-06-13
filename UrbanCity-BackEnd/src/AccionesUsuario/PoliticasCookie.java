@@ -23,9 +23,15 @@ public class PoliticasCookie extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		sesion = request.getSession();
+		/*
+		 * Control de usuario.
+		 * */
 		if (sesion.getAttribute("Iniciado") == null) {
 			sesion.setAttribute("Iniciado", false);
 		}
+		/*
+		 * Reenvio al JSP.
+		 * */
 		request.getRequestDispatcher("WEB-INF/politicasCookie.jsp").forward(request, response);
 	}
 

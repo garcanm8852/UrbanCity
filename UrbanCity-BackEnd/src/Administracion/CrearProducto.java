@@ -46,6 +46,9 @@ public class CrearProducto extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		/*
+		 * Inicialización de Variables.
+		 * */
 		MCliente mCliente = new MCliente();
 		CCategoria[] categorias = null;
 		CCategoria[] subcategorias = null;
@@ -57,7 +60,9 @@ public class CrearProducto extends HttpServlet {
 		int numeroCategorias = 1;
 		int numeroSubategorias = 1;
 		boolean seguridad = false;
-
+		/*
+		 * Codificación UTF-8.
+		 * */
 		response.setCharacterEncoding("UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		sesion = request.getSession(true);
@@ -132,6 +137,9 @@ public class CrearProducto extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		/*
+		 * Creación de Producto.
+		 * */
 		try {
 			MProducto mProducto = new MProducto();
 			mProducto.insertarProducto(request.getParameter("fidreferencia"), request.getParameter("fnombre"),

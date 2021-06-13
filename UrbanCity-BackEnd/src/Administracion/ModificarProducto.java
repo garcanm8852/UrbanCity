@@ -29,6 +29,9 @@ public class ModificarProducto extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		/*
+		 * Inicialización de variables.
+		 * */
 		MCliente mCliente = new MCliente();
 		MProducto mProducto = new MProducto();
 		String idreferencia;
@@ -45,7 +48,9 @@ public class ModificarProducto extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		sesion = request.getSession(true);
-
+		/*
+		 * Control de sesión
+		 * */
 		if (sesion.getAttribute("Iniciado") == null) {
 			sesion.setAttribute("Iniciado", false);
 			response.sendRedirect("IniciarSesion");
@@ -97,7 +102,9 @@ public class ModificarProducto extends HttpServlet {
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
-
+					/*
+					 * Recogida de datos del producto.
+					 * */
 					try {
 						mProducto.consultarProducto(request.getParameter("idreferencia"));
 						productoSolicitado = new Cproducto(mProducto.getIdreferencia(), mProducto.getNombre(),
@@ -125,7 +132,9 @@ public class ModificarProducto extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		/*
+		 * Modificación del producto en la BD.
+		 * */
 		try {
 			MProducto mProducto = new MProducto();
 			mProducto.modificarProducto(request.getParameter("fidreferencia"), 
